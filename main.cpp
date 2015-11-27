@@ -12,6 +12,12 @@ int main()
 	fstream someFile;
 	someFile.open("FILENAME");
 
+	while( someFile.good() ) {
+		getline (someFile, strengur, ';');
+		cout << strengur << "\t";
+    	}
+
+	someFile.close();
 
 	return 0;
 }
