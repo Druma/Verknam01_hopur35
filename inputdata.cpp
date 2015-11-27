@@ -1,13 +1,13 @@
 #include <string>
 #include <fstream>
 #include <vector>
-#include "node.h"
+#include "person.h"
 
 using namespace std;
 
 void NumOfSci(int& numOfSci, int& Size);
 
-Node setNode()
+Person setPerson()
 {
     string name, sex;
     int, brth, dth;
@@ -24,7 +24,7 @@ Node setNode()
     cout <<"Year of Death: ";
     cin >> dth;
 
-    return Node(name, sex, brth, dth);
+    return Person(name, sex, brth, dth);
 
 }
 
@@ -40,7 +40,7 @@ void NumOfSci(int& numOfSt, int& Size)
 int main()
 {
     int numOfSci = 0;
-    vector<Node> compScientist;
+    vector<Person> compScientist;
     ifstream putdata;
     ofstream getdata;
 

@@ -5,7 +5,7 @@ using namespace std;
 
 class Person {
 public:
-    Node(string nm, string sx, int brth, int dth);
+    Person(string nm, string sx, int brth, int dth);
 
 private:
     string name, sex;
