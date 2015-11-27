@@ -1,9 +1,10 @@
-include <iostream>
-include <fstream>
+#include <iostream>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
-const FILENAME = "DATA.txt";
+const string FILENAME = "DATA.txt";
 
 int main()
 {
