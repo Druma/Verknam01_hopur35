@@ -3,10 +3,12 @@ include <fstream>
 
 using namespace std;
 
+const FILENAME = "DATA.txt";
+
 int main()
 {
 	fstream someFile;
-	someFile.open("DATA.txt");
+	someFile.open("FILENAME");
 
 
 	return 0;
