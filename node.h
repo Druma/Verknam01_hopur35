@@ -5,7 +5,7 @@ using namespace std;
 
 class Node {
 public:
-    Node(string nm, string sx, int brth, int dth = 0);
+    Node(string nm, string sx, int brth, int dth);
 
 private:
     string name;
@@ -16,7 +16,7 @@ private:
 };
 
 // define functions
-Node::Node(string nm, string sx, int brth, int dth = 0)
+Node::Node(string nm, string sx, int brth, int dth)
 {
     name = nm;
 	sex = sx;
