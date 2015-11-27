@@ -7,10 +7,9 @@ using namespace std;
 const string FILENAME = "DATA.txt";
 
 int main()
-#hello
 {
 	fstream someFile;
-	someFile.open("FILENAME");
+	someFile.open(FILENAME.c_str());
 
 	while( someFile.good() ) {
 		getline (someFile, strengur, ';');
