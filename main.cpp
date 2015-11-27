@@ -7,6 +7,7 @@ using namespace std;
 const string FILENAME = "DATA.txt";
 
 int main()
+#hello
 {
 	fstream someFile;
 	someFile.open("FILENAME");
