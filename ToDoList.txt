@@ -1,7 +1,25 @@
 input (to the class/file)
--- error message
--- check valid
--- etc
+--> error message
+--> check valid
+--> etc
 output
-list (of nodes)
-startup(?)
+--> formating
+list/vector
+startup
+search
+
+--layers--
+User:
+startup
+output (formating)
+input (formating)
+
+business:
+input
+output
+classes
+
+data:
+files (reading)
+
+
