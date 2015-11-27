@@ -45,7 +45,7 @@ void startwork(char val) {
     case '4' :
         break;
     default :
-        cout << "Please input an valid option" << endl;
+        cout << "Please input a valid option" << endl;
         val = inputint();
         startwork(val);
     }
