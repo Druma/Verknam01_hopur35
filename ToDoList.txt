@@ -1,0 +1,7 @@
+input (to the class/file)
+-- error message
+-- check valid
+-- etc
+output
+list (of nodes)
+startup(?)
