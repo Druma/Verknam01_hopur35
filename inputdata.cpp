@@ -1,6 +1,8 @@
 #include <string>
+#include <iostream>
 #include <fstream>
 #include <vector>
+#include <cstdlib>
 #include "person.h"
 
 using namespace std;
@@ -10,7 +12,7 @@ void NumOfSci(int& numOfSci, int& Size);
 Person setPerson()
 {
     string name, sex;
-    int, brth, dth;
+    int brth, dth;
 
     cout <<"Name: ";
     cin >> name;
@@ -29,10 +31,10 @@ Person setPerson()
 }
 
 
-void NumOfSci(int& numOfSt, int& Size)
+void NumOfSci(int& numOfSt)
 {
     cout <<"Number of computer scientist: ";
-    cin >> numOfSci;
+    cin >> numOfSt;
     cout <<"\n--- Reading scientist ---" << endl;
 }
 
@@ -48,13 +50,13 @@ int main()
     if(putdata.fail())
     {
         cout << "fail to open file!" << endl;
-        exit();
+        exit(1);
     }
     getdata.open("data.txt", ios::app);
     if(getdata.fail())
     {
         cout << "fail to open file!" << endl;
-        exit();
+        exit(1);
     }
 
     NumOfSci(numOfSci);
@@ -62,7 +64,7 @@ int main()
     for(int i = 0; i<numOfSci; i++)
     {
 
-        compScientist.push_back(setNode());
+        compScientist.push_back(setPerson());
         //cout << endl;
 
     }
