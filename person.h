@@ -1,9 +1,9 @@
-# ifndef NODE_H
-# define NODE_H
+# ifndef PERSON_H
+# define PERSON_H
 #include <string>
 using namespace std;
 
-class Node {
+class Person {
 public:
     Node(string nm, string sx, int brth, int dth);
 
@@ -13,7 +13,7 @@ private:
 };
 
 // define functions
-Node::Node(string nm, string sx, int brth, int dth)
+Person::Person(string nm, string sx, int brth, int dth)
 {
     name = nm;
     sex = sx;
@@ -23,4 +23,4 @@ Node::Node(string nm, string sx, int brth, int dth)
 
 
 
-#endif // node.h
+#endif // person.h
