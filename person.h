@@ -6,6 +6,10 @@ using namespace std;
 class Person {
 public:
     Person(string nm, string sx, int brth, int dth);
+    string getnm();
+    string getsx();
+    int getbrth();
+    int getdth();
 
 private:
     string name, sex;
@@ -13,14 +17,6 @@ private:
 };
 
 // define functions
-Person::Person(string nm, string sx, int brth, int dth)
-{
-    name = nm;
-    sex = sx;
-    year_birth = brth;
-    year_death = dth;
-}
-
 
 
 #endif // person.h
