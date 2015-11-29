@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include "person.h"
 
+
 using namespace std;
 
 void startup();
@@ -12,7 +13,8 @@ void inputchoice(char& val);
 void startwork(char val, int numOfSci, vector<Person>& compScientist);
 void NumOfSci(int& numOfSci);
 void inputscie(int& numOfSci, vector<Person>& compScientist);
-void outputscie(int numOfSci, vector<Person> compScientist);
+void split(const string& next, char c, vector<string>& newdata);
+void outputscie(vector<Person>& newPerson);
 
 Person setPerson()
 {
@@ -45,7 +47,7 @@ int main()
     inputchoice(val);
     startwork(val, numOfSci, compScientist);
 
-        return 0;
+    return 0;
 }
 
 void startup() {
@@ -97,19 +99,40 @@ void inputscie(int& numOfSci, vector<Person>& compScientist)
 
 }
 
-void outputscie(int numOfSci, vector<Person> compScientist)
+void split(const string& next, char c, vector<string>& newdata) {
+   string::size_type i = 0;
+   string::size_type j = next.find(c);
+
+   while (j != string::npos) {
+      newdata.push_back(next.substr(i, j-i));
+      i = ++j;
+      j = next.find(c, j);
+
+      if (j == string::npos)
+         newdata.push_back(next.substr(i, next.length()));
+   }
+}
+
+void outputscie(vector<Person>& newPerson)
 {
-    ofstream getdata;
+    ifstream getdata;
     getdata.open("data.txt");
-    cout << "hello" << endl;
-    cout << numOfSci << endl;
-    //REYNA AD LESA UT UR DATA FILE!!!
+    vector<string> newdata;
     string next;
-    while(getdata << next){
-        cout << "Name: " ;
-        cout << "Sex: " /*<<*/ /*KYN*/;
-        cout << "Year of birth: " /*<<*/ /*BIRTH*/ ;
-        cout << "Year of death: " /*<<*/ /*DEATH*/ << endl;
+    while(getdata >> next){
+        split(next, ';', newdata);
+    }
+
+    for(unsigned int i = 0; i < newdata.size(); i = i + 4)
+    {
+        newPerson.push_back(Person(newdata[i], newdata[i+1], atoi(newdata[i+2].c_str()), atoi(newdata[i+3].c_str())));
+    }
+    for(unsigned int i = 0; i < newPerson.size(); i++)
+    {
+        cout << "Name: " << newPerson[i].getnm() << endl;
+        cout << "Sex: " << newPerson[i].getsx() << endl;
+        cout << "Year of birth: " << newPerson[i].getbrth() << endl;
+        cout << "Year of death: " << newPerson[i].getdth() << endl;
     }
     getdata.close();
 }
@@ -122,7 +145,7 @@ void startwork(char val, int numOfSci, vector<Person>& compScientist) {
                 inputscie(numOfSci, compScientist);
                 break;
             case '2' :
-                outputscie(numOfSci, compScientist);
+                outputscie(compScientist);
                 break;
 //          case '3' :
 //          fsearch();
