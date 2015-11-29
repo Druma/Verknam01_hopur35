@@ -9,7 +9,10 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     person.cpp \
-    ../sort.cpp
+    ../sort.cpp \
+    fileManage.cpp \
+    startup.cpp \
+    vecthelpers.cpp
 
 HEADERS += \
     person.h \

@@ -1,6 +1,8 @@
 #ifndef VARIABLES
 #define VARIABLES
-
+#include <vector>
+#include <iostream>
+#include "person.h"
 
 void _swap(Person& a, Person& b);
 int _find(vector<Person> vect, const string nm, unsigned int start);

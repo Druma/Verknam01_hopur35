@@ -1,5 +1,7 @@
 #include "person.h"
 #include "variables.h"
+#include <cstdlib>
+#include <fstream>
 
 // helper function
 void NumOfSci(int& numOfSt)

@@ -1,4 +1,4 @@
-#inlcude "variables.h"
+#include "variables.h"
 
 void printVect(vector<Person> vect)
 {

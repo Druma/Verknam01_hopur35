@@ -1,4 +1,5 @@
 #include "person.h"
+#include <iostream>
 
 Person::Person(string nm, string sx, int brth, int dth)
 {

@@ -15,8 +15,9 @@ private:
     string name, sex;
     int year_birth, year_death; // 0 = alive
 };
-
 // define functions
 
+Person setPerson();
+void printPer(Person per);
 
 #endif // person.h
