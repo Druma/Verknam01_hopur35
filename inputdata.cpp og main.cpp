@@ -1,4 +1,3 @@
-
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -21,7 +20,8 @@ Person setPerson()
     int brth, dth;
 
     cout <<"Name: ";
-    cin >> name;
+    cin.ignore();
+    getline(cin, name);
 
     cout <<"Sex: ";
     cin >> sex;
@@ -33,7 +33,6 @@ Person setPerson()
     cin >> dth;
 
     return Person(name, sex, brth, dth);
-
 }
 
 int main()
@@ -100,14 +99,19 @@ void inputscie(int& numOfSci, vector<Person>& compScientist)
 
 void outputscie(int numOfSci, vector<Person> compScientist)
 {
+    ofstream getdata;
+    getdata.open("data.txt");
+    cout << "hello" << endl;
+    cout << numOfSci << endl;
     //REYNA AD LESA UT UR DATA FILE!!!
-    for(int i = 0; i < numOfSci; i++)
-    {
-         cout << "Name: " << /*NAFN*/;
-         cout << "Sex: " << /*KYN*/;
-         cout << "Year of birth: " << /*BIRTH*/ ;
-         cout << "Year of death: " << /*DEATH*/ << endl;
+    string next;
+    while(getdata << next){
+        cout << "Name: " ;
+        cout << "Sex: " /*<<*/ /*KYN*/;
+        cout << "Year of birth: " /*<<*/ /*BIRTH*/ ;
+        cout << "Year of death: " /*<<*/ /*DEATH*/ << endl;
     }
+    getdata.close();
 }
 
 
