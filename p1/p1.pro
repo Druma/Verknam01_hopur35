@@ -9,7 +9,7 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     person.cpp \
-    ../Verknam01_hopur35/sort.cpp
+    ../sort.cpp
 
 HEADERS += \
     person.h \

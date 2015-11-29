@@ -26,3 +26,32 @@ Person::Person(string nm, string sx, int brth, int dth)
  {
      return year_death;
  }
+
+ Person setPerson()
+{
+    string name, sex;
+    int brth, dth;
+
+    cout <<"Name: ";
+    cin.ignore();
+    getline(cin, name);
+
+    cout <<"Sex: ";
+    cin >> sex;
+
+    cout <<"Year of Birth: ";
+    cin >> brth;
+
+    cout <<"Year of Death: ";
+    cin >> dth;
+
+    return Person(name, sex, brth, dth);
+}
+
+void printPer(Person per)
+{
+    cout << "Name: " << per.getnm() << endl;
+    cout << "Sex: " << per.getsx() << endl;
+    cout << "Year of birth: " << per.getbrth() << endl;
+    cout << "Year of death: " << per.getdth() << endl;
+}
