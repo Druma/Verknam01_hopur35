@@ -11,7 +11,7 @@ void _swap(Person& a, Person& b)
     Person temp = a;
     a = b;
     b = temp;
-};
+}
 int _find(vector<Person> vect, const string nm, int start)
 {
     do
@@ -31,7 +31,7 @@ void _sort_name(vector<Person>& vect, const vector<string> nm)
             _swap(vect[i], vect[_find(vect, nm[i], i)]);
     }
 
-};
+}
 
 // main function
 // sort after name; rev = reverse
@@ -56,7 +56,7 @@ void sort_name(vector<Person>& inputVect, bool rev = false)
     }
     _sort_name(inputVect, nameVect);
 
-};
+}
 
 
 
