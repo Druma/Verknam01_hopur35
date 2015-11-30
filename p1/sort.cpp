@@ -77,7 +77,7 @@ void sortselection(vector<Person>& vect)
     do{
         inputchoice(choice);
         if(choice == '1'){
-            outputscie(vect);
+            outputscie(vect, true);
                 break;
         }
         else if(choice == '2'){

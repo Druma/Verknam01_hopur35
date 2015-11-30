@@ -18,7 +18,7 @@ void inputscie(int& numOfSci, vector<Person>& compScientist);
 void printPer(Person per);
 void printVect(vector<Person> vect);
 void split(const string& next, char c, vector<string>& newdata);
-void outputscie(vector<Person>& newPerson);
+void outputscie(vector<Person>& newPerson, bool prnt = false);
 
 #endif // VARIABLES
 //

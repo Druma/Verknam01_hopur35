@@ -43,6 +43,7 @@ void inputscie(int& numOfSci, vector<Person>& compScientist)
 //splits data in file and push into a new vector
 void splitData(vector<Person>& newPerson)
 {
+	newPerson.clear();
     ifstream getdata;
     getdata.open("data.txt");
     vector<string> newdata;
@@ -60,8 +61,9 @@ void splitData(vector<Person>& newPerson)
 }
 
 // output scientist
-void outputscie(vector<Person>& newPerson)
+void outputscie(vector<Person>& newPerson, bool prnt)
 {
     splitData(newPerson);
-    printVect(newPerson);
+	if(prnt)
+		printVect(newPerson);
 }

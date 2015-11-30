@@ -7,6 +7,7 @@ int main()
 {
     int numOfSci = 0;
     vector<Person> compScientist;
+	outputscie(compScientist);
     char val;
     do{
         startup();
