@@ -2,6 +2,7 @@
 #define VARIABLES
 #include <vector>
 #include <iostream>
+#include <limits>
 #include "person.h"
 
 void _swap(Person& a, Person& b);
@@ -13,6 +14,8 @@ void splitData(vector<Person>& newPerson);
 void startup();
 void inputchoice(char& val);
 void startwork(char& val, int numOfSci, vector<Person>& compScientist);
+int changeToInt(char val);
+int inputInt(bool pos = true);
 void NumOfSci(int& numOfSci);
 void inputscie(int& numOfSci, vector<Person>& compScientist);
 void printPer(Person per);

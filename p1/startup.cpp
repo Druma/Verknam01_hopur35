@@ -13,6 +13,7 @@ void startup() {
 
 void inputchoice(char& val) {
     cin >> val;
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
 void startwork(char& val, int numOfSci, vector<Person>& compScientist)
