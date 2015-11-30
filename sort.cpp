@@ -69,11 +69,12 @@ void sortselection(vector<Person>& vect)
     char choice;
     char valid = 'N';
 
-    cout << "How would you like your output list to be sorted: " << endl;
-    cout << "------------------------------------------------" << endl;
-    cout << "[1] Oldest data to newest" << endl;
-    cout << "[2] In alphabetical order" << endl;
-    cout << "[3] In reverse alphabetical order" << endl;
+    cout << endl;
+    cout << "How would you like your output list to be sorted?" << endl;
+    cout << "-------------------------------------------------" << endl;
+    cout << "[1] - Oldest data to newest" << endl;
+    cout << "[2] - In alphabetical order" << endl;
+    cout << "[3] - In reverse alphabetical order" << endl;
     do{
         inputchoice(choice);
         if(choice == '1'){
