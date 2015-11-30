@@ -8,9 +8,9 @@ void NumOfSci(int& numOfSt)
 {
     cout <<"Number of computer scientist: ";
 
-	//cout << " " << numOfSt << " ";
+    //cout << " " << numOfSt << " ";
 	numOfSt = inputInt();
-	//cout << numOfSt << endl;
+    //cout << numOfSt << endl;
 	if(numOfSt != 0)
 		cout <<"\n--- Reading scientist ---" << endl;
 }
@@ -29,7 +29,7 @@ void inputscie(int& numOfSci, vector<Person>& compScientist)
         cout << endl;
     }
 
-    getdata.open(DATAFILE, ios::app);
+    getdata.open(DATAFILE.c_str(), ios::app);
     if(getdata.fail())
     {
         cout << "fail to open file!" << endl;
@@ -50,7 +50,7 @@ void splitData(vector<Person>& newPerson)
 {
 	newPerson.clear();
     ifstream getdata;
-    getdata.open(DATAFILE);
+    getdata.open(DATAFILE.c_str());
     vector<string> newdata;
     string next;
     while(getdata >> next)

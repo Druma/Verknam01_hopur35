@@ -1,5 +1,6 @@
 #include "person.h"
 #include <iostream>
+#include <limits>
 //
 
 Person::Person(string nm, string sx, int brth, int dth)
@@ -14,7 +15,7 @@ Person::Person(string nm, string sx, int brth, int dth)
      return name;
  }
 
- string Person::getsx();
+ string Person::getsx()
  {
      return sex;
  }
@@ -34,6 +35,7 @@ Person::Person(string nm, string sx, int brth, int dth)
  {
     bool err = false;
     string ans;
+    brth = 0;
 
     cout <<"Name: ";
     cin.ignore();
@@ -58,9 +60,13 @@ Person::Person(string nm, string sx, int brth, int dth)
             err = false;
         }
         else{
+            if(!(cin >> brth)){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            }
+            cout << "Error, please input a number between 100 and 9999" << endl;
             err = true;
-            cout << "Error, please enter integer between 100-9999" << endl;
-        }
+        }    
     }while(err);
 
     cout <<"Is the person still alive? y/n: "<< endl;
