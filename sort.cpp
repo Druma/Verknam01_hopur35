@@ -57,9 +57,48 @@ void sort_name(vector<Person>& inputVect, bool rev)
 
 }
 
+void sortselection(vector<Person>& vect)
+{
+    char choice;
+    char valid = 'N';
+
+    cout << "How would you like your output list to be sorted: " << endl;
+    cout << "------------------------------------------------" << endl;
+    cout << "[1] Oldest data to newest" << endl;
+    cout << "[2] In alphabetical order" << endl;
+    cout << "[3] In reverse alphabetical order" << endl;
+    do{
+        inputchoice(choice);
+        if(choice == '1')
+            break;
+        if(choice == '2')
+            break;
+        if(choice == '3')
+            break;
+        else
+        {
+            cout << "Input is not valid! Please choose again" << endl;
+            valid = 'Y';
+        }
+    }while(valid == 'Y');
+    switch(choice)
+    {
+        case '1' :
+            outputscie(vect);
+                break;
+        case '2' :
+            sort_name(vect);
+            printVect(vect);
+                break;
+        case '3' :
+            sort_name(vect, true);
+            printVect(vect);
+                break;
+    }
+}
 
 
 
 
 
-
+//

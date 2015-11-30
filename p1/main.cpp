@@ -3,8 +3,6 @@
 
 using namespace std;
 
-
-
 int main()
 {
     int numOfSci = 0;
@@ -19,5 +17,5 @@ int main()
     return 0;
 }
 
-
+//
 

@@ -2,7 +2,7 @@
 #include "variables.h"
 #include <cstdlib>
 #include <fstream>
-
+//
 // helper function
 void NumOfSci(int& numOfSt)
 {
@@ -11,7 +11,7 @@ void NumOfSci(int& numOfSt)
     cout <<"\n--- Reading scientist ---" << endl;
 }
 
-// input
+// input scientist
 void inputscie(int& numOfSci, vector<Person>& compScientist)
 {
     ofstream getdata;
@@ -40,14 +40,15 @@ void inputscie(int& numOfSci, vector<Person>& compScientist)
     getdata.close();
 
 }
-// output
-void outputscie(vector<Person>& newPerson)
+//splits data in file and push into a new vector
+void splitData(vector<Person>& newPerson)
 {
     ifstream getdata;
     getdata.open("data.txt");
     vector<string> newdata;
     string next;
-    while(getdata >> next){
+    while(getdata >> next)
+    {
         split(next, ';', newdata);
     }
 
@@ -55,6 +56,12 @@ void outputscie(vector<Person>& newPerson)
     {
         newPerson.push_back(Person(newdata[i], newdata[i+1], atoi(newdata[i+2].c_str()), atoi(newdata[i+3].c_str())));
     }
-    printVect(newPerson);
     getdata.close();
+}
+
+// output scientist
+void outputscie(vector<Person>& newPerson)
+{
+    splitData(newPerson);
+    printVect(newPerson);
 }

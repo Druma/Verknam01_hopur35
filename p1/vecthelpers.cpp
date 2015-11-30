@@ -1,5 +1,5 @@
 #include "variables.h"
-
+//
 void printVect(vector<Person> vect)
 {
     for(unsigned int i = 0; i < vect.size(); i++)

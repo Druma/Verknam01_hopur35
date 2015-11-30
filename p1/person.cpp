@@ -1,6 +1,6 @@
 #include "person.h"
 #include <iostream>
-
+//
 Person::Person(string nm, string sx, int brth, int dth)
 {
     name = nm;
@@ -37,7 +37,7 @@ Person::Person(string nm, string sx, int brth, int dth)
     cin.ignore();
     getline(cin, name);
 
-    cout <<"Sex: ";
+    cout <<"Gender: ";
     cin >> sex;
 
     cout <<"Year of Birth: ";
@@ -52,7 +52,8 @@ Person::Person(string nm, string sx, int brth, int dth)
 void printPer(Person per)
 {
     cout << "Name: " << per.getnm() << endl;
-    cout << "Sex: " << per.getsx() << endl;
+    cout << "Gender: " << per.getsx() << endl;
     cout << "Year of birth: " << per.getbrth() << endl;
     cout << "Year of death: " << per.getdth() << endl;
+    cout << endl;
 }
