@@ -1,6 +1,7 @@
 #include "variables.h"
 
 void startup() {
+    cout << "---------------------------------- " << endl;
     cout << "Please select one of the following: " << endl;
     cout << "---------------------------------- " << endl;
     cout << "[1] Input a person/s into the list" << endl;

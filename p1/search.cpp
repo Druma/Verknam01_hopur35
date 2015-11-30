@@ -1,3 +1,4 @@
+#include <sstream>
 #include "person.h"
 #include "variables.h"
 
@@ -10,7 +11,6 @@ string get_str() {
 
 int find_nm(vector<Person> vect, string nm, int startpos, vector<int>&matches) {
 
-
     for(unsigned int i = startpos; i < vect.size(); i++) {
         string name = vect[i].getnm();
         if (name.find(nm)!=string::npos) {
@@ -20,7 +20,7 @@ int find_nm(vector<Person> vect, string nm, int startpos, vector<int>&matches) {
     }
     return -2;
 }
-/*
+
 int find_year(vector<Person> vect, string yr, int startpos, vector<int>&matches) {
 
 <<<<<<< HEAD
@@ -28,34 +28,37 @@ void find_year() {
     cout << "This is a year!" << endl;
 =======
     for(unsigned int i = startpos; i < vect.size(); i++) {
-        int birth = vect[i].getbrth();
-        size_t found = birth.find(yr, startpos);
-        if (found!=string::npos) {
+        int i_birth = vect[i].getbrth();
+        int i_death = vect[i].getdth();
+        string birth, death;
+        stringstream ss;
+        ss << i_birth << ' ' << i_death;
+        ss >> birth >> death;
+
+        if (birth.find(yr)!=string::npos) {
             matches.push_back(i);
-            return found;
+            return i;
         }
-        int death = vect[i].getdth();
-        size_t found = death.find(yr, startpos);
-        if (found!=string::npos) {
+
+        if (death.find(yr)!=string::npos) {
             matches.push_back(i);
-            return found;
+            return i;
         }
     }
     return -2;
 >>>>>>> origin/master
 }
-*/
+
 void search(vector<Person> vect) {
     vector<int> matches;
     string searchstr = get_str();
 
     if(isdigit(searchstr[0])) {
-/*        int startpos = -1;
-        int i_yr = stoi(searchstr.c_str());
+        int startpos = -1;
         do {
-            startpos = find_year(vect, i_yr, startpos+1, matches);
+            startpos = find_year(vect, searchstr, startpos+1, matches);
         } while(startpos != -2);
-*/    }
+    }
     else {
         int startpos = -1;
         do {
