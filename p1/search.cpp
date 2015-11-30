@@ -1,7 +1,7 @@
 #include "person.h"
 #include "variables.h"
 
-string _get_searchstr() {
+string get_str() {
     string str;
     cin.ignore();
     cout << "Search: ";
@@ -29,7 +29,7 @@ void find_year() {
 }
 
 void search(vector<Person> vect) {
-    string searchstr = _get_searchstr();
+    string searchstr = get_str();
 
     vector<int> matches;
 

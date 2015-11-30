@@ -25,6 +25,10 @@ void printPer(Person per);
 void printVect(vector<Person> vect);
 void split(const string& next, char c, vector<string>& newdata);
 void outputscie(vector<Person>& newPerson, bool prnt = false);
+void find_year();
+void search(vector<Person> vect);
+int find_nm(vector<Person> vect, string nm, int startpos, vector<int>&matches);
+string get_str();
 
 #endif // VARIABLES
 //
