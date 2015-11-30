@@ -17,6 +17,7 @@ void inputscie(int& numOfSci, vector<Person>& compScientist)
     ofstream getdata;
 
     NumOfSci(numOfSci);
+	unsigned int temp = compScientist.size();
 
     for(int i = 0; i < numOfSci; i++)
     {
@@ -32,10 +33,10 @@ void inputscie(int& numOfSci, vector<Person>& compScientist)
     }
     for(int i = 0; i < numOfSci; i++)
     {
-         getdata << compScientist[i].getnm() << ";";
-         getdata << compScientist[i].getsx() << ";";
-         getdata << compScientist[i].getbrth() << ";";
-         getdata << compScientist[i].getdth() << endl;
+         getdata << compScientist[temp+i].getnm() << ";";
+         getdata << compScientist[temp+i].getsx() << ";";
+         getdata << compScientist[temp+i].getbrth() << ";";
+         getdata << compScientist[temp+i].getdth() << endl;
     }
     getdata.close();
 
