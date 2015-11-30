@@ -1,5 +1,5 @@
 #include "variables.h"
-//k
+
 void startup() {
     cout << "Please select one of the following: " << endl;
     cout << "---------------------------------- " << endl;
@@ -27,6 +27,7 @@ void startwork(char& val, int numOfSci, vector<Person>& compScientist)
             sortselection(compScientist);
                 break;
         case '3' :
+            search(compScientist);
                 break;
         case '4' :
                 break;
@@ -34,7 +35,6 @@ void startwork(char& val, int numOfSci, vector<Person>& compScientist)
                 break;
         default :
             cout << "Input is not valid!" << endl;
-
     }
 
 }

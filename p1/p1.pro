@@ -13,7 +13,8 @@ SOURCES += main.cpp \
     fileManage.cpp \
     startup.cpp \
     vecthelpers.cpp \
-    errorhandling.cpp 
+    errorhandling.cpp \ 
+    search.cpp
 
 HEADERS += \
     person.h \

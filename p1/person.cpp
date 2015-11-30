@@ -1,8 +1,9 @@
 #include "person.h"
 #include <iostream>
 #include <limits>
-//
 
+const int maxYear = 9999;
+const int minimumYear = 100;
 Person::Person(string nm, string sx, int brth, int dth)
 {
     name = nm;
@@ -44,7 +45,7 @@ Person::Person(string nm, string sx, int brth, int dth)
     do{
         cout <<"Gender - female/male: ";
         cin >> sex;
-        if(sex == "female" || sex == "male" || sex == "f" || sex == "m"){
+        if(sex == "female" || sex == "male" || sex == "f" || sex == "m" || sex == "F" || sex == "M"){
             err = false;
         }
         else{
@@ -56,7 +57,7 @@ Person::Person(string nm, string sx, int brth, int dth)
     do{
         cout <<"Year of Birth: ";
         cin >> brth;
-        if(brth <= 9999 && brth >= 100){
+        if(brth <= maxYear && brth >= minimumYear){
             err = false;
         }
         else{
