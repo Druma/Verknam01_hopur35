@@ -29,32 +29,57 @@ Person::Person(string nm, string sx, int brth, int dth)
      return year_death;
  }
 
- Person setPerson()
-{
-     char ans;
-
-    string name, sex;
-    int brth, dth;
+ //Checks if users input data is legal or not
+ void legalPerson(string& name, string& sex, int& brth, int& dth)
+ {
+    bool err = false;
+    string ans;
 
     cout <<"Name: ";
     cin.ignore();
     getline(cin, name);
 
-    cout <<"Gender - female/male: ";
-    cin >> sex;
+    do{
+        cout <<"Gender - female/male: ";
+        cin >> sex;
+        if(sex == "female" || sex == "male" || sex == "f" || sex == "m"){
+            err = false;
+        }
+        else{
+            err = true;
+            cout << "Error, please try again" << endl;
+        }
+    }while(err);
 
-    cout <<"Year of Birth: ";
-    cin >> brth;
+    do{
+        cout <<"Year of Birth: ";
+        cin >> brth;
+        if(brth <= 9999 && brth >= 100){
+            err = false;
+        }
+        else{
+            err = true;
+            cout << "Error, please enter integer between 100-9999" << endl;
+        }
+    }while(err);
 
     cout <<"Is the person still alive? y/n: "<< endl;
     cin >> ans;
-    if(ans == 'n' || ans == 'N')
+    if(ans == "n" || ans == "N" || ans == "no" || ans == "NO" || ans == "No")
     {
         cout << "Year of Death: ";
         cin >> dth;
     }
     else
         dth = '\0';
+ }
+
+ Person setPerson()
+{
+    string name, sex;
+    int brth, dth;
+
+    legalPerson(name, sex, brth, dth);
 
     return Person(name, sex, brth, dth);
 }

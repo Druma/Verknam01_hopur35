@@ -16,6 +16,7 @@ private:
     int year_birth, year_death; // 0 = alive
 };
 // define functions
+void legalPerson(string& name, string& sex, int& brth, int& dth);
 Person setPerson();
 void printPer(Person per);
 
