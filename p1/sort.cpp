@@ -56,6 +56,12 @@ void sort_name(vector<Person>& inputVect, bool rev)
     _sort_name(inputVect, nameVect);
 
 }
+//sort year of death
+//void sort_YOD()
+//{
+
+//}
+
 
 void sortselection(vector<Person>& vect)
 {
@@ -69,36 +75,25 @@ void sortselection(vector<Person>& vect)
     cout << "[3] In reverse alphabetical order" << endl;
     do{
         inputchoice(choice);
-        if(choice == '1')
-            break;
-        if(choice == '2')
-            break;
-        if(choice == '3')
-            break;
+        if(choice == '1'){
+            outputscie(vect);
+                break;
+        }
+        else if(choice == '2'){
+            sort_name(vect);
+            printVect(vect);
+                break;
+        }
+        else if(choice == '3'){
+            sort_name(vect, true);
+            printVect(vect);
+                break;
+        }
         else
         {
             cout << "Input is not valid! Please choose again" << endl;
             valid = 'Y';
         }
     }while(valid == 'Y');
-    switch(choice)
-    {
-        case '1' :
-            outputscie(vect);
-                break;
-        case '2' :
-            sort_name(vect);
-            printVect(vect);
-                break;
-        case '3' :
-            sort_name(vect, true);
-            printVect(vect);
-                break;
-    }
 }
 
-
-
-
-
-//
