@@ -11,7 +11,6 @@ int changeToInt(char val)
 
 int inputInt(bool pos)
 {
-	//
 	char temp_char = '\0';
 	inputchoice(temp_char);
 	int temp_int = changeToInt(temp_char);
