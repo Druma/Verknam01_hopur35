@@ -24,6 +24,7 @@ void startwork(char& val, int numOfSci, vector<Person>& compScientist)
                 break;
         case '2' :
             sortselection(compScientist);
+                break;
         case '3' :
                 break;
         case '4' :
@@ -34,5 +35,5 @@ void startwork(char& val, int numOfSci, vector<Person>& compScientist)
             cout << "Input is not valid!" << endl;
 
     }
-    val = '\0';
+
 }

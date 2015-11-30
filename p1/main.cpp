@@ -13,7 +13,7 @@ int main()
         startup();
         inputchoice(val);
         startwork(val, numOfSci, compScientist);
-    }while(val != '4');
+    }while(val != '5');
 
     return 0;
 }
