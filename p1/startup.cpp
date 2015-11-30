@@ -1,13 +1,13 @@
 #include "variables.h"
 
 void startup() {
-    cout << "---------------------------------- " << endl;
-    cout << "Please select one of the following: " << endl;
-    cout << "---------------------------------- " << endl;
-    cout << "[1] Input a person/s into the list" << endl;
-    cout << "[2] Output the whole list" << endl;
-    cout << "[3] Search for a person in the list" << endl;
-    cout << "[4] Exit the program" << endl;
+    cout << "==================================" << endl;
+    cout << "Please select one of the following:" << endl;
+    cout << "----------------------------------" << endl;
+    cout << "[1] - Input a person/s into the list" << endl;
+    cout << "[2] - Output the whole list" << endl;
+    cout << "[3] - Search for a person in the list" << endl;
+    cout << "[4] - Exit the program" << endl;
     cout << "Input: ";
 }
 
