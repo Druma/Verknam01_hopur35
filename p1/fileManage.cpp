@@ -29,7 +29,7 @@ void inputscie(int& numOfSci, vector<Person>& compScientist)
         cout << endl;
     }
 
-    getdata.open("data4.txt", ios::app);
+    getdata.open(DATAFILE, ios::app);
     if(getdata.fail())
     {
         cout << "fail to open file!" << endl;
@@ -50,7 +50,7 @@ void splitData(vector<Person>& newPerson)
 {
 	newPerson.clear();
     ifstream getdata;
-    getdata.open("data4.txt");
+    getdata.open(DATAFILE);
     vector<string> newdata;
     string next;
     while(getdata >> next)

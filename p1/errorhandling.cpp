@@ -15,7 +15,7 @@ int inputInt(bool pos)
 	char temp_char = '\0';
 	inputchoice(temp_char);
 	int temp_int = changeToInt(temp_char);
-	cout << temp_int << endl;
+	//cout << temp_int << endl;
 	if(pos && temp_int < 0)
 		return 0;
 	else

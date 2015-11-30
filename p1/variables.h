@@ -5,6 +5,9 @@
 #include <limits>
 #include "person.h"
 
+const char EXIT = '5';
+const string DATAFILE = "data.txt";
+
 void _swap(Person& a, Person& b);
 int _find(vector<Person> vect, const string nm, unsigned int start);
 void _sort_name(vector<Person>& vect, const vector<string> nm);

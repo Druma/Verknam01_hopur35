@@ -3,8 +3,6 @@
 
 using namespace std;
 
-const char EXIT = '5';
-
 int main()
 {
     int numOfSci = 0;
