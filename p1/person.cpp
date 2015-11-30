@@ -14,7 +14,7 @@ Person::Person(string nm, string sx, int brth, int dth)
      return name;
  }
 
- string Person::getsx();
+ string Person::getsx()
  {
      return sex;
  }
