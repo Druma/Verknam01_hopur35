@@ -23,10 +23,6 @@ int find_nm(vector<Person> vect, string nm, int startpos, vector<int>&matches) {
 
 int find_year(vector<Person> vect, string yr, int startpos, vector<int>&matches) {
 
-<<<<<<< HEAD
-void find_year() {
-    cout << "This is a year!" << endl;
-=======
     for(unsigned int i = startpos; i < vect.size(); i++) {
         int i_birth = vect[i].getbrth();
         int i_death = vect[i].getdth();
@@ -46,7 +42,6 @@ void find_year() {
         }
     }
     return -2;
->>>>>>> origin/master
 }
 
 void search(vector<Person> vect) {
