@@ -21,4 +21,3 @@ Person setPerson();
 void printPer(Person per);
 
 #endif // person.h
-//

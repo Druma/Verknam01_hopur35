@@ -5,7 +5,7 @@
 #include <limits>
 #include "person.h"
 
-const char EXIT = '5';
+const char EXIT = '4';
 const string DATAFILE = "data.txt";
 
 void _swap(Person& a, Person& b);
@@ -31,4 +31,4 @@ int find_nm(vector<Person> vect, string nm, int startpos, vector<int>&matches);
 string get_str();
 
 #endif // VARIABLES
-//
+

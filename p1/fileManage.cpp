@@ -2,7 +2,7 @@
 #include "variables.h"
 #include <cstdlib>
 #include <fstream>
-//
+
 // helper function
 void NumOfSci(int& numOfSt)
 {
@@ -45,6 +45,7 @@ void inputscie(int& numOfSci, vector<Person>& compScientist)
     getdata.close();
 
 }
+
 //splits data in file and push into a new vector
 void splitData(vector<Person>& newPerson)
 {

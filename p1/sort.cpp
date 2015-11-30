@@ -11,10 +11,10 @@ void _swap(Person& a, Person& b)
     a = b;
     b = temp;
 }
+
 int _find(vector<Person> vect, const string nm, unsigned int start)
 {
-    do
-    {
+    do{
         if(vect[start].getnm() == nm)
             return start;
         start++;
@@ -72,17 +72,17 @@ void sortselection(vector<Person>& vect)
         inputchoice(choice);
         if(choice == '1'){
             outputscie(vect, true);
-                break;
+            break;
         }
         else if(choice == '2'){
             sort_name(vect);
             printVect(vect);
-                break;
+            break;
         }
         else if(choice == '3'){
             sort_name(vect, true);
             printVect(vect);
-                break;
+            break;
         }
         else
         {

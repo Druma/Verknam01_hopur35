@@ -62,8 +62,8 @@ Person::Person(string nm, string sx, int brth, int dth)
         }
         else{
             if(!(cin >> brth)){
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
             }
             cout << "Error, please input a number between 100 and 9999" << endl;
             err = true;

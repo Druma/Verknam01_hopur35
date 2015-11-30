@@ -6,7 +6,6 @@ int changeToInt(char val)
 		return val - '0';
 	else
 		return 0;
-		
 }
 
 int inputInt(bool pos)
