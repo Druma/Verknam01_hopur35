@@ -44,6 +44,19 @@ int find_year(vector<Person> vect, string yr, int startpos, vector<int>&matches)
     return -2;
 }
 
+void outputMatches(vector<Person> vect, vector<int> matches) {
+    if(matches.size() != 0) {
+        cout << "------------ Matches -------------" << endl;
+
+        for(unsigned int i = 0; i < matches.size(); i++) {
+            printPer (vect[(matches[i])]);
+        }
+    }
+    else {
+        cout << "No matches! " << endl;
+    }
+}
+
 void search(vector<Person> vect) {
     vector<int> matches;
     string searchstr = get_str();
@@ -60,10 +73,5 @@ void search(vector<Person> vect) {
             startpos = find_nm(vect, searchstr, startpos+1, matches);
         } while(startpos != -2);
     }
-
-    cout << "------------ Matches -------------" << endl;
-
-    for(unsigned int i = 0; i < matches.size(); i++) {
-        printPer (vect[(matches[i])]);
-    }
+    outputMatches(vect, matches);
 }
