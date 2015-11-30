@@ -53,9 +53,17 @@ void splitData(vector<Person>& newPerson)
     getdata.open(DATAFILE.c_str());
     vector<string> newdata;
     string next;
+	string temp_name = "";
     while(getdata >> next)
     {
-        split(next, ';', newdata);
+		if(next.find(';') != string::npos)
+		{
+			temp_name+=next;
+			split(temp_name, ';', newdata);
+			temp_name = "";
+		}
+		else
+			temp_name+=next+" ";
     }
 
     for(unsigned int i = 0; i < newdata.size(); i = i + 4)
