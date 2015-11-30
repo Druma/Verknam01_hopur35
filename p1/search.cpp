@@ -4,7 +4,7 @@
 
 string get_str() {
     string str;
-    cout << "Search: ";
+    cout << "Enter a year or name/character to search: ";
     getline(cin, str);
     return str;
 }
@@ -62,6 +62,7 @@ void search(vector<Person> vect) {
     }
 
     cout << "------------ Matches -------------" << endl;
+
     for(unsigned int i = 0; i < matches.size(); i++) {
         printPer (vect[(matches[i])]);
     }
