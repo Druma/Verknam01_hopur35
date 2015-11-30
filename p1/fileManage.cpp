@@ -11,7 +11,7 @@ void NumOfSci(int& numOfSt)
 	//cout << " " << numOfSt << " ";
 	numOfSt = inputInt();
 	//cout << numOfSt << endl;
-	if(numOfSt = 0)
+	if(numOfSt != 0)
 		cout <<"\n--- Reading scientist ---" << endl;
 }
 

@@ -13,9 +13,12 @@ SOURCES += main.cpp \
     fileManage.cpp \
     startup.cpp \
     vecthelpers.cpp \
-    errorhandling.cpp
+    errorhandling.cpp 
 
 HEADERS += \
     person.h \
     variables.h
+
+DISTFILES += \
+    data.txt
 
