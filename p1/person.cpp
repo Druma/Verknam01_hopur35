@@ -39,7 +39,7 @@ Person::Person(string nm, string sx, int brth, int dth)
     brth = 0;
 
     cout <<"Name: ";
-    cin.ignore();
+    cin.sync();
     getline(cin, name);
 
     do{
