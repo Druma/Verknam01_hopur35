@@ -30,4 +30,5 @@ void startwork(char val, int numOfSci, vector<Person>& compScientist)
             cout << "Input is not valid!" << endl;
 
     }
+    val = '\0';
 }
