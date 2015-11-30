@@ -27,6 +27,7 @@ void startwork(char& val, int numOfSci, vector<Person>& compScientist)
             sortselection(compScientist);
                 break;
         case '3' :
+            search(compScientist);
                 break;
         case '4' :
                 break;

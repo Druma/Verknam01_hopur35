@@ -1,0 +1,3 @@
+ABC;male;1995;0
+BCD;male;1995;0
+CDE;male;1996;0
