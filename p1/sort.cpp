@@ -36,6 +36,7 @@ void _sort_name(vector<Person>& vect, const vector<string> nm)
 // sort after name; rev = reverse
 void sort_name(vector<Person>& inputVect, bool rev)
 {
+    splitData(inputVect);
     // variables
     vector<string> nameVect;
 
