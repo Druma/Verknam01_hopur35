@@ -15,7 +15,7 @@ void inputchoice(char& val) {
 
 void startwork(char val, int numOfSci, vector<Person>& compScientist)
 {
-    switch(val)
+    switch(val[0])
     {
         case '1' :
             inputscie(numOfSci, compScientist);
