@@ -11,7 +11,7 @@ void sort_name(vector<Person>& inputVect, bool rev = false);
 void sortselection(vector<Person>& vect);
 void startup();
 void inputchoice(char& val);
-void startwork(char val, int numOfSci, vector<Person>& compScientist);
+void startwork(char& val, int numOfSci, vector<Person>& compScientist);
 void NumOfSci(int& numOfSci);
 void inputscie(int& numOfSci, vector<Person>& compScientist);
 void printPer(Person per);

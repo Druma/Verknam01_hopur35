@@ -13,7 +13,7 @@ void inputchoice(char& val) {
     cin >> val;
 }
 
-void startwork(char val, int numOfSci, vector<Person>& compScientist)
+void startwork(char& val, int numOfSci, vector<Person>& compScientist)
 {
     switch(val)
     {
