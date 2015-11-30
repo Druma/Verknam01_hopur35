@@ -69,7 +69,7 @@ Person::Person(string nm, string sx, int brth, int dth)
         }    
     }while(err);
 
-    cout <<"Is the person still alive? y/n: "<< endl;
+    cout <<"Is the person still alive? y/n: ";
     cin >> ans;
     if(ans == "n" || ans == "N" || ans == "no" || ans == "NO" || ans == "No")
     {
