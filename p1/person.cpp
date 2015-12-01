@@ -1,9 +1,6 @@
-#include "person.h"
-#include <iostream>
+#include "variables.h"
 #include <limits>
 
-const int maxYear = 9999;
-const int minimumYear = 100;
 Person::Person(string nm, string sx, int brth, int dth)
 {
     name = nm;
@@ -45,27 +42,25 @@ Person::Person(string nm, string sx, int brth, int dth)
     do{
         cout <<"Gender - female/male: ";
         cin >> sex;
-        if(sex == "female" || sex == "male" || sex == "f" || sex == "m" || sex == "F" || sex == "M"){
+        if(sex == "female" || sex == "male" || sex == "f" || sex == "m" || sex == "F" || sex == "M"
+			|| sex == "Female" || sex == "Male"){
             err = false;
         }
         else{
             err = true;
-            cout << "Error, please try again" << endl;
+            cout << "please enter: [female/male/f/m]" << endl;
         }
     }while(err);
 
     do{
         cout <<"Year of Birth: ";
-        cin >> brth;
-        if(brth <= maxYear && brth >= minimumYear){
+        brth = inputIntC();
+        if(brth>0){
             err = false;
         }
         else{
-            if(!(cin >> brth)){
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            }
-            cout << "Error, please input a number between 100 and 9999" << endl;
+            
+            cout << "Please enter a valid date." << endl;
             err = true;
         }    
     }while(err);
@@ -74,8 +69,18 @@ Person::Person(string nm, string sx, int brth, int dth)
     cin >> ans;
     if(ans == "n" || ans == "N" || ans == "no" || ans == "NO" || ans == "No")
     {
-        cout << "Year of Death: ";
-        cin >> dth;
+        do{
+			cout <<"Year of Death: ";
+			dth = inputIntC();
+			if(dth >= brth){
+				err = false;
+			}
+			else{
+				
+				cout << "Please enter a valid date." << endl;
+				err = true;
+			}    
+		}while(err);
     }
     else
         dth = '\0';

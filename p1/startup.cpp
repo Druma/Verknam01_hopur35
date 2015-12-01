@@ -15,6 +15,11 @@ void inputchoice(char& val) {
     cin >> val;
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
+char* inputchoice() {
+	char* val = new char[0];
+    cin >> val;
+	return val;
+}
 
 void startwork(char& val, int numOfSci, vector<Person>& compScientist)
 {

@@ -1,10 +1,10 @@
-Alan Turing; Male; 1912; 1954
-Steve Wozniak; Male; 1950; 0
-Ada Lovelace; Female; 1815; 1852
-Charles Babbage; Male; 1791; 1871
-Dionysius Lardner; Male; 1793; 1859
-Joseph Clement; Male; 1779; 1844
-Robert Peel; Male; 1788; 1850
-Steve Jobs; Male; 1955; 2011
-Bill Gates; Male; 1955; 0
-Tim Berners-Lee; 1955; 0
+Alan Turing;Male;1912;1954
+Steve Wozniak;Male;1950;0
+Ada Lovelace;Female;1815;1852
+Charles Babbage;Male;1791;1871
+Dionysius Lardner;Male;1793;1859
+Joseph Clement;Male;1779;1844
+Robert Peel;Male;1788;1850
+Steve Jobs;Male;1955;2011
+Bill Gates;Male;1955;0
+Tim Berners-Lee;1955;0
