@@ -9,7 +9,7 @@ void NumOfSci(int& numOfSt)
     cout <<"Number of computer scientist: ";
 
     //cout << " " << numOfSt << " ";
-	numOfSt = inputInt();
+	numOfSt = inputIntC();
     //cout << numOfSt << endl;
 	if(numOfSt != 0)
 		cout <<"\n--- Reading scientist ---" << endl;

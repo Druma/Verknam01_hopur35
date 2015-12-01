@@ -7,4 +7,4 @@ Joseph Clement;Male;1779;1844
 Robert Peel;Male;1788;1850
 Steve Jobs;Male;1955;2011
 Bill Gates;Male;1955;0
-Tim Berners-Lee;1955;0
+Tim Berners-Lee;Male;1955;0
