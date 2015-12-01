@@ -4,6 +4,7 @@
 #include <iostream>
 #include <limits>
 #include "person.h"
+#include <cstdlib>
 
 const char EXIT = '4';
 const string DATAFILE = "data.txt";
