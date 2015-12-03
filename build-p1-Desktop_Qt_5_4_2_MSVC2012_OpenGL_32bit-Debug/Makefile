@@ -190,6 +190,7 @@ Makefile: ..\p1\p1.pro C:\Qt\5.4\msvc2012_opengl\mkspecs\win32-msvc2012\qmake.co
 		C:\Qt\5.4\msvc2012_opengl\mkspecs\features\yacc.prf \
 		C:\Qt\5.4\msvc2012_opengl\mkspecs\features\lex.prf \
 		..\p1\p1.pro \
+		C:/Qt/5.4/msvc2012_opengl/lib/Qt5Sql.prl \
 		C:/Qt/5.4/msvc2012_opengl/lib/Qt5Core.prl
 	$(QMAKE) -spec win32-msvc2012 CONFIG+=debug -o Makefile ..\p1\p1.pro
 C:\Qt\5.4\msvc2012_opengl\mkspecs\features\spec_pre.prf:
@@ -309,6 +310,7 @@ C:\Qt\5.4\msvc2012_opengl\mkspecs\features\exceptions.prf:
 C:\Qt\5.4\msvc2012_opengl\mkspecs\features\yacc.prf:
 C:\Qt\5.4\msvc2012_opengl\mkspecs\features\lex.prf:
 ..\p1\p1.pro:
+C:/Qt/5.4/msvc2012_opengl/lib/Qt5Sql.prl:
 C:/Qt/5.4/msvc2012_opengl/lib/Qt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -spec win32-msvc2012 CONFIG+=debug -o Makefile ..\p1\p1.pro
