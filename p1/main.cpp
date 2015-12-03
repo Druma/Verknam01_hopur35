@@ -5,10 +5,9 @@ using namespace std;
 
 int main()
 {
-	
 
 	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-	QString dbName = "C:\\Users\\Birgitta\\Documents\\GitHub\\Verknam01_hopur35\\p1\\SQLiteDB\\Verknam01_hopur35.sqlite";
+    QString dbName = "C:\\Users\\LINDA HA\\Desktop\\codes\\Verknam01_hopur35\\p1\\SQLiteDB\\Verknam01_hopur35.sqlite";
 	//QString dbName = "/SQLiteDB/Verknam01_hopur35.sqlite";
 	db.setDatabaseName(dbName);
 

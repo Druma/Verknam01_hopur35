@@ -20,4 +20,21 @@ void legalPerson(string& name, string& sex, int& brth, int& dth);
 Person setPerson();
 void printPer(Person per);
 
+class Computer {
+public:
+    Computer(string nm, int yc, string tp, bool wc);
+    string getnm();
+    int getyc();
+    string gettp();
+    bool getwc();
+
+private:
+    string name, comptype;
+    int year_creation;
+    bool was_created;
+};
+void legalComputer(string& name, int& yearCre, string& tp, bool& wc);
+Person setComputer();
+void printComputer(Computer comp);
+
 #endif // person.h

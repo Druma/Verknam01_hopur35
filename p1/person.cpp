@@ -107,3 +107,114 @@ void printPer(Person per)
     }
     cout << endl;
 }
+
+//Computer information
+Computer::Computer(string nm, int yc, string tp, bool wc){
+
+    name = nm;
+    year_creation = yc;
+    comptype = tp;
+    was_created = wc;
+}
+ string Computer::getnm()
+ {
+     return name;
+ }
+
+ string Computer::getyc()
+ {
+     return year_creation;
+ }
+
+ int Computer::gettp()
+ {
+     return comptype;
+ }
+
+ int Computer::getwc()
+ {
+     return was_created;
+ }
+
+ //Checks if users input data is legal or not
+ void legalComputer(string& name, int& yearCre, string& tp, bool& wc)
+ {
+    bool err = false;
+    string ans;
+    brth = 0;
+
+    cout <<"Name: ";
+    cin.sync();
+    getline(cin, name);
+
+    do{
+        cout <<"Gender - female/male: ";
+        cin >> sex;
+        if(sex == "female" || sex == "male" || sex == "f" || sex == "m" || sex == "F" || sex == "M"
+            || sex == "Female" || sex == "Male"){
+            err = false;
+        }
+        else{
+            err = true;
+            cout << "please enter: [female/male/f/m]" << endl;
+        }
+    }while(err);
+
+    do{
+        cout <<"Year of Birth: ";
+        brth = inputIntC();
+        if(brth>0){
+            err = false;
+        }
+        else{
+
+            cout << "Please enter a valid date." << endl;
+            err = true;
+        }
+    }while(err);
+
+    cout <<"Is the person still alive? y/n: ";
+    cin >> ans;
+    if(ans == "n" || ans == "N" || ans == "no" || ans == "NO" || ans == "No")
+    {
+        do{
+            cout <<"Year of Death: ";
+            dth = inputIntC();
+            if(dth >= brth){
+                err = false;
+            }
+            else{
+
+                cout << "Please enter a valid date." << endl;
+                err = true;
+            }
+        }while(err);
+    }
+    else
+        dth = '\0';
+ }
+
+ Computer setComputer()
+{
+    string name, comptype;
+    int yearCreate;
+    bool built;
+
+    legalComputer(name, yearCreate, comptype, built);
+
+    return Computer(name, yearCreate, comptype, built);
+}
+//READY
+void printComputer(Computer comp)
+{
+    cout << "Name: " << comp.getnm() << endl;
+    cout << "Year of creation: " << comp.getyc() << endl;
+    cout << "Type of computer: " << comp.gettp() << endl;
+    if(comp.getwc())
+    {
+        cout << "Was built: YES" << endl;
+    }
+    else
+        cout << "Was built: NO" << endl;
+    cout << endl;
+}

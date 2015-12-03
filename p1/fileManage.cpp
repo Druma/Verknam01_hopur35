@@ -1,48 +1,76 @@
 #include "person.h"
 #include "variables.h"
 #include <cstdlib>
-#include <fstream>
 
 // helper function
 void NumOfSci(int& numOfSt)
 {
     cout <<"Number of computer scientist: ";
 
-    //cout << " " << numOfSt << " ";
 	numOfSt = inputIntC();
-    //cout << numOfSt << endl;
+
 	if(numOfSt != 0)
 		cout <<"\n--- Reading scientist ---" << endl;
 }
 
-// input scientist
-void inputscie(int& numOfSci, vector<Person>& compScientist)
+void NumOfComp(int& numOfSt)
 {
-    ofstream getdata;
+    cout <<"Number of computers: ";
+
+    numOfSt = inputIntC();
+
+    if(numOfSt != 0)
+        cout <<"\n--- Reading computers ---" << endl;
+}
+
+// update person READY
+void inputscie(int& numOfSci)
+{
+    Qstring full_info = "";
+    Qstring inputPers = "INSERT INTO Person (name, sex, year_birth, year_death) VALUES ";
+    QSqlQuery query(db);
 
     NumOfSci(numOfSci);
-	unsigned int temp = compScientist.size();
+    for(int i = 0; i < numOfSci; i++){
+        Person Sci = setPerson();
+        full_info += "(" + Sci.getnm() + ", " + Sci.getsx() + ", " + Sci.getbrth() + ", " + Sci.getdth() + ")";
+        if(i == numOfSci){
+            full_info += ";";
+        }
+        else
+            full_info += ",";
+    }
+    bool prepared = query.prepare(inputPers + full_info);
+    if(prepared){
+        query.exec();
+    }
+    else
+        cout << query.lastError().text().toStdString() << endl; //report error
 
-    for(int i = 0; i < numOfSci; i++)
-    {
-        compScientist.push_back(setPerson());
-        cout << endl;
-    }
+}
+//update computer
+void inputComp(int& numOfCom)
+{
+    Qstring full_info = "";
+    Qstring inputComp = "INSERT INTO Person (name, year_creation, type, was_built) VALUES ";
+    QSqlQuery query(db);
 
-    getdata.open(DATAFILE.c_str(), ios::app);
-    if(getdata.fail())
-    {
-        cout << "fail to open file!" << endl;
-        exit(1);
+    NumOfComp(numOfCom);
+    for(int i = 0; i < numOfCom; i++){
+        //Person Sci = setPerson();
+        full_info += "(" + Com.getnm() + ", " + Com.getyc() + ", " + Com.gettp() + ", " + Com.getwb() + ")";
+        if(i == numOfCom){
+            full_info += ";";
+        }
+        else
+            full_info += ",";
     }
-    for(int i = 0; i < numOfSci; i++)
-    {
-         getdata << compScientist[temp+i].getnm() << ";";
-         getdata << compScientist[temp+i].getsx() << ";";
-         getdata << compScientist[temp+i].getbrth() << ";";
-         getdata << compScientist[temp+i].getdth() << endl;
+    bool prepared = query.prepare(inputComp + full_info);
+    if(prepared){
+        query.exec();
     }
-    getdata.close();
+    else
+        cout << query.lastError().text().toStdString() << endl; //report error
 
 }
 

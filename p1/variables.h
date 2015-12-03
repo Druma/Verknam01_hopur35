@@ -25,7 +25,7 @@ int changeToInt(char* val);
 int inputInt(bool pos = true);
 int inputIntC(bool pos = true);
 void NumOfSci(int& numOfSci);
-void inputscie(int& numOfSci, vector<Person>& compScientist);
+void inputscie(int& numOfSci);
 void printPer(Person per);
 void printVect(vector<Person> vect);
 void split(const string& next, char c, vector<string>& newdata);
