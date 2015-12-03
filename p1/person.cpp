@@ -141,29 +141,15 @@ Computer::Computer(string nm, int yc, string tp, bool wc){
  {
     bool err = false;
     string ans;
-    brth = 0;
 
     cout <<"Name: ";
     cin.sync();
     getline(cin, name);
-
-    do{
-        cout <<"Gender - female/male: ";
-        cin >> sex;
-        if(sex == "female" || sex == "male" || sex == "f" || sex == "m" || sex == "F" || sex == "M"
-            || sex == "Female" || sex == "Male"){
-            err = false;
-        }
-        else{
-            err = true;
-            cout << "please enter: [female/male/f/m]" << endl;
-        }
-    }while(err);
-
-    do{
-        cout <<"Year of Birth: ";
-        brth = inputIntC();
-        if(brth>0){
+	
+	do{
+        cout <<"Year of Creation: ";
+        yearCre = inputIntC();
+        if(yearCre>0){
             err = false;
         }
         else{
@@ -173,25 +159,28 @@ Computer::Computer(string nm, int yc, string tp, bool wc){
         }
     }while(err);
 
-    cout <<"Is the person still alive? y/n: ";
+	
+	cout <<"Type of Computer: ";
+    cin.sync();
+    getline(cin, tp);
+
+	do{
+    cout <<"Was the Computer ever built? y/n: ";
     cin >> ans;
     if(ans == "n" || ans == "N" || ans == "no" || ans == "NO" || ans == "No")
     {
-        do{
-            cout <<"Year of Death: ";
-            dth = inputIntC();
-            if(dth >= brth){
-                err = false;
-            }
-            else{
-
-                cout << "Please enter a valid date." << endl;
-                err = true;
-            }
-        }while(err);
+        wc = false;
+		err = false;
     }
+	else if(ans == "n" || ans == "N" || ans == "no" || ans == "NO" || ans == "No")
+	{
+		wc = true;
+		err = false;
+	}
     else
-        dth = '\0';
+		cout << "Not a valid answer." << endl;
+        err = true;
+	}while(err)
  }
 
  Computer setComputer()
