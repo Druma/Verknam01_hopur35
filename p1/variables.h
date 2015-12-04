@@ -28,7 +28,7 @@ void NumOfComp(int& numOfCom);
 void inputscie(int& numOfSci);
 void inputComp(int& numOfCom);
 void printPer(Person per);
-void printVect(vector<Person> vect);
+//void printVect(vector<Person> vect);
 void split(const string& next, char c, vector<string>& newdata);
 void outputscie(vector<Person>& newPerson, bool prnt = false);
 void find_year();

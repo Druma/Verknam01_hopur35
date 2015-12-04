@@ -75,39 +75,15 @@ void inputComp(int& numOfCom)
 
 }
 
-//splits data in file and push into a new vector
-/*void splitData(vector<Person>& newPerson)
-{
-	newPerson.clear();
-    ifstream getdata;
-    getdata.open(DATAFILE.c_str());
-    vector<string> newdata;
-    string next;
-	string temp_name = "";
-    while(getdata >> next)
-    {
-		if(next.find(';') != string::npos)
-		{
-			temp_name+=next;
-			split(temp_name, ';', newdata);
-			temp_name = "";
-		}
-		else
-			temp_name+=next+" ";
-    }
-
-    for(unsigned int i = 0; i < newdata.size(); i = i + 4)
-    {
-        newPerson.push_back(Person(newdata[i], newdata[i+1], atoi(newdata[i+2].c_str()), atoi(newdata[i+3].c_str())));
-    }
-    getdata.close();
-}
-*/
 // output scientist
 /*void outputscie(vector<Person>& newPerson, bool prnt)
 {
     splitData(newPerson);
 	if(prnt)
 		printVect(newPerson);
+}
+
+void outputComp(){
+
 }
 */
