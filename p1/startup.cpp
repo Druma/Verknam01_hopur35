@@ -1,28 +1,26 @@
 #include "variables.h"
-
+//READY
 void startup() {
     cout << "==================================" << endl;
     cout << "Please select one of the following:" << endl;
     cout << "----------------------------------" << endl;
-    cout << "[1] - Input a person/s into the list" << endl;
-    cout << "[2] - Output the whole list" << endl;
-    cout << "[3] - Search for a person in the list" << endl;
-    cout << "[4] - Exit the program" << endl;
+    cout << "[1] - Input data into the table/s" << endl;
+    cout << "[2] - Output data from the table/s" << endl;
+    cout << "[3] - Exit the program" << endl;
     cout << "Input: ";
 }
-
+//READY
 void inputchoice(char& val) {
     cin >> val;
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
+//READY
 char* inputchoice() {
 	char* val = new char[0];
     cin >> val;
 	return val;
 }
 
-void startwork(char& val, int numOfSci, vector<Person>& compScientist)
-{
     switch(val)
     {
         case '1' :
@@ -32,9 +30,6 @@ void startwork(char& val, int numOfSci, vector<Person>& compScientist)
             sortselection(compScientist);
                 break;
         case '3' :
-            search(compScientist);
-                break;
-        case '4' :
                 break;
         default :
             cout << "Input is not valid!" << endl;
