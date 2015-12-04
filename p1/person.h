@@ -34,7 +34,7 @@ private:
     bool was_created;
 };
 void legalComputer(string& name, int& yearCre, string& tp, bool& wc);
-Person setComputer();
+Computer setComputer();
 void printComputer(Computer comp);
 
 #endif // person.h

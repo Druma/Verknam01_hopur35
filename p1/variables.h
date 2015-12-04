@@ -6,14 +6,17 @@
 #include <limits>
 #include "person.h"
 #include <cstdlib>
+#include <QtSql>
 
 const char EXIT = '3';
+
+
 
 //void _swap(Person& a, Person& b);
 //int _find(vector<Person> vect, const string nm, unsigned int start);
 //void _sort_name(vector<Person>& vect, const vector<string> nm);
 //void sort_name(vector<Person>& inputVect, bool rev = false);
-void sortselection(vector<Person>& vect);
+void sortselection();
 void splitData(vector<Person>& newPerson);
 void startup();
 void inputchoice(char& val);
@@ -27,7 +30,7 @@ void NumOfSci(int& numOfSci);
 void NumOfComp(int& numOfCom);
 void inputscie(int& numOfSci);
 void inputComp(int& numOfCom);
-void printPer(Person per);
+//void printPer(Person per);
 //void printVect(vector<Person> vect);
 void split(const string& next, char c, vector<string>& newdata);
 void outputscie(vector<Person>& newPerson, bool prnt = false);

@@ -121,17 +121,17 @@ Computer::Computer(string nm, int yc, string tp, bool wc){
      return name;
  }
 
- string Computer::getyc()
+ int Computer::getyc()
  {
      return year_creation;
  }
 
- int Computer::gettp()
+ string Computer::gettp()
  {
      return comptype;
  }
 
- int Computer::getwc()
+ bool Computer::getwc()
  {
      return was_created;
  }
@@ -180,10 +180,10 @@ Computer::Computer(string nm, int yc, string tp, bool wc){
     else
 		cout << "Not a valid answer." << endl;
         err = true;
-	}while(err)
+    }while(err);
  }
 
- Computer setComputer()
+Computer setComputer()
 {
     string name, comptype;
     int yearCreate;

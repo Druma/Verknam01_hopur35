@@ -6,10 +6,9 @@ using namespace std;
 int main()
 {
 
-	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = "C:\\Users\\LINDA HA\\Desktop\\codes\\Verknam01_hopur35\\p1\\SQLiteDB\\Verknam01_hopur35.sqlite";
-	//QString dbName = "/SQLiteDB/Verknam01_hopur35.sqlite";
-	db.setDatabaseName(dbName);
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    QString dbName = "/SQLiteDB/Verknam01_hopur35.sqlite";
+      db.setDatabaseName(dbName);
 
 	bool db_ok = db.open();
 	if(db_ok){
@@ -35,8 +34,7 @@ int main()
 
 	/*
     int numOfSci = 0, numOfCom = 0;
-    vector<Person> compScientist;
-	outputscie(compScientist);
+    //outputscie(compScientist);
     char val = '\0';
     do{
         startup();

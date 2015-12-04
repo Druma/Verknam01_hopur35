@@ -2,6 +2,8 @@
 #include "variables.h"
 #include <cstdlib>
 
+QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+QString dbName = "/SQLiteDB/Verknam01_hopur35.sqlite";
 // helper function
 void NumOfSci(int& numOfSt)
 {
@@ -17,24 +19,32 @@ void NumOfComp(int& numOfCom)
 {
     cout <<"Number of computers: ";
 
-    numOfSt = inputIntC();
+    numOfCom = inputIntC();
 
-    if(numOfSt != 0)
+    if(numOfCom != 0)
         cout <<"\n--- Reading computers ---" << endl;
 }
 
-// update person READY
+// update person
 void inputscie(int& numOfSci)
 {
 
-    Qstring full_info = "";
-    Qstring inputPers = "INSERT INTO Person (name, sex, year_birth, year_death) VALUES ";
+    QString full_info = "";
+    QString inputPers = "INSERT INTO Person (name, sex, year_birth, year_death) VALUES ";
     QSqlQuery query(db);
 
     NumOfSci(numOfSci);
     for(int i = 0; i < numOfSci; i++){
         Person Sci = setPerson();
-        full_info += "(" + Sci.getnm() + ", " + Sci.getsx() + ", " + Sci.getbrth() + ", " + Sci.getdth() + ")";
+        full_info.append("(");
+        full_info.append( QString::fromStdString(Sci.getnm()));
+        full_info.append(", ");
+        full_info.append( QString::fromStdString(Sci.getsx()));
+        full_info.append(", ");
+        full_info.append( QString::number(Sci.getbrth()));
+        full_info.append(", ");
+        full_info.append( QString::number(Sci.getdth()));
+        full_info.append(")");
         if(i == numOfSci){
             full_info += ";";
         }
@@ -49,17 +59,25 @@ void inputscie(int& numOfSci)
         cout << query.lastError().text().toStdString() << endl; //report error
 
 }
-//update computer READY
+//update computer
 void inputComp(int& numOfCom)
 {
-    Qstring full_info = "";
-    Qstring inputComp = "INSERT INTO Person (name, year_creation, type, was_built) VALUES ";
+    QString full_info = "";
+    QString inputComp = "INSERT INTO Person (name, year_creation, type, was_built) VALUES ";
     QSqlQuery query(db);
 
     NumOfComp(numOfCom);
     for(int i = 0; i < numOfCom; i++){
-        //Person Sci = setPerson();
-        full_info += "(" + Com.getnm() + ", " + Com.getyc() + ", " + Com.gettp() + ", " + Com.getwb() + ")";
+        Computer Com = setComputer();
+        full_info.append("(");
+        full_info.append( QString::fromStdString(Com.getnm()));
+        full_info.append(", ");
+        full_info.append( QString::number(Com.getyc()));
+        full_info.append(", ");
+        full_info.append( QString::fromStdString(Com.gettp()));
+        full_info.append(", ");
+        full_info.append( QString::number(Com.getwc()));
+        full_info.append(")");
         if(i == numOfCom){
             full_info += ";";
         }

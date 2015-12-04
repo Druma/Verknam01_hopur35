@@ -5,14 +5,14 @@
 using namespace std;
 
 // helper functions
-void _swap(Person& a, Person& b)
+/*void _swap(Person& a, Person& b)
 {
     Person temp = a;
     a = b;
     b = temp;
-}
+}*/
 
-int _find(vector<Person> vect, const string nm, unsigned int start)
+/*int _find(vector<Person> vect, const string nm, unsigned int start)
 {
     do{
         if(vect[start].getnm() == nm)
@@ -21,8 +21,9 @@ int _find(vector<Person> vect, const string nm, unsigned int start)
     } while( start < vect.size() );
 
     return 0;
-}
-void _sort_name(vector<Person>& vect, const vector<string> nm)
+}*/
+
+/*void _sort_name(vector<Person>& vect, const vector<string> nm)
 {
     for(unsigned int i = 0; i<nm.size(); i++)
     {
@@ -31,10 +32,10 @@ void _sort_name(vector<Person>& vect, const vector<string> nm)
     }
 
 }
-
+*/
 // main function
 // sort after name; rev = reverse
-void sort_name(vector<Person>& inputVect, bool rev)
+/*void sort_name(vector<Person>& inputVect, bool rev)
 {
     // variables
     vector<string> nameVect;
@@ -55,9 +56,9 @@ void sort_name(vector<Person>& inputVect, bool rev)
     }
     _sort_name(inputVect, nameVect);
 
-}
+}*/
 
-void sortselection(vector<Person>& vect)
+/*void sortselection()
 {
     char choice;
     char valid = 'N';
@@ -92,3 +93,4 @@ void sortselection(vector<Person>& vect)
     }while(valid == 'Y');
 }
 
+*/
