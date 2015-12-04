@@ -106,14 +106,14 @@ void outputComp(){
 }
 */
 // basic output function
-void output()
+void output(char val)
 {
 	/*
 	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     QString dbName = "C:\\Users\\LINDA HA\\Desktop\\codes\\Verknam01_hopur35\\p1\\SQLiteDB\\Verknam01_hopur35.sqlite";
 	//QString dbName = "/SQLiteDB/Verknam01_hopur35.sqlite";
 	db.setDatabaseName(dbName);*/
-	string undefined_temp = "defined, now!";
+    //string undefined_temp = "defined, now!";
 	bool db_ok = db.open();
 	if(db_ok){
 		QSqlQuery query(db);
@@ -127,7 +127,7 @@ void output()
 			cout << query.lastError().text().toStdString() << endl;
 		else
 		{
-            if(undefined_temp == "Connection")
+            if(val == '3')
 			{
 				// text_connection
 				cout << "Person, Computer, Year" << endl;
@@ -136,7 +136,7 @@ void output()
 				{
 					cout << query.value("Person").toString().toStdString() << " | " << query.value("Computer").toString().toStdString() << " | " << query.value("Year").toString().toStdString() << endl;
 				}
-            } else if(undefined_temp == "Person")
+            } else if(val == '1')
 			{
 				// text_person
 				cout << "Name, Sex, Year of Birth, Year of Death" << endl;
@@ -145,7 +145,7 @@ void output()
 				{
 					cout << query.value("name").toString().toStdString() << " | " << query.value("sex").toString().toStdString() << " | " << query.value("birth").toString().toStdString()  << " | " << query.value("death").toString().toStdString() << endl;
 				}
-            } else if(undefined_temp == "computer")
+            } else if(val == '2')
 			{
 				// text_computer
 				cout << "Name, Creation Time, Type, Was Built(?)" << endl;
@@ -163,5 +163,7 @@ void output()
 	}
 	else
 		cout << "db.open() returned false" << endl;
+
+    db.close();
 	
 }

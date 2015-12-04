@@ -46,15 +46,8 @@ void startwork(char& val, int numOfSci, int numOfCom)
                 cout <<"Choose [3] for connection data" << endl;
                 cout <<"Input: ";
                 inputchoice(val);
-                if(val == '1'){
-                    //fall sem prentar ut person's data
-                }
-                if(val == '2'){
-                    //fall sem prentar ut computer's data
-                }
-                if(val == '3'){
-                    //fall sem prentar ut connection data
-                }
+                if(val == '1' || val == '2' || val == '3')
+                    output(val);
                 else
                     cout << "Choice invalid! Please choose again" << endl;
         }while(val != '1' && val != '2' && val !='3');
