@@ -35,22 +35,24 @@ void inputscie(int& numOfSci, QSqlDatabase& db)
     NumOfSci(numOfSci);
     for(int i = 0; i < numOfSci; i++){
         Person Sci = setPerson();
-        full_info.append("(");
+        full_info.append("(\"");
         full_info.append( QString::fromStdString(Sci.getnm()));
-        full_info.append(", ");
+        full_info.append("\", \"");
         full_info.append( QString::fromStdString(Sci.getsx()));
-        full_info.append(", ");
+        full_info.append("\", ");
         full_info.append( QString::number(Sci.getbrth()));
         full_info.append(", ");
         full_info.append( QString::number(Sci.getdth()));
         full_info.append(")");
-        if(i == numOfSci){
-            full_info += ";";
+        if(i >= numOfSci-1){
+            full_info.append(";");
         }
         else
-            full_info += ",";
+            full_info.append(", ");
     }
-    bool prepared = query.prepare(inputPers + full_info);
+	inputPers.append(full_info);
+	cout << endl << inputPers.toStdString() << endl;
+    bool prepared = query.prepare(inputPers);
     if(prepared){
         query.exec();
     }
@@ -68,11 +70,11 @@ void inputComp(int& numOfCom, QSqlDatabase& db)
     NumOfComp(numOfCom);
     for(int i = 0; i < numOfCom; i++){
         Computer Com = setComputer();
-        full_info.append("(");
+        full_info.append("(\"");
         full_info.append( QString::fromStdString(Com.getnm()));
-        full_info.append(", ");
+        full_info.append("\", \"");
         full_info.append( QString::number(Com.getyc()));
-        full_info.append(", ");
+        full_info.append("\", ");
         full_info.append( QString::fromStdString(Com.gettp()));
         full_info.append(", ");
         full_info.append( QString::number(Com.getwcb()));
