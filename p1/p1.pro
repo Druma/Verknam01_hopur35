@@ -12,7 +12,6 @@ SOURCES += main.cpp \
     sort.cpp \
     fileManage.cpp \
     startup.cpp \
-    vecthelpers.cpp \
     errorhandling.cpp \ 
     search.cpp
 

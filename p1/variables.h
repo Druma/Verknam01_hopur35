@@ -8,12 +8,11 @@
 #include <cstdlib>
 
 const char EXIT = '3';
-//const string DATAFILE = "data.txt";
 
-void _swap(Person& a, Person& b);
-int _find(vector<Person> vect, const string nm, unsigned int start);
-void _sort_name(vector<Person>& vect, const vector<string> nm);
-void sort_name(vector<Person>& inputVect, bool rev = false);
+//void _swap(Person& a, Person& b);
+//int _find(vector<Person> vect, const string nm, unsigned int start);
+//void _sort_name(vector<Person>& vect, const vector<string> nm);
+//void sort_name(vector<Person>& inputVect, bool rev = false);
 void sortselection(vector<Person>& vect);
 void splitData(vector<Person>& newPerson);
 void startup();
@@ -34,7 +33,7 @@ void split(const string& next, char c, vector<string>& newdata);
 void outputscie(vector<Person>& newPerson, bool prnt = false);
 void find_year();
 void search(vector<Person> vect);
-int find_nm(vector<Person> vect, string nm, int startpos, vector<int>&matches);
+    int find_nm(vector<Person> vect, string nm, int startpos, vector<int>&matches);
 string get_str();
 
 #endif // VARIABLES
