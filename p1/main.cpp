@@ -5,6 +5,7 @@ using namespace std;
 
 int main()
 {
+<<<<<<< HEAD
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     QString dbName = "/SQLiteDB/Verknam01_hopur35.sqlite";
@@ -33,6 +34,8 @@ int main()
 	
 
 	/*
+=======
+>>>>>>> origin/master
     int numOfSci = 0, numOfCom = 0;
     //outputscie(compScientist);
     char val = '\0';
@@ -41,7 +44,7 @@ int main()
         inputchoice(val);
         startwork(val, numOfSci, numOfCom);
     }while(val != EXIT);
-	*/
+	
 
     return 0;
 }
