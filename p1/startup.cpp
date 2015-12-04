@@ -20,7 +20,8 @@ char* inputchoice() {
     cin >> val;
 	return val;
 }
-
+void startwork(char& val, int numOfSci, vector<Person>& compScientist)
+{
     switch(val)
     {
         case '1' :
