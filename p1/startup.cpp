@@ -21,7 +21,7 @@ char* inputchoice() {
 	return val;
 }
 
-void startwork(char& val, int numOfSci, int numOfCom)
+void startwork(char& val, int numOfSci, int numOfCom, QSqlDatabase& db)
 {
     switch(val)
     {
@@ -32,9 +32,9 @@ void startwork(char& val, int numOfSci, int numOfCom)
                 cout <<"Input: ";
                 inputchoice(val);
                 if(val == '1')
-                    inputscie(numOfSci);
+                    inputscie(numOfSci, db);
                 else if(val == '2')
-                    inputComp(numOfCom);
+                    inputComp(numOfCom, db);
                 else
                     cout << "Choice invalid! Please choose again" << endl;
            }while(val != '1' && val != '2');
@@ -47,7 +47,7 @@ void startwork(char& val, int numOfSci, int numOfCom)
                 cout <<"Input: ";
                 inputchoice(val);
                 if(val == '1' || val == '2' || val == '3')
-                    output(val);
+                    output(val, db);
                 else
                     cout << "Choice invalid! Please choose again" << endl;
         }while(val != '1' && val != '2' && val !='3');

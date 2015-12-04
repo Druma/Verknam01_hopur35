@@ -2,8 +2,7 @@
 #include "variables.h"
 #include <cstdlib>
 
-QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-QString dbName = "/SQLiteDB/Verknam01_hopur35.sqlite";
+
 // helper function
 void NumOfSci(int& numOfSt)
 {
@@ -26,7 +25,7 @@ void NumOfComp(int& numOfCom)
 }
 
 // update person
-void inputscie(int& numOfSci)
+void inputscie(int& numOfSci, QSqlDatabase& db)
 {
 
     QString full_info = "";
@@ -60,7 +59,7 @@ void inputscie(int& numOfSci)
 
 }
 //update computer
-void inputComp(int& numOfCom)
+void inputComp(int& numOfCom, QSqlDatabase& db)
 {
     QString full_info = "";
     QString inputComp = "INSERT INTO Computer (name, year_creation, type, was_built) VALUES ";
@@ -106,7 +105,7 @@ void outputComp(){
 }
 */
 // basic output function
-void output(char val)
+void output(char val, QSqlDatabase& db)
 {
 	/*
 	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
@@ -114,55 +113,52 @@ void output(char val)
 	//QString dbName = "/SQLiteDB/Verknam01_hopur35.sqlite";
 	db.setDatabaseName(dbName);*/
     //string undefined_temp = "defined, now!";
-	bool db_ok = db.open();
-	if(db_ok){
-		QSqlQuery query(db);
-		//query.exec("SELECT * FROM Computer");
-		QString text_connection = "SELECT Person.name AS 'Person', Computer.name AS 'Computer', Computer.year_creation AS 'Year' FROM Person JOIN PersonComputer ON Person.ID = PersonComputer.id_person JOIN Computer ON PersonComputer.id_computer = Computer.ID;";
-		QString text_person = "SELECT name, sex, year_birth AS 'birth', year_death AS 'death' FROM Person;";
-		QString text_computer = "SELECT name, year_creation AS 'creation', was_built AS 'built', type FROM Computer;";
-		
-		query.exec(text_connection);
-		if(query.lastError().isValid())
-			cout << query.lastError().text().toStdString() << endl;
-		else
+	
+	QSqlQuery query(db);
+	//query.exec("SELECT * FROM Computer");
+	QString text_connection = "SELECT Person.name AS 'Person', Computer.name AS 'Computer', Computer.year_creation AS 'Year' FROM Person JOIN PersonComputer ON Person.ID = PersonComputer.id_person JOIN Computer ON PersonComputer.id_computer = Computer.ID;";
+	QString text_person = "SELECT name, sex, year_birth AS 'birth', year_death AS 'death' FROM Person;";
+	QString text_computer = "SELECT name, year_creation AS 'creation', was_built AS 'built', type FROM Computer;";
+	
+	query.exec(text_connection);
+	if(query.lastError().isValid())
+		cout << query.lastError().text().toStdString() << endl;
+	else
+	{
+		if(val == '3')
 		{
-            if(val == '3')
+			// text_connection
+			cout << "Person, Computer, Year" << endl;
+			cout << "----------------------" << endl;
+			while(query.next())
 			{
-				// text_connection
-				cout << "Person, Computer, Year" << endl;
-				cout << "----------------------" << endl;
-				while(query.next())
-				{
-					cout << query.value("Person").toString().toStdString() << " | " << query.value("Computer").toString().toStdString() << " | " << query.value("Year").toString().toStdString() << endl;
-				}
-            } else if(val == '1')
+				cout << query.value("Person").toString().toStdString() << " | " << query.value("Computer").toString().toStdString() << " | " << query.value("Year").toString().toStdString() << endl;
+			}
+		} else if(val == '1')
+		{
+			// text_person
+			cout << "Name, Sex, Year of Birth, Year of Death" << endl;
+			cout << "----------------------" << endl;
+			while(query.next())
 			{
-				// text_person
-				cout << "Name, Sex, Year of Birth, Year of Death" << endl;
-				cout << "----------------------" << endl;
-				while(query.next())
-				{
-					cout << query.value("name").toString().toStdString() << " | " << query.value("sex").toString().toStdString() << " | " << query.value("birth").toString().toStdString()  << " | " << query.value("death").toString().toStdString() << endl;
-				}
-            } else if(val == '2')
+				cout << query.value("name").toString().toStdString() << " | " << query.value("sex").toString().toStdString() << " | " << query.value("birth").toString().toStdString()  << " | " << query.value("death").toString().toStdString() << endl;
+			}
+		} else if(val == '2')
+		{
+			// text_computer
+			cout << "Name, Creation Time, Type, Was Built(?)" << endl;
+			cout << "----------------------" << endl;
+			while(query.next())
 			{
-				// text_computer
-				cout << "Name, Creation Time, Type, Was Built(?)" << endl;
-				cout << "----------------------" << endl;
-				while(query.next())
-				{
-					cout << query.value("name").toString().toStdString() << " | " << query.value("creation").toString().toStdString() << " | " << query.value("type").toString().toStdString()  << " | ";
-					if(query.value("death").toString().toStdString() == "0")
-						cout << "No" << endl;
-					else
-						cout << "Yes"<< endl;
-				}
+				cout << query.value("name").toString().toStdString() << " | " << query.value("creation").toString().toStdString() << " | " << query.value("type").toString().toStdString()  << " | ";
+				if(query.value("death").toString().toStdString() == "0")
+					cout << "No" << endl;
+				else
+					cout << "Yes"<< endl;
 			}
 		}
 	}
-	else
-		cout << "db.open() returned false" << endl;
+	
 
     db.close();
 	
