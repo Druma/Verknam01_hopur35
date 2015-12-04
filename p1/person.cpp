@@ -131,7 +131,7 @@ Computer::Computer(string nm, int yc, string tp, bool wc){
      return comptype;
  }
 
- bool Computer::getwc()
+ bool Computer::getwcb()
  {
      return was_created;
  }
@@ -199,7 +199,7 @@ void printComputer(Computer comp)
     cout << "Name: " << comp.getnm() << endl;
     cout << "Year of creation: " << comp.getyc() << endl;
     cout << "Type of computer: " << comp.gettp() << endl;
-    if(comp.getwc())
+    if(comp.getwcb())
     {
         cout << "Was built: YES" << endl;
     }

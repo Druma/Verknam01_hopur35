@@ -76,7 +76,7 @@ void inputComp(int& numOfCom)
         full_info.append(", ");
         full_info.append( QString::fromStdString(Com.gettp()));
         full_info.append(", ");
-        full_info.append( QString::number(Com.getwc()));
+        full_info.append( QString::number(Com.getwcb()));
         full_info.append(")");
         if(i == numOfCom){
             full_info += ";";

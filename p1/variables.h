@@ -30,6 +30,7 @@ void NumOfSci(int& numOfSci);
 void NumOfComp(int& numOfCom);
 void inputscie(int& numOfSci);
 void inputComp(int& numOfCom);
+void output(char val);
 //void printPer(Person per);
 //void printVect(vector<Person> vect);
 //void split(const string& next, char c, vector<string>& newdata);

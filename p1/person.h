@@ -26,7 +26,7 @@ public:
     string getnm();
     int getyc();
     string gettp();
-    bool getwc();
+    bool getwcb();
 
 private:
     string name, comptype;
