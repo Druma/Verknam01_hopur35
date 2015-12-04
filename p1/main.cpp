@@ -34,14 +34,14 @@ int main()
 	
 
 	/*
-    int numOfSci = 0;
+    int numOfSci = 0, numOfCom = 0;
     vector<Person> compScientist;
 	outputscie(compScientist);
     char val = '\0';
     do{
         startup();
         inputchoice(val);
-        startwork(val, numOfSci, compScientist);
+        startwork(val, numOfSci, numOfCom);
     }while(val != EXIT);
 	*/
 

@@ -20,20 +20,28 @@ char* inputchoice() {
     cin >> val;
 	return val;
 }
-void startwork(char& val, int numOfSci, vector<Person>& compScientist)
+
+void startwork(char& val, int numOfSci, int numOfCom)
 {
     switch(val)
     {
         case '1' :
-            inputscie(numOfSci, compScientist);
+            do{
+                inputchoice(val);
+                if(val == '1')
+                    inputscie(numOfSci);
+                else if(val == '2')
+                    inputComp(numOfCom);
+                else
+                    cout << "Choice invalid! Please choose again" << endl;
+           }while(val != '1' || val != '2');
                 break;
         case '2' :
-            sortselection(compScientist);
+            //OUTPUT DATA HERE
                 break;
         case '3' :
                 break;
         default :
             cout << "Input is not valid!" << endl;
     }
-
 }

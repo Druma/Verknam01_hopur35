@@ -13,7 +13,7 @@ void NumOfSci(int& numOfSt)
 		cout <<"\n--- Reading scientist ---" << endl;
 }
 
-void NumOfComp(int& numOfSt)
+void NumOfComp(int& numOfCom)
 {
     cout <<"Number of computers: ";
 
@@ -26,6 +26,7 @@ void NumOfComp(int& numOfSt)
 // update person READY
 void inputscie(int& numOfSci)
 {
+
     Qstring full_info = "";
     Qstring inputPers = "INSERT INTO Person (name, sex, year_birth, year_death) VALUES ";
     QSqlQuery query(db);
@@ -48,7 +49,7 @@ void inputscie(int& numOfSci)
         cout << query.lastError().text().toStdString() << endl; //report error
 
 }
-//update computer
+//update computer READY
 void inputComp(int& numOfCom)
 {
     Qstring full_info = "";
@@ -75,7 +76,7 @@ void inputComp(int& numOfCom)
 }
 
 //splits data in file and push into a new vector
-void splitData(vector<Person>& newPerson)
+/*void splitData(vector<Person>& newPerson)
 {
 	newPerson.clear();
     ifstream getdata;
@@ -101,11 +102,12 @@ void splitData(vector<Person>& newPerson)
     }
     getdata.close();
 }
-
+*/
 // output scientist
-void outputscie(vector<Person>& newPerson, bool prnt)
+/*void outputscie(vector<Person>& newPerson, bool prnt)
 {
     splitData(newPerson);
 	if(prnt)
 		printVect(newPerson);
 }
+*/

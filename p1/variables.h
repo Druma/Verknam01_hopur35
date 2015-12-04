@@ -7,8 +7,8 @@
 #include "person.h"
 #include <cstdlib>
 
-const char EXIT = '4';
-const string DATAFILE = "data.txt";
+const char EXIT = '3';
+//const string DATAFILE = "data.txt";
 
 void _swap(Person& a, Person& b);
 int _find(vector<Person> vect, const string nm, unsigned int start);
@@ -19,13 +19,15 @@ void splitData(vector<Person>& newPerson);
 void startup();
 void inputchoice(char& val);
 char* inputchoice();
-void startwork(char& val, int numOfSci, vector<Person>& compScientist);
+void startwork(char& val, int numOfSci, int numOfCom);
 int changeToInt(char val);
 int changeToInt(char* val);
 int inputInt(bool pos = true);
 int inputIntC(bool pos = true);
 void NumOfSci(int& numOfSci);
+void NumOfComp(int& numOfCom);
 void inputscie(int& numOfSci);
+void inputComp(int& numOfCom);
 void printPer(Person per);
 void printVect(vector<Person> vect);
 void split(const string& next, char c, vector<string>& newdata);
