@@ -48,7 +48,7 @@ Person::Person(string nm, string sx, int brth, int dth)
         }
         else{
             err = true;
-            cout << "please enter: [female/male/f/m]" << endl;
+            cout << "please enter: [female/male/f/m/F/M]" << endl;
         }
     }while(err);
 
@@ -165,21 +165,21 @@ Computer::Computer(string nm, int yc, string tp, bool wc){
     getline(cin, tp);
 
 	do{
-    cout <<"Was the Computer ever built? y/n: ";
-    cin >> ans;
-    if(ans == "n" || ans == "N" || ans == "no" || ans == "NO" || ans == "No")
-    {
-        wc = false;
-		err = false;
-    }
-	else if(ans == "n" || ans == "N" || ans == "no" || ans == "NO" || ans == "No")
-	{
-		wc = true;
-		err = false;
-	}
-    else
-		cout << "Not a valid answer." << endl;
-        err = true;
+        cout <<"Was the Computer ever built? y/n: ";
+        cin >> ans;
+        if(ans == "n" || ans == "N" || ans == "no" || ans == "NO" || ans == "No")
+        {
+            wc = false;
+            err = false;
+        }
+        else if(ans == "n" || ans == "N" || ans == "no" || ans == "NO" || ans == "No")
+        {
+            wc = true;
+            err = false;
+        }
+        else
+            cout << "Not a valid answer." << endl;
+            err = true;
     }while(err);
  }
 

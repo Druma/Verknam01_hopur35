@@ -63,7 +63,7 @@ void inputscie(int& numOfSci)
 void inputComp(int& numOfCom)
 {
     QString full_info = "";
-    QString inputComp = "INSERT INTO Person (name, year_creation, type, was_built) VALUES ";
+    QString inputComp = "INSERT INTO Computer (name, year_creation, type, was_built) VALUES ";
     QSqlQuery query(db);
 
     NumOfComp(numOfCom);
@@ -127,7 +127,7 @@ void output()
 			cout << query.lastError().text().toStdString() << endl;
 		else
 		{
-			if(undefined_temp = "Connection")
+            if(undefined_temp == "Connection")
 			{
 				// text_connection
 				cout << "Person, Computer, Year" << endl;
@@ -136,7 +136,7 @@ void output()
 				{
 					cout << query.value("Person").toString().toStdString() << " | " << query.value("Computer").toString().toStdString() << " | " << query.value("Year").toString().toStdString() << endl;
 				}
-			} else if(undefined_temp = "Person")
+            } else if(undefined_temp == "Person")
 			{
 				// text_person
 				cout << "Name, Sex, Year of Birth, Year of Death" << endl;
@@ -145,7 +145,7 @@ void output()
 				{
 					cout << query.value("name").toString().toStdString() << " | " << query.value("sex").toString().toStdString() << " | " << query.value("birth").toString().toStdString()  << " | " << query.value("death").toString().toStdString() << endl;
 				}
-			} else if(undefined_temp = "computer")
+            } else if(undefined_temp == "computer")
 			{
 				// text_computer
 				cout << "Name, Creation Time, Type, Was Built(?)" << endl;

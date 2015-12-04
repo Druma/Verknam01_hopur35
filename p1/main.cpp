@@ -5,11 +5,10 @@ using namespace std;
 
 int main()
 {
-<<<<<<< HEAD
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     QString dbName = "/SQLiteDB/Verknam01_hopur35.sqlite";
-      db.setDatabaseName(dbName);
+     db.setDatabaseName(dbName);
 
 	bool db_ok = db.open();
 	if(db_ok){
@@ -32,10 +31,8 @@ int main()
 	else
 		cout << "db.open() returned false" << endl;
 	
-
+    db.close();
 	/*
-=======
->>>>>>> origin/master
     int numOfSci = 0, numOfCom = 0;
     //outputscie(compScientist);
     char val = '\0';
@@ -45,7 +42,7 @@ int main()
         startwork(val, numOfSci, numOfCom);
     }while(val != EXIT);
 	
-
+*/
     return 0;
 }
 
