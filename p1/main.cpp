@@ -14,7 +14,6 @@ QString dbName = "C:\\Users\\Birgitta\\Documents\\GitHub\\Verknam01_hopur35\\p1\
 int main()
 {
 	db.setDatabaseName(dbName);
-    int numOfSci = 0, numOfCom = 0;
     //outputscie(compScientist);
     char val = '\0';
 	bool db_ok = db.open();
@@ -23,7 +22,7 @@ int main()
 		do{
 			startup();
 			inputchoice(val);
-			startwork(val, numOfSci, numOfCom, db);
+			startwork(val, db);
 		}while(val != EXIT);
 	}
 	else

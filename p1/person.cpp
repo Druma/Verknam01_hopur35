@@ -172,14 +172,16 @@ Computer::Computer(string nm, int yc, string tp, bool wc){
             wc = false;
             err = false;
         }
-        else if(ans == "n" || ans == "N" || ans == "no" || ans == "NO" || ans == "No")
+        else if(ans == "y" || ans == "Y" || ans == "yes" || ans == "YES" || ans == "Yes")
         {
             wc = true;
             err = false;
         }
         else
+		{
             cout << "Not a valid answer." << endl;
             err = true;
+		}
     }while(err);
  }
 

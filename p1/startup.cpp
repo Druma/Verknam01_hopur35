@@ -4,8 +4,8 @@ void startup() {
     cout << "==================================" << endl;
     cout << "Please select one of the following:" << endl;
     cout << "----------------------------------" << endl;
-    cout << "[1] - Input data into the table/s" << endl;
-    cout << "[2] - Output data from the table/s" << endl;
+    cout << "[1] - Input data into tables" << endl;
+    cout << "[2] - Output data from tables" << endl;
     cout << "[3] - Exit the program" << endl;
     cout << "Input: ";
 }
@@ -21,40 +21,51 @@ char* inputchoice() {
 	return val;
 }
 
-void startwork(char& val, int numOfSci, int numOfCom, QSqlDatabase& db)
+void startwork(char& val, QSqlDatabase& db)
 {
     switch(val)
     {
         case '1' :
-            do{
-                cout <<"Choose [1] for input a person/s" << endl;
-                cout <<"Choose [2] for input a computer/s" << endl;
-                cout <<"Input: ";
-                inputchoice(val);
-                if(val == '1')
-                    inputscie(numOfSci, db);
-                else if(val == '2')
-                    inputComp(numOfCom, db);
-                else
-                    cout << "Choice invalid! Please choose again" << endl;
-           }while(val != '1' && val != '2');
-                break;
+			choice_input(db);
+            break;
         case '2' :
-            do{
-                cout <<"Choose [1] for person's data" << endl;
-                cout <<"Choose [2] for computer's data" << endl;
-                cout <<"Choose [3] for connection data" << endl;
-                cout <<"Input: ";
-                inputchoice(val);
-                if(val == '1' || val == '2' || val == '3')
-                    output(val, db);
-                else
-                    cout << "Choice invalid! Please choose again" << endl;
-        }while(val != '1' && val != '2' && val !='3');
-                break;
+            choice_output(db);
+            break;
         case '3' :
-                break;
+            break;
         default :
             cout << "Input is not valid!" << endl;
     }
+}
+void choice_input(QSqlDatabase& db)
+{
+	int numOfChange = 0;
+	char val = '\0';
+	 do{
+		cout <<"[1] - Input people" << endl;
+		cout <<"[2] - Input computers" << endl;
+		cout <<"Input: ";
+		inputchoice(val);
+		if(val == '1')
+			inputscie(numOfChange, db);
+		else if(val == '2')
+			inputComp(numOfChange, db);
+		else
+			cout << "Choice invalid! Please choose again" << endl;
+	}while(val != '1' && val != '2');
+}
+void choice_output(QSqlDatabase& db)
+{
+	char val = '\0';
+	 do{
+		cout <<"[1] - Output people" << endl;
+		cout <<"[2] - Output computers" << endl;
+		cout <<"[3] - Output people-computer relations" << endl;
+		cout <<"Input: ";
+		inputchoice(val);
+		if(val == '1' || val == '2' || val == '3')
+			output(val, db);
+		else
+			cout << "Choice invalid! Please choose again" << endl;
+	}while(val != '1' && val != '2' && val !='3');
 }
