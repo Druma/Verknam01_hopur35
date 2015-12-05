@@ -1,6 +1,7 @@
 #include "person.h"
 #include "variables.h"
 #include <cstdlib>
+#include <iomanip>
 
 
 // helper function
@@ -161,11 +162,24 @@ void output(char val, QSqlDatabase& db)
 				cout << query.lastError().text().toStdString() << endl;
 			else
 			{
-				cout << "Name, Sex, Year of Birth, Year of Death" << endl;
-				cout << "----------------------" << endl;
+                int width = 16;
+
+
+                char sep = ' ';
+                cout << left << setw(width) << setfill(sep) << "Name"           << " | "
+                     << left << setw(width/2) << setfill(sep) << "Sex"            << " | "
+                     << left << setw(width) << setfill(sep) << "Year of Birth"  << " | "
+                     << left << setw(width) << setfill(sep) << "Year of Death"  << endl;
+
+                cout << left << setw((width+3)*3 + width/2) <<setfill('-') << "" << endl;
+
 				while(query.next())
 				{
-					cout << query.value("name").toString().toStdString() << " | " << query.value("sex").toString().toStdString() << " | " << query.value("birth").toString().toStdString()  << " | " << query.value("death").toString().toStdString() << endl;
+                    cout << left  << setw(width) << setfill(sep) << query.value("name").toString().toStdString()   << " | "
+                         << left  << setw(width/2) << setfill(sep) << query.value("sex").toString().toStdString()    << " | "
+                         << right << setw(width) << setfill(sep) << query.value("birth").toString().toStdString()  << " | "
+                         << right << setw(width) << setfill(sep) << query.value("death").toString().toStdString()  << endl;
+
 				}
 			}
 		} else if(val == '2') // text_computer

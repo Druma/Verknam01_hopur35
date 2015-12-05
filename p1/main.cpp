@@ -4,11 +4,11 @@
 using namespace std;
 QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
 // birgitta path:
-QString dbName = "C:\\Users\\Birgitta\\Documents\\GitHub\\Verknam01_hopur35\\p1\\SQLiteDB\\Verknam01_hopur35.sqlite";
+//QString dbName = "C:\\Users\\Birgitta\\Documents\\GitHub\\Verknam01_hopur35\\p1\\SQLiteDB\\Verknam01_hopur35.sqlite";
 // anna path:
 //QString dbName = "";
 // axel path:
-//QString dbName = "";
+QString dbName = "C:\\Users\\Axel\\Documents\\Verknam01_hopur35\\p1\\SQLiteDB\\Verknam01_hopur35.sqlite";
 // willard path:
 //QString dbName = "";
 int main()
