@@ -4,94 +4,125 @@
 
 using namespace std;
 
-
-// helper functions
-/*void _swap(Person& a, Person& b)
-{
-    Person temp = a;
-    a = b;
-    b = temp;
-}*/
-
-/*int _find(vector<Person> vect, const string nm, unsigned int start)
-{
-    do{
-        if(vect[start].getnm() == nm)
-            return start;
-        start++;
-    } while( start < vect.size() );
-
-    return 0;
-}*/
-
-/*void _sort_name(vector<Person>& vect, const vector<string> nm)
-{
-    for(unsigned int i = 0; i<nm.size(); i++)
-    {
-        if(vect[i].getnm() != nm[i])
-            _swap(vect[i], vect[_find(vect, nm[i], i)]);
-    }
-
-}
-*/
-// main function
-// sort after name; rev = reverse
-/*void sort_name(vector<Person>& inputVect, bool rev)
-{
-    // variables
-    vector<string> nameVect;
-
-    // get all the names from list
-    for(unsigned int i=0;i<inputVect.size();i++)
-    {
-        nameVect.push_back(inputVect[i].getnm());
-    }
-
-    // sort name list
-    stable_sort(nameVect.begin(), nameVect.end());
-
-    // reverse it
-    if(rev)
-    {
-        reverse(nameVect.begin(), nameVect.end());
-    }
-    _sort_name(inputVect, nameVect);
-
-}*/
-
-/*void sortselection()
+void sortNAME(QString& text_person, QString& order)
 {
     char choice;
-    char valid = 'N';
+    bool valid = false;
 
-    cout << endl;
-    cout << "How would you like your output list to be sorted: " << endl;
+    cout << "In which order would you like to output the table: " << endl;
     cout << "------------------------------------------------" << endl;
     cout << "[1] Oldest data to newest" << endl;
-    cout << "[2] In alphabetical order" << endl;
-    cout << "[3] In reverse alphabetical order" << endl;
+    cout << "[2] Alphabetical" << endl;
+    cout << "[3] Reverse alphabetical" << endl;
+    cout << "[4] Year of birth" << endl;
+    cout << "[5] Year of death" << endl;
+
     do{
         inputchoice(choice);
         if(choice == '1'){
-            outputscie(vect, true);
-            break;
+            text_person += order;
         }
         else if(choice == '2'){
-            sort_name(vect);
-            printVect(vect);
-            break;
+            order = " ORDER BY name ASC;";
+            text_person += order;
         }
         else if(choice == '3'){
-            sort_name(vect, true);
-            printVect(vect);
-            break;
+            order = " ORDER BY name DESC;";
+            text_person += order;
         }
-        else
-        {
+        else if(choice == '4'){
+            order = " ORDER BY year_birth, name ASC;";
+            text_person += order;
+        }
+        else if(choice == '5'){
+            order = " ORDER BY year_death, name ASC;";
+            text_person += order;
+        }
+        else{
             cout << "Input is not valid! Please choose again" << endl;
-            valid = 'Y';
+            valid = true;
         }
-    }while(valid == 'Y');
+    }while(valid);
 }
 
-*/
+void sortCOMPUTER(QString& text_computer, QString& order)
+{
+    char choice;
+    bool valid = false;
+
+    cout << "In which order would you like to output the table: " << endl;
+    cout << "------------------------------------------------" << endl;
+    cout << "[1] Oldest data to newest" << endl;
+    cout << "[2] Alphabetical by name" << endl;
+    cout << "[3] Reverse alphabetical by name" << endl;
+    cout << "[4] Year of creation" << endl;
+    cout << "[5] Was built or not" << endl;
+    cout << "[6] Alphabetical by type" << endl;
+
+    do{
+        inputchoice(choice);
+        if(choice == '1'){
+            text_computer += order;
+        }
+        else if(choice == '2'){
+            order = " ORDER BY name ASC;";
+            text_computer += order;
+        }
+        else if(choice == '3'){
+            order = " ORDER BY name DESC;";
+            text_computer += order;
+        }
+        else if(choice == '4'){
+            order = " ORDER BY year_creation, name ASC;";
+            text_computer += order;
+        }
+        else if(choice == '5'){
+            order = " ORDER BY was_built, name ASC;";
+            text_computer += order;
+        }
+        else if(choice == '6'){
+            order = " ORDER BY type, name ASC;";
+            text_computer += order;
+        }
+        else{
+            cout << "Input is not valid! Please choose again" << endl;
+            valid = true;
+        }
+    }while(valid);
+}
+
+void sortCONNECTION(QString& text_connection, QString& order)
+{
+    char choice;
+    bool valid = false;
+
+    cout << "In which order would you like to output the table: " << endl;
+    cout << "------------------------------------------------" << endl;
+    cout << "[1] Oldest data to newest" << endl;
+   // cout << "[2] In alphabetical order by person's name" << endl;
+   // cout << "[3] In reverse alphabetical order by person's name" << endl;
+
+    do{
+        inputchoice(choice);
+        if(choice == '1'){
+            text_connection += order;
+            valid = false;
+        }
+        //VIRKAR EKKI AD FLOKKA FYRIR BAEDI!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        /*else if(choice == '2'){
+            text_connection = "SELECT Person.name AS 'Person', Computer.name AS 'Computer', Computer.year_creation AS 'Year' FROM Person ORDER BY Person.name ASC "
+                              "JOIN PersonComputer ON Person.ID = PersonComputer.id_person JOIN Computer ON PersonComputer.id_computer = Computer.ID;";
+            valid = false;
+        }
+        else if(choice == '3'){
+            text_connection = "SELECT Person.name AS 'Person', Computer.name AS 'Computer', Computer.year_creation AS 'Year' FROM Person "
+                              "JOIN PersonComputer ON Person.ID = PersonComputer.id_person JOIN Computer ON PersonComputer.id_computer = Computer.ID"
+                              "ORDER BY Person.name DESC;";
+            valid = false;
+        }*/
+        else{
+            cout << "Input is not valid! Please choose again" << endl;
+            valid = true;
+        }
+    }while(valid);
+}

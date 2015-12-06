@@ -1,6 +1,8 @@
 # ifndef PERSON_H
 # define PERSON_H
 #include <string>
+#include <QtSql>
+
 using namespace std;
 
 class Person {
@@ -18,7 +20,7 @@ private:
 // define functions
 void legalPerson(string& name, string& sex, int& brth, int& dth);
 Person setPerson();
-void printPer(Person per);
+void printPer(QSqlDatabase& db);
 
 class Computer {
 public:
@@ -35,6 +37,7 @@ private:
 };
 void legalComputer(string& name, int& yearCre, string& tp, bool& wc);
 Computer setComputer();
-void printComputer(Computer comp);
+void printComputer(QSqlDatabase& db);
+void printConnection(QSqlDatabase& db);
 
 #endif // person.h

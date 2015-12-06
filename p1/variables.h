@@ -10,14 +10,8 @@
 
 const char EXIT = '3';
 
-
-
-//void _swap(Person& a, Person& b);
-//int _find(vector<Person> vect, const string nm, unsigned int start);
-//void _sort_name(vector<Person>& vect, const vector<string> nm);
-//void sort_name(vector<Person>& inputVect, bool rev = false);
-void sortselection();
-void splitData(vector<Person>& newPerson);
+//void sortselection();
+//void splitData(vector<Person>& newPerson);
 void startup();
 void inputchoice(char& val);
 char* inputchoice();
@@ -32,8 +26,10 @@ void NumOfSci(int& numOfSci);
 void NumOfComp(int& numOfCom);
 void inputscie(int& numOfSci, QSqlDatabase& db);
 void inputComp(int& numOfCom, QSqlDatabase& db);
+void sortNAME(QString& text_person, QString& order);
+void sortCOMPUTER(QString& text_computer, QString& order);
+void sortCONNECTION(QString& text_connection, QString& order);
 void output(char val, QSqlDatabase& db);
-//void printPer(Person per);
 //void printVect(vector<Person> vect);
 //void split(const string& next, char c, vector<string>& newdata);
 //void outputscie(vector<Person>& newPerson, bool prnt = false);
