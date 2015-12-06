@@ -124,15 +124,9 @@ void outputComp(){
 // basic output function
 void output(char val, QSqlDatabase& db)
 {
-	/*
-	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = "C:\\Users\\LINDA HA\\Desktop\\codes\\Verknam01_hopur35\\p1\\SQLiteDB\\Verknam01_hopur35.sqlite";
-	//QString dbName = "/SQLiteDB/Verknam01_hopur35.sqlite";
-	db.setDatabaseName(dbName);*/
-    //string undefined_temp = "defined, now!";
-	bool db_ok = db.open();
-	if(db_ok)
-	{
+    bool db_ok = db.open();
+    if(db_ok)
+    {
 		cout << endl;
 		QSqlQuery query(db);
 		//query.exec("SELECT * FROM Computer");
@@ -155,7 +149,8 @@ void output(char val, QSqlDatabase& db)
 					cout << query.value("Person").toString().toStdString() << " | " << query.value("Computer").toString().toStdString() << " | " << query.value("Year").toString().toStdString() << endl;
 				}
 			}
-		} else if(val == '1') // text_person
+        }
+        else if(val == '1') // text_person
 		{
 			query.exec(text_person);
 			if(query.lastError().isValid())
@@ -182,7 +177,8 @@ void output(char val, QSqlDatabase& db)
 
 				}
 			}
-		} else if(val == '2') // text_computer
+        }
+        else if(val == '2') // text_computer
 		{
 			query.exec(text_computer);
 			if(query.lastError().isValid())
@@ -202,9 +198,9 @@ void output(char val, QSqlDatabase& db)
 			}
 		} // else if text_computer END
 		cout << endl;
-	}
-	else
-		cout << "db.open() returned false" << endl;
-	db.close();
+    }
+    else
+        cout << "db.open() returned false" << endl;
+    db.close();
 	
 }

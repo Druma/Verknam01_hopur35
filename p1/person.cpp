@@ -42,8 +42,12 @@ Person::Person(string nm, string sx, int brth, int dth)
     do{
         cout <<"Gender - female/male: ";
         cin >> sex;
-        if(sex == "female" || sex == "male" || sex == "f" || sex == "m" || sex == "F" || sex == "M"
-			|| sex == "Female" || sex == "Male"){
+        if(sex == "female" || sex == "f" || sex == "F" || sex == "Female"){
+            sex = "Female";
+            err = false;
+        }
+        if(sex == "male" || sex == "m" || sex == "M" || sex == "Male"){
+            sex = "Male";
             err = false;
         }
         else{
@@ -83,7 +87,9 @@ Person::Person(string nm, string sx, int brth, int dth)
 		}while(err);
     }
     else
-        dth = '\0';
+        dth  = '\0'; //TRY TO CHANGE THIS INTO EMPTY LINE INSTEAD OF 0
+
+
  }
 
  Person setPerson()
@@ -96,7 +102,7 @@ Person::Person(string nm, string sx, int brth, int dth)
     return Person(name, sex, brth, dth);
 }
 
-void printPer(Person per)
+/*void printPer(Person per)
 {
     cout << "Name: " << per.getnm() << endl;
     cout << "Gender: " << per.getsx() << endl;
@@ -106,7 +112,7 @@ void printPer(Person per)
         cout << "Year of death: " << per.getdth() << endl;
     }
     cout << endl;
-}
+}*/
 
 //Computer information
 Computer::Computer(string nm, int yc, string tp, bool wc){
@@ -196,7 +202,7 @@ Computer setComputer()
     return Computer(name, yearCreate, comptype, built);
 }
 //READY
-void printComputer(Computer comp)
+/*void printComputer(Computer comp)
 {
     cout << "Name: " << comp.getnm() << endl;
     cout << "Year of creation: " << comp.getyc() << endl;
@@ -208,4 +214,4 @@ void printComputer(Computer comp)
     else
         cout << "Was built: NO" << endl;
     cout << endl;
-}
+}*/
