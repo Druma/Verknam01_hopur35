@@ -38,8 +38,7 @@ Person::Person(string nm, string sx, int brth, int dth)
     cout <<"Name: ";
     cin.sync();
     getline(cin, name);
-    toupper(name[0]);
-
+  
     do{
         cout <<"Gender - female/male: ";
         cin >> sex;
