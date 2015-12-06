@@ -55,7 +55,7 @@ Person::Person(string nm, string sx, int brth, int dth)
     do{
         cout <<"Year of Birth: ";
         brth = inputIntC();
-        if(brth>0){
+        if(brth > 99 && brth <= 9999 ){
             err = false;
         }
         else{
@@ -72,7 +72,7 @@ Person::Person(string nm, string sx, int brth, int dth)
         do{
 			cout <<"Year of Death: ";
 			dth = inputIntC();
-			if(dth >= brth){
+            if(dth >= brth && dth <= 9999){
 				err = false;
 			}
 			else{
