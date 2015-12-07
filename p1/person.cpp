@@ -47,7 +47,7 @@ Person::Person(string nm, string sx, int brth, int dth)
             sex = "Female";
             err = false;
         }
-        if(sex == "male" || sex == "m" || sex == "M" || sex == "Male"){
+        else if(sex == "male" || sex == "m" || sex == "M" || sex == "Male"){
             sex = "Male";
             err = false;
         }
@@ -60,7 +60,7 @@ Person::Person(string nm, string sx, int brth, int dth)
     do{
         cout <<"Year of Birth: ";
         brth = inputIntC();
-        if(brth > 99 && brth <= 9999 ){
+        if(brth > 0){
             err = false;
         }
         else{
@@ -77,7 +77,7 @@ Person::Person(string nm, string sx, int brth, int dth)
         do{
 			cout <<"Year of Death: ";
 			dth = inputIntC();
-            if(dth >= brth && dth <= 9999){
+            if(dth >= brth){
 				err = false;
 			}
 			else{
