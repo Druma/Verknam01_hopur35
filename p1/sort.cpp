@@ -99,8 +99,11 @@ void sortCONNECTION(QString& text_connection, QString& order)
     cout << "In which order would you like to output the table: " << endl;
     cout << "------------------------------------------------" << endl;
     cout << "[1] Oldest data to newest" << endl;
-   // cout << "[2] In alphabetical order by person's name" << endl;
-   // cout << "[3] In reverse alphabetical order by person's name" << endl;
+    cout << "[2] In alphabetical order by person's name" << endl;
+    cout << "[3] In reverse alphabetical order by person's name" << endl;
+    cout << "[4] In alphabetical order by computer's name" << endl;
+    cout << "[5] In reverse alphabetical order by computer's name" << endl;
+    cout << "[6] By year built" << endl;
 
     do{
         inputchoice(choice);
@@ -108,18 +111,28 @@ void sortCONNECTION(QString& text_connection, QString& order)
             text_connection += order;
             valid = false;
         }
-        //VIRKAR EKKI AD FLOKKA FYRIR BAEDI!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        /*else if(choice == '2'){
-            text_connection = "SELECT Person.name AS 'Person', Computer.name AS 'Computer', Computer.year_creation AS 'Year' FROM Person ORDER BY Person.name ASC "
-                              "JOIN PersonComputer ON Person.ID = PersonComputer.id_person JOIN Computer ON PersonComputer.id_computer = Computer.ID;";
+        else if(choice == '2'){
+            order = " ORDER BY Person ASC;";
+            text_connection += order;
             valid = false;
         }
         else if(choice == '3'){
-            text_connection = "SELECT Person.name AS 'Person', Computer.name AS 'Computer', Computer.year_creation AS 'Year' FROM Person "
-                              "JOIN PersonComputer ON Person.ID = PersonComputer.id_person JOIN Computer ON PersonComputer.id_computer = Computer.ID"
-                              "ORDER BY Person.name DESC;";
+            order = " ORDER BY Person DESC;";
+            text_connection += order;
             valid = false;
-        }*/
+        }
+        else if(choice == '4'){
+            order = " ORDER BY Computer ASC;";
+            text_connection += order;
+        }
+        else if(choice == '5'){
+            order = " ORDER BY Computer DESC;";
+            text_connection += order;
+        }
+        else if(choice == '6'){
+            order = " ORDER BY Year, Person ASC;";
+            text_connection += order;
+        }
         else{
             cout << "Input is not valid! Please choose again" << endl;
             valid = true;
