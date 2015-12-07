@@ -4,6 +4,7 @@
 
 using namespace std;
 
+<<<<<<< Updated upstream
 void sortNAME(QString& text_person, QString& order)
 {
     char* choice;
@@ -47,12 +48,70 @@ void sortNAME(QString& text_person, QString& order)
         }
     }while(valid);
 }
+=======
+
+// helper functions
+/*void _swap(Person& a, Person& b)
+{
+    Person temp = a;
+    a = b;
+    b = temp;
+}*/
+
+<<<<<<< Updated upstream
+/*int _find(vector<Person> vect, const string nm, unsigned int start)
+=======
+<<<<<<< Updated upstream
+int _find(vector<Person> vect, const string nm, unsigned int start)
+=======
+int _find(vector <Person> vect, const string nm, unsigned int start)
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+{
+    do{
+        if(vect[start].getnm() == nm)
+            return start;
+        start++;
+    } while( start < vect.size() );
+
+    return 0;
+<<<<<<< Updated upstream
+}*/
+
+/*void _sort_name(vector<Person>& vect, const vector<string> nm)
+=======
+}
+
+void _sort_name(vector<Person>& vect, const vector<string> nm)
+>>>>>>> Stashed changes
+{
+    for(unsigned int i = 0; i<nm.size(); i++)
+    {
+        if(vect[i].getnm() != nm[i])
+            _swap(vect[i], vect[_find(vect, nm[i], i)]);
+    }
+}
+*/
+// main function
+// sort after name; rev = reverse
+/*void sort_name(vector<Person>& inputVect, bool rev)
+{
+    // variables
+    vector <string> nameVect;
+
+    // get all the names from list
+    for(unsigned int i=0;i<inputVect.size();i++)
+    {
+        nameVect.push_back(inputVect[i].getnm());
+    }
+>>>>>>> Stashed changes
 
 void sortCOMPUTER(QString& text_computer, QString& order)
 {
     char* choice;
     bool valid = false;
 
+<<<<<<< Updated upstream
     cout << "In which order would you like to output the table: " << endl;
     cout << "------------------------------------------------" << endl;
     cout << "[1] Oldest data to newest" << endl;
@@ -61,6 +120,15 @@ void sortCOMPUTER(QString& text_computer, QString& order)
     cout << "[4] Year of creation" << endl;
     cout << "[5] Was built or not" << endl;
     cout << "[6] Alphabetical by type" << endl;
+=======
+    // reverse it
+    if(rev)
+    {
+        reverse(nameVect.begin(), nameVect.end());
+    }
+
+    _sort_name(inputVect, nameVect);
+>>>>>>> Stashed changes
 
     do{
         valid = false;
@@ -105,6 +173,7 @@ void sortCONNECTION(QString& text_connection, QString& order)
     cout << "In which order would you like to output the table: " << endl;
     cout << "------------------------------------------------" << endl;
     cout << "[1] Oldest data to newest" << endl;
+<<<<<<< Updated upstream
     cout << "[2] In alphabetical order by person's name" << endl;
     cout << "[3] In reverse alphabetical order by person's name" << endl;
     cout << "[4] In alphabetical order by computer's name" << endl;
@@ -143,6 +212,34 @@ void sortCONNECTION(QString& text_connection, QString& order)
             text_connection += order;
         }
         else{
+=======
+    cout << "[2] In alphabetical order" << endl;
+    cout << "[3] In reverse alphabetical order" << endl;
+    cout << "[4] By birth year" << endl;
+    do{
+        inputchoice(choice);
+        if(choice == '1'){
+            outputscie(vect, true);
+            break;
+        }
+        else if(choice == '2'){
+            sort_name(vect);
+            printVect(vect);
+            break;
+        }
+        else if(choice == '3'){
+            sort_name(vect, true);
+            printVect(vect);
+            break;
+        }
+        else if (choice == '4'){
+            //sort_by_year(vect);
+            printVect(vect);
+                break;
+        }
+        else
+        {
+>>>>>>> Stashed changes
             cout << "Input is not valid! Please choose again" << endl;
             valid = true;
         }

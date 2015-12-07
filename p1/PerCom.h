@@ -12,6 +12,10 @@ public:
     string getsx();
     int getbrth();
     int getdth();
+    void setName(string pname);
+    void setsx(string psx);
+    void setbrth(int pbrth);
+    void setdth(int pdth);
 
 private:
     string name, sex;

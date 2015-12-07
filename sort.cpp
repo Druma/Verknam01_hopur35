@@ -98,4 +98,3 @@ void sortselection(vector<Person>& vect)
         }
     }while(valid == 'Y');
 }
-

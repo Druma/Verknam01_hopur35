@@ -27,5 +27,6 @@ void startwork(char val, QSqlDatabase& db);
 void choice_input(QSqlDatabase& db);
 void choice_output(QSqlDatabase& db);
 
+
 #endif // VARIABLES
 
