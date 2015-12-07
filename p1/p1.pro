@@ -19,6 +19,5 @@ HEADERS += \
     person.h \
     variables.h
 
-DISTFILES += \
-    data.txt
+DISTFILES +=
 

@@ -16,20 +16,17 @@ int main()
     db.setDatabaseName(dbName);
     char val = '\0';
     bool db_ok = db.open();
-	if(db_ok)
-	{
-		do{
-			startup();
-			inputchoice(val);
-			startwork(val, db);
-		}while(val != EXIT);
-	}
-	else
-		cout << "db.open() returned false" << endl << "Have you changed the path variable 'dbName' in main?" << endl;
-	db.close();
+    if(db_ok)
+    {
+        do{
+            startup();
+            inputchoice(val);
+            startwork(val, db);
+        }while(val != EXIT);
+    }
+    else
+        cout << "db.open() returned false" << endl << "Have you changed the path variable 'dbName' in main?" << endl;
+    db.close();
 
     return 0;
 }
-
-
-

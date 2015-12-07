@@ -130,8 +130,11 @@ void printPer(QSqlDatabase& db)
         {
             cout << " " << left  << setw(width1) << setfill(sep) << query.value("name").toString().toStdString()   << " | "
                         << right << setw(width2) << setfill(sep) << query.value("sex").toString().toStdString()    << " | "
-                        << right << setw(width1) << setfill(sep) << query.value("birth").toString().toStdString()  << " | "
-                        << right << setw(width1) << setfill(sep) << query.value("death").toString().toStdString()  << endl;
+                        << right << setw(width1) << setfill(sep) << query.value("birth").toString().toStdString()  << " | ";
+            if(query.value("death").toString().toStdString() == "0")
+                cout << right << setw(width1) << setfill(sep) << "" << endl;
+            else
+                cout << right << setw(width1) << setfill(sep) << query.value("death").toString().toStdString() << endl;
         }
     }
 }
