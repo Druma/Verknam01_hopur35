@@ -1,5 +1,5 @@
 #include <algorithm>
-#include "person.h"
+#include "PerCom.h"
 #include "variables.h"
 
 using namespace std;

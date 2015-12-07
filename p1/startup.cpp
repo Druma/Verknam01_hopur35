@@ -1,6 +1,7 @@
 #include "variables.h"
-//READY
-void startup() {
+
+void startup()
+{
     cout << "==================================" << endl;
     cout << "Please select one of the following:" << endl;
     cout << "----------------------------------" << endl;
@@ -9,13 +10,9 @@ void startup() {
     cout << "[3] - Exit the program" << endl;
     cout << "Input: ";
 }
-//READY
-/*void inputchoice(char& val) {
-    cin >> val;
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-}*/
-//READY
-char* inputchoice() {
+
+char* inputchoice()
+{
 	char* val = new char[0];
     cin >> val;
 	return val;
@@ -57,6 +54,7 @@ void choice_input(QSqlDatabase& db)
             cout << "Choice invalid! Please choose again" << endl;
     }while((strcmp(val, "1") != 0) && (strcmp(val, "2") != 0));
 }
+
 void choice_output(QSqlDatabase& db)
 {
     char* val = '\0';
