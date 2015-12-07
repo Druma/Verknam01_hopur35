@@ -35,19 +35,19 @@ Person::Person(string nm, string sx, int brth, int dth)
     string ans;
     brth = 0;
 
-    cout <<"Name: ";
+    cout << "Name: ";
     cin.sync();
     getline(cin, name);
     toupper(name[0]);
 
     do{
-        cout <<"Gender - female/male: ";
+        cout << "Gender - female/male: ";
         cin >> sex;
-        if(sex == "female" || sex == "f" || sex == "F" || sex == "Female"){
+        if(sex[0] == 'f' || sex[0] == 'F'){
             sex = "Female";
             err = false;
         }
-        else if(sex == "male" || sex == "m" || sex == "M" || sex == "Male"){
+        else if(sex[0] == 'm' || sex[0] == 'M'){
             sex = "Male";
             err = false;
         }
@@ -70,25 +70,32 @@ Person::Person(string nm, string sx, int brth, int dth)
         }    
     }while(err);
 
-    cout <<"Is the person still alive? y/n: ";
-    cin >> ans;
-    if(ans == "n" || ans == "N" || ans == "no" || ans == "NO" || ans == "No")
-    {
-        do{
-			cout <<"Year of Death: ";
-			dth = inputIntC();
-            if(dth >= brth){
-				err = false;
-			}
-			else{
-				
-				cout << "Please enter a valid date." << endl;
-				err = true;
-			}    
-		}while(err);
-    }
-    else
-        dth  = '\0'; //TRY TO CHANGE THIS INTO EMPTY LINE INSTEAD OF 0
+    do{
+        cout <<"Is the person still alive? y/n: ";
+        cin >> ans;
+        if(ans[0] == 'n' || ans[0] == 'N')
+        {
+            do{
+                cout <<"Year of Death: ";
+                dth = inputIntC();
+                if(dth >= brth){
+                    err = false;
+                }
+                else{
+                    cout << "Please enter a valid date." << endl;
+                    err = true;
+                }
+            }while(err);
+        }
+        else if(ans[0] == 'y' || ans[0] == 'Y') {
+            dth  = '\0'; //TRY TO CHANGE THIS INTO EMPTY LINE INSTEAD OF 0
+            err = false;
+        }
+        else {
+            cout << "Please enter a valid letter." << endl;
+            err = true;
+        }
+    }while(err);
 
 
  }

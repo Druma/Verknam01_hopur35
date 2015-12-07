@@ -9,13 +9,13 @@ void sortNAME(QString& text_person, QString& order)
     char* choice;
     bool valid = false;
 
-    cout << "In which order would you like to output the table: " << endl;
-    cout << "------------------------------------------------" << endl;
-    cout << "[1] Oldest data to newest" << endl;
-    cout << "[2] Alphabetical" << endl;
-    cout << "[3] Reverse alphabetical" << endl;
-    cout << "[4] Year of birth" << endl;
-    cout << "[5] Year of death" << endl;
+    cout << "In which order would you like to output the table: "   << endl;
+    cout << "------------------------------------------------"      << endl;
+    cout << "[1] Oldest data to newest"                             << endl;
+    cout << "[2] Alphabetical"                                      << endl;
+    cout << "[3] Reverse alphabetical"                              << endl;
+    cout << "[4] Year of birth"                                     << endl;
+    cout << "[5] Year of death"                                     << endl;
 
     do{
         valid = false;
@@ -53,14 +53,14 @@ void sortCOMPUTER(QString& text_computer, QString& order)
     char* choice;
     bool valid = false;
 
-    cout << "In which order would you like to output the table: " << endl;
-    cout << "------------------------------------------------" << endl;
-    cout << "[1] Oldest data to newest" << endl;
-    cout << "[2] Alphabetical by name" << endl;
-    cout << "[3] Reverse alphabetical by name" << endl;
-    cout << "[4] Year of creation" << endl;
-    cout << "[5] Was built or not" << endl;
-    cout << "[6] Alphabetical by type" << endl;
+    cout << "In which order would you like to output the table: "   << endl;
+    cout << "------------------------------------------------"      << endl;
+    cout << "[1] Oldest data to newest"                             << endl;
+    cout << "[2] Alphabetical by name"                              << endl;
+    cout << "[3] Reverse alphabetical by name"                      << endl;
+    cout << "[4] Year of creation"                                  << endl;
+    cout << "[5] Was built or not"                                  << endl;
+    cout << "[6] Alphabetical by type"                              << endl;
 
     do{
         valid = false;
@@ -102,14 +102,14 @@ void sortCONNECTION(QString& text_connection, QString& order)
     char* choice;
     bool valid = false;
 
-    cout << "In which order would you like to output the table: " << endl;
-    cout << "------------------------------------------------" << endl;
-    cout << "[1] Oldest data to newest" << endl;
-    cout << "[2] In alphabetical order by person's name" << endl;
-    cout << "[3] In reverse alphabetical order by person's name" << endl;
-    cout << "[4] In alphabetical order by computer's name" << endl;
-    cout << "[5] In reverse alphabetical order by computer's name" << endl;
-    cout << "[6] By year built" << endl;
+    cout << "In which order would you like to output the table: "   << endl;
+    cout << "------------------------------------------------"      << endl;
+    cout << "[1] Oldest data to newest"                             << endl;
+    cout << "[2] In alphabetical order by person's name"            << endl;
+    cout << "[3] In reverse alphabetical order by person's name"    << endl;
+    cout << "[4] In alphabetical order by computer's name"          << endl;
+    cout << "[5] In reverse alphabetical order by computer's name"  << endl;
+    cout << "[6] By year built"                                     << endl;
 
     do{
         valid = false;
