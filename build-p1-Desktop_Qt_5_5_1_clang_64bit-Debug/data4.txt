@@ -1,7 +1,0 @@
-æll;male;199;0
-;male;999;0
-s;male;1999;0
-sd;male;588;0
-ri;female;1995;0
-illard;male;1995;1005
-illard;female;2567;0

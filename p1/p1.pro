@@ -4,7 +4,6 @@ QT -= gui
 TARGET = p1
 CONFIG += console
 CONFIG -= app_bundle
-CONFIG   -= x86_64
 
 TEMPLATE = app
 
