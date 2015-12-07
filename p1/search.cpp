@@ -2,12 +2,27 @@
 #include "person.h"
 #include "variables.h"
 
-/*string get_str() {
-    string str;
+// return "SELECT * FROM x WHERE y LIKE '%z%'";
+QString get_str(string x, string y) {
+	
+	QString query;
+	string str;
+	
+	query = "SELECT * FROM ";
+	query.append(QString::fromStdString(x));
+	query.append(" WHERE ");
+	query.append(QString::fromStdString(y));
+	query.append(" LIKE '%");
+    
+	
     cout << "Enter a year or name/character to search: ";
     getline(cin, str);
-    return str;
-}*/
+	
+	query.append(QString::fromStdString(str));
+	query.append(" %'");
+	
+    return query;
+}
 
 /*int find_nm(vector<Person> vect, string nm, int startpos, vector<int>&matches) {
 

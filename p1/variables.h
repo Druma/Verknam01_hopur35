@@ -36,7 +36,7 @@ void output(char val, QSqlDatabase& db);
 //void find_year();
 //void search(vector<Person> vect);
 //int find_nm(vector<Person> vect, string nm, int startpos, vector<int>&matches);
-string get_str();
+QString get_str(string x, string y);
 
 #endif // VARIABLES
 
