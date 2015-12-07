@@ -1,9 +1,7 @@
 #include "person.h"
 #include "variables.h"
 #include <cstdlib>
-
 #include <iomanip>
-
 
 // helper function
 void NumOfSci(int& numOfSt)
@@ -25,7 +23,6 @@ void NumOfComp(int& numOfCom)
     if(numOfCom != 0)
         cout <<"\n--- Reading computers ---" << endl;
 }
-
 // update person
 void inputscie(int& numOfSci, QSqlDatabase& db)
 {
@@ -133,38 +130,5 @@ void output(char val, QSqlDatabase& db)
     else
         cout << "db.open() returned false" << endl;
     db.close();
-
-}
-
-string getValuetoString(string textSelect, string value, QSqlDatabase& db) {
-    db.open();
-
-    QString connection = "SELECT Person.name AS 'Person', Computer.name AS 'Computer', Computer.year_creation AS 'Year' FROM Person JOIN PersonComputer ON Person.ID = PersonComputer.id_person JOIN Computer ON PersonComputer.id_computer = Computer.ID;";
-    QString person = "SELECT name, sex, year_birth AS 'birth', year_death AS 'death' FROM Person;";
-    QString computer = "SELECT name, year_creation AS 'creation', was_built AS 'built', type FROM Computer;";
-    QSqlQuery query(db);
-
-    QString selection = QString::fromStdString(textSelect);
-
-    QString Qvalue = QString::fromStdString(value);
-
-    query.exec(selection);
-
-    string rstring = query.value(Qvalue).toString().toStdString();
-    db.close();
-    return rstring;
-}
-
-int getQuerySize(string textSelect, QSqlDatabase& db) {
-    QString connection = "SELECT Person.name AS 'Person', Computer.name AS 'Computer', Computer.year_creation AS 'Year' FROM Person JOIN PersonComputer ON Person.ID = PersonComputer.id_person JOIN Computer ON PersonComputer.id_computer = Computer.ID;";
-    QString person = "SELECT name, sex, year_birth AS 'birth', year_death AS 'death' FROM Person;";
-    QString computer = "SELECT name, year_creation AS 'creation', was_built AS 'built', type FROM Computer;";
-    QSqlQuery query(db);
-
-    QString selection = QString::fromStdString(textSelect);
-
-    query.exec(selection);
-
-    return query.size();
 
 }

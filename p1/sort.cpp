@@ -6,7 +6,7 @@ using namespace std;
 
 void sortNAME(QString& text_person, QString& order)
 {
-    char choice;
+    char* choice;
     bool valid = false;
 
     cout << "In which order would you like to output the table: " << endl;
@@ -18,23 +18,26 @@ void sortNAME(QString& text_person, QString& order)
     cout << "[5] Year of death" << endl;
 
     do{
-        inputchoice(choice);
-        if(choice == '1'){
+        valid = false;
+        cout << "Input: ";
+        choice = inputchoice();
+        cout << endl;
+        if(strcmp(choice, "1") == 0){
             text_person += order;
         }
-        else if(choice == '2'){
+        else if(strcmp(choice, "2") == 0){
             order = " ORDER BY name COLLATE NOCASE ASC;";
             text_person += order;
         }
-        else if(choice == '3'){
+        else if(strcmp(choice, "3") == 0){
             order = " ORDER BY name COLLATE NOCASE DESC;";
             text_person += order;
         }
-        else if(choice == '4'){
+        else if(strcmp(choice, "4") == 0){
             order = " ORDER BY year_birth, name COLLATE NOCASE ASC;";
             text_person += order;
         }
-        else if(choice == '5'){
+        else if(strcmp(choice, "5") == 0){
             order = " ORDER BY year_death, name COLLATE NOCASE ASC;";
             text_person += order;
         }
@@ -47,7 +50,7 @@ void sortNAME(QString& text_person, QString& order)
 
 void sortCOMPUTER(QString& text_computer, QString& order)
 {
-    char choice;
+    char* choice;
     bool valid = false;
 
     cout << "In which order would you like to output the table: " << endl;
@@ -60,27 +63,30 @@ void sortCOMPUTER(QString& text_computer, QString& order)
     cout << "[6] Alphabetical by type" << endl;
 
     do{
-        inputchoice(choice);
-        if(choice == '1'){
+        valid = false;
+        cout << "Input: ";
+        choice = inputchoice();
+        cout << endl;
+        if(strcmp(choice, "1") == 0){
             text_computer += order;
         }
-        else if(choice == '2'){
+        else if(strcmp(choice, "2") == 0){
             order = " ORDER BY name COLLATE NOCASE ASC;";
             text_computer += order;
         }
-        else if(choice == '3'){
+        else if(strcmp(choice, "3") == 0){
             order = " ORDER BY name COLLATE NOCASE DESC;";
             text_computer += order;
         }
-        else if(choice == '4'){
+        else if(strcmp(choice, "4") == 0){
             order = " ORDER BY year_creation, name COLLATE NOCASE ASC;";
             text_computer += order;
         }
-        else if(choice == '5'){
+        else if(strcmp(choice, "5") == 0){
             order = " ORDER BY was_built, name COLLATE NOCASE ASC;";
             text_computer += order;
         }
-        else if(choice == '6'){
+        else if(strcmp(choice, "6") == 0){
             order = " ORDER BY type, name COLLATE NOCASE ASC;";
             text_computer += order;
         }
@@ -93,7 +99,7 @@ void sortCOMPUTER(QString& text_computer, QString& order)
 
 void sortCONNECTION(QString& text_connection, QString& order)
 {
-    char choice;
+    char* choice;
     bool valid = false;
 
     cout << "In which order would you like to output the table: " << endl;
@@ -106,31 +112,34 @@ void sortCONNECTION(QString& text_connection, QString& order)
     cout << "[6] By year built" << endl;
 
     do{
-        inputchoice(choice);
-        if(choice == '1'){
+        valid = false;
+        cout << "Input: ";
+        choice = inputchoice();
+        cout << endl;
+        if(strcmp(choice, "1") == 0){
             text_connection += order;
             valid = false;
         }
-        else if(choice == '2'){
-            order = " ORDER BY Person ASC;";
+        else if(strcmp(choice, "2") == 0){
+            order = " ORDER BY Person COLLATE NOCASE ASC;";
             text_connection += order;
             valid = false;
         }
-        else if(choice == '3'){
-            order = " ORDER BY Person DESC;";
+        else if(strcmp(choice, "3") == 0){
+            order = " ORDER BY Person COLLATE NOCASE DESC;";
             text_connection += order;
             valid = false;
         }
-        else if(choice == '4'){
-            order = " ORDER BY Computer ASC;";
+        else if(strcmp(choice, "4") == 0){
+            order = " ORDER BY Computer COLLATE NOCASE ASC;";
             text_connection += order;
         }
-        else if(choice == '5'){
-            order = " ORDER BY Computer DESC;";
+        else if(strcmp(choice, "5") == 0){
+            order = " ORDER BY Computer COLLATE NOCASE DESC;";
             text_connection += order;
         }
-        else if(choice == '6'){
-            order = " ORDER BY Year, Person ASC;";
+        else if(strcmp(choice, "6") == 0){
+            order = " ORDER BY Year, Person COLLATE NOCASE ASC;";
             text_connection += order;
         }
         else{

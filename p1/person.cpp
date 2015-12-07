@@ -137,6 +137,7 @@ void printPer(QSqlDatabase& db)
                 cout << right << setw(width1) << setfill(sep) << query.value("death").toString().toStdString() << endl;
         }
     }
+    cout << endl;
 }
 
 //Computer information
@@ -262,6 +263,7 @@ void printComputer(QSqlDatabase& db)
             cout        << left  << setw(width1) << setfill(sep) << "No" << endl;
         }
     }
+    cout << endl;
 }
 //helper function to output person + computer relations
 void printConnection(QSqlDatabase& db)
@@ -296,4 +298,5 @@ void printConnection(QSqlDatabase& db)
 
         }
     }
+    cout << endl;
 }

@@ -17,8 +17,8 @@ int changeToInt(char* val)
 
 int inputInt(bool pos)
 {
-	char temp_char = '\0';
-	inputchoice(temp_char);
+    char* temp_char = '\0';
+    temp_char = inputchoice();
 	int temp_int = changeToInt(temp_char);
 	//cout << temp_int << endl;
 	if(pos && temp_int < 0)

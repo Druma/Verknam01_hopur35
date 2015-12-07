@@ -10,10 +10,10 @@ void startup() {
     cout << "Input: ";
 }
 //READY
-void inputchoice(char& val) {
+/*void inputchoice(char& val) {
     cin >> val;
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-}
+}*/
 //READY
 char* inputchoice() {
 	char* val = new char[0];
@@ -21,7 +21,7 @@ char* inputchoice() {
 	return val;
 }
 
-void startwork(char& val, QSqlDatabase& db)
+void startwork(char val, QSqlDatabase& db)
 {
     switch(val)
     {
@@ -35,37 +35,40 @@ void startwork(char& val, QSqlDatabase& db)
             break;
         default :
             cout << "Input is not valid!" << endl;
+            cout << endl;
     }
 }
+
 void choice_input(QSqlDatabase& db)
 {
 	int numOfChange = 0;
-	char val = '\0';
+    char* val = '\0';
 	 do{
 		cout <<"[1] - Input people" << endl;
 		cout <<"[2] - Input computers" << endl;
 		cout <<"Input: ";
-		inputchoice(val);
-		if(val == '1')
+        val = inputchoice();
+        cout << endl;
+        if(strcmp(val, "1") == 0)
 			inputscie(numOfChange, db);
-		else if(val == '2')
+        else if(strcmp(val, "2") == 0)
 			inputComp(numOfChange, db);
 		else
-			cout << "Choice invalid! Please choose again" << endl;
-	}while(val != '1' && val != '2');
+            cout << "Choice invalid! Please choose again" << endl;
+    }while((strcmp(val, "1") != 0) && (strcmp(val, "2") != 0));
 }
 void choice_output(QSqlDatabase& db)
 {
-	char val = '\0';
+    char* val = '\0';
 	 do{
 		cout <<"[1] - Output people" << endl;
 		cout <<"[2] - Output computers" << endl;
 		cout <<"[3] - Output people-computer relations" << endl;
 		cout <<"Input: ";
-		inputchoice(val);
-		if(val == '1' || val == '2' || val == '3')
-			output(val, db);
+        val = inputchoice();
+        if((strcmp(val, "1") == 0) || (strcmp(val, "2") == 0) || (strcmp(val, "3") == 0))
+            output(val[0], db);
 		else
 			cout << "Choice invalid! Please choose again" << endl;
-	}while(val != '1' && val != '2' && val !='3');
+    }while((strcmp(val, "1") != 0) && (strcmp(val, "2") != 0) && (strcmp(val, "3") != 0));
 }
