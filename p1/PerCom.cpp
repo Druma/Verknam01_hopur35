@@ -452,12 +452,13 @@ void legalConnectionInput(int& IDpers, int& IDcomp, QSqlDatabase& db)
 						IDcomp--;
 						cout << "Computer set." << endl;
 					}
-					if(!error)
+					
+				} // else for if(NUMcomputers ==1) END
+				if(!error)
 					{
 						IDpers = search_for_id(db, VECTpers.at(IDpers));
 						IDcomp = search_for_id(db, VECTcomp.at(IDcomp));
 					} // if(!error) #3 END
-				} // else for if(NUMcomputers ==1) END
 			}
 			else
 				cout << "No computer found. Ending Input." << endl;
