@@ -252,51 +252,53 @@ void printConnection(QSqlDatabase& db)
 
 void printPersonTable(QSqlQuery& query)
 {
-    int width1 = 16;
-    int width2 = 8;
+    int width1 = 24;
+    int width2 = 13;
+    int width3 = 6;
     char sep = ' ';
 
     cout << " " << left << setw(width1) << setfill(sep) << "Name"           << " | "
-                << left << setw(width2) << setfill(sep) << "Sex"            << " | "
-                << left << setw(width1) << setfill(sep) << "Year of Birth"  << " | "
-                << left << setw(width1) << setfill(sep) << "Year of Death"  << endl;
+                << left << setw(width3) << setfill(sep) << "Sex"            << " | "
+                << left << setw(width2) << setfill(sep) << "Year of Birth"  << " | "
+                << left << setw(width2) << setfill(sep) << "Year of Death"  << endl;
 
-    cout << left << setw((width1+3)*3 + width2 + 1) << setfill('-') << "" << endl;
+    cout << left << setw(width1 + width3 + width2 + width2 + 10) << setfill('-') << "" << endl;
 
     while(query.next())
     {
         cout << " " << left  << setw(width1) << setfill(sep) << query.value("name").toString().toStdString()   << " | "
-                    << right << setw(width2) << setfill(sep) << query.value("sex").toString().toStdString()    << " | "
-                    << right << setw(width1) << setfill(sep) << query.value("year_birth").toString().toStdString()  << " | ";
+                    << right << setw(width3) << setfill(sep) << query.value("sex").toString().toStdString()    << " | "
+                    << right << setw(width2) << setfill(sep) << query.value("year_birth").toString().toStdString()  << " | ";
         if(query.value("year_death").toString().toStdString() == "0")
-            cout << right << setw(width1) << setfill(sep) << "" << endl;
+            cout << right << setw(width2) << setfill(sep) << "" << endl;
         else
-            cout << right << setw(width1) << setfill(sep) << query.value("year_death").toString().toStdString() << endl;
+            cout << right << setw(width2) << setfill(sep) << query.value("year_death").toString().toStdString() << endl;
     }
 }
 int printPersonTableINT(QSqlQuery& query, vector<Person>& vect)
 {
-    int width1 = 16;
-    int width2 = 8;
+    int width1 = 24;
+    int width2 = 13;
+    int width3 = 6;
     char sep = ' ';
 
     cout << " " << left << setw(width1) << setfill(sep) << "Name"           << " | "
-                << left << setw(width2) << setfill(sep) << "Sex"            << " | "
-                << left << setw(width1) << setfill(sep) << "Year of Birth"  << " | "
-                << left << setw(width1) << setfill(sep) << "Year of Death"  << endl;
+                << left << setw(width3) << setfill(sep) << "Sex"            << " | "
+                << left << setw(width2) << setfill(sep) << "Year of Birth"  << " | "
+                << left << setw(width2) << setfill(sep) << "Year of Death"  << endl;
 
-    cout << left << setw((width1+3)*3 + width2 + 1) << setfill('-') << "" << endl;
+    cout << left << setw(width1 + width2 + width2 + width3 + 10) << setfill('-') << "" << endl;
 	int i = 0;
     while(query.next())
     {
 		vect.push_back(Person(query.value("name").toString().toStdString(), query.value("sex").toString().toStdString(), query.value("year_birth").toInt(), query.value("year_death").toInt()));
         cout << " " << left  << setw(width1) << setfill(sep) << vect.back().getnm()     << " | "
-                    << right << setw(width2) << setfill(sep) << vect.back().getsx()     << " | "
-                    << right << setw(width1) << setfill(sep) << vect.back().getbrth()   << " | ";
+                    << right << setw(width3) << setfill(sep) << vect.back().getsx()     << " | "
+                    << right << setw(width2) << setfill(sep) << vect.back().getbrth()   << " | ";
         if(vect.back().getdth() == 0)
-            cout << right << setw(width1) << setfill(sep) << "" << endl;
+            cout << right << setw(width2) << setfill(sep) << "" << endl;
         else
-            cout << right << setw(width1) << setfill(sep) << vect.back().getdth() << endl;
+            cout << right << setw(width2) << setfill(sep) << vect.back().getdth() << endl;
 		i++;
     }
 	return i;
@@ -429,25 +431,25 @@ void legalConnectionInput(int& IDpers, int& IDcomp, QSqlDatabase& db)
 			{
 				if(NUMcomputers ==1)
 				{
-					cout << "1 computer found and set" << endl;
+                    cout << "1 computer found and set" << endl;
 					IDcomp = NUMcomputers -1;
 					error = false;
 				}
 				else
 				{
-					cout << NUMcomputers << " computers found" << endl;
-					cout << "Enter the row number of the correct computer:";
+                    cout << NUMcomputers << " computers found" << endl;
+                    cout << "Enter the row number of the correct computer:";
 					IDcomp = inputInt();
 					if(IDcomp < 1)
 					{
-						cout << "Number not on list. Ending Input." << endl;
+                        cout << "Number not on list. Ending Input." << endl;
 						error = true;
 					}
 					else
 					{
 						error = false;
 						IDcomp--;
-						cout << "Computer set." << endl;
+                        cout << "Computer set." << endl;
 					}
 					
 				} // else for if(NUMcomputers ==1) END
