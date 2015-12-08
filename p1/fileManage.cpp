@@ -8,7 +8,7 @@ void NumOfSci(int& numOfSt)
 {
     cout <<"Number of computer scientist: ";
 
-    numOfSt = inputIntC();
+    numOfSt = inputInt();
 
     if(numOfSt != 0)
         cout <<"\n--- Reading scientist ---" << endl;
@@ -18,7 +18,7 @@ void NumOfComp(int& numOfCom)
 {
     cout <<"Number of computers: ";
 
-    numOfCom = inputIntC();
+    numOfCom = inputInt();
 
     if(numOfCom != 0)
         cout <<"\n--- Reading computers ---" << endl;
@@ -28,7 +28,7 @@ void NumOfConn(int& numOfConn)
 {
     cout <<"Number of connections: ";
 
-    numOfConn = inputIntC();
+    numOfConn = inputInt();
 
     if(numOfConn != 0)
         cout <<"\n--- Reading connections ---" << endl;

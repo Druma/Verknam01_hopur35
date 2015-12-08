@@ -9,10 +9,8 @@
 
 const char EXIT = '4';
 
-int changeToInt(char val);
 int changeToInt(char* val);
 int inputInt(bool pos = true);
-int inputIntC(bool pos = true);
 
 void NumOfSci(int& numOfSt);
 void NumOfComp(int& numOfCom);

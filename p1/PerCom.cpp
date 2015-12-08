@@ -61,7 +61,7 @@ void legalPerson(string& name, string& sex, int& brth, int& dth)
 
     do{
         cout <<"Year of Birth: ";
-        brth = inputIntC();
+        brth = inputInt();
         if(brth > 0){
             err = false;
         }
@@ -79,7 +79,7 @@ void legalPerson(string& name, string& sex, int& brth, int& dth)
         {
             do{
                 cout <<"Year of Death: ";
-                dth = inputIntC();
+                dth = inputInt();
                 if(dth >= brth){
                     err = false;
                 }
@@ -170,7 +170,7 @@ void legalComputer(string& name, int& yearCre, string& tp, bool& wc)
 	
 	do{
         cout <<"Year of Creation: ";
-        yearCre = inputIntC();
+        yearCre = inputInt();
         if(yearCre>0){
             err = false;
         }
