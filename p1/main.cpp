@@ -4,7 +4,7 @@
 using namespace std;
 
 QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-QString dbName = "Verknam01_hopur35.sqlite";
+QString dbName = "SQL_hopur35.sqlite";
 int main()
 {
     db.setDatabaseName(dbName);
