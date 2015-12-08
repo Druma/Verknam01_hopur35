@@ -3,21 +3,28 @@
 #include "variables.h"
 
 void search_people(QSqlDatabase &db) {
-    QString querystring;
-
-    string search;
-    cout << "Enter a name to search: ";
-    cin.ignore();
-    getline(cin, search);
-
-    querystring = get_str("Person", "name", search);
-
+    QString querystring = getPeopleQueryString();
     QSqlQuery query = getQuery(db, querystring);
 
     printPersonTable(query);
+}
+
+void search_computer(QSqlDatabase &db) {
+    QString querystring = getComputerQueryString();
+    QSqlQuery query = getQuery(db, querystring);
+
+    printComputerTable(query);
+}
+
+void search_type(QSqlDatabase &db) {
+    QString querystring = getTypeQueryString();
+    QSqlQuery query = getQuery(db, querystring);
+
+    printComputerTable(query);
 
 }
-QString search_people() {
+
+QString getPeopleQueryString() {
     QString querystring;
 
     string search;
@@ -31,22 +38,7 @@ QString search_people() {
 
 }
 
-void search_computer(QSqlDatabase &db) {
-    QString querystring;
-
-    string search;
-    cout << "Enter a name to search: ";
-    cin.ignore();
-    getline(cin, search);
-
-    querystring = get_str("Computer", "name", search);
-
-    QSqlQuery query = getQuery(db, querystring);
-
-    printComputerTable(query);
-
-}
-QString search_computer() {
+QString getComputerQueryString() {
     QString querystring;
 
     string search;
@@ -60,23 +52,7 @@ QString search_computer() {
 
 }
 
-void search_type(QSqlDatabase &db) {
-    QString querystring;
-
-    string search;
-    cout << "Enter a type to search: ";
-    cin.ignore();
-    getline(cin, search);
-
-    querystring = get_str("Computer", "type", search);
-
-    QSqlQuery query = getQuery(db, querystring);
-
-    printComputerTable(query);
-
-}
-/*
-QString search_type() {
+QString getTypeQueryString() {
     QString querystring;
 
     string search;
@@ -89,7 +65,7 @@ QString search_type() {
     return querystring;
 
 }
-*/
+
 
 int search_for_id(QSqlDatabase &db, Person obj)
 {

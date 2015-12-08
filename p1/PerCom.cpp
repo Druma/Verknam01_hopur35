@@ -293,9 +293,9 @@ int printPersonTableINT(QSqlQuery& query, vector<Person>& vect)
     while(query.next())
     {
 		vect.push_back(Person(query.value("name").toString().toStdString(), query.value("sex").toString().toStdString(), query.value("year_birth").toInt(), query.value("year_death").toInt()));
-        cout << " " << left  << setw(width1) << setfill(sep) << vect.back().getnm()   << " | "
-                    << right << setw(width2) << setfill(sep) << vect.back().getsx()   << " | "
-                    << right << setw(width1) << setfill(sep) << vect.back().getbrth()  << " | ";
+        cout << " " << left  << setw(width1) << setfill(sep) << vect.back().getnm()     << " | "
+                    << right << setw(width2) << setfill(sep) << vect.back().getsx()     << " | "
+                    << right << setw(width1) << setfill(sep) << vect.back().getbrth()   << " | ";
         if(vect.back().getdth() == 0)
             cout << right << setw(width1) << setfill(sep) << "" << endl;
         else
@@ -388,7 +388,7 @@ void legalConnectionInput(int& IDpers, int& IDcomp, QSqlDatabase& db)
 	IDcomp = 0;
 	vector<Person> VECTpers;
 	cout << "Inputing Person" << endl;
-	QString person = search_people();
+    QString person = getPeopleQueryString();
 	QSqlQuery query = getQuery(db, person);
 	int NUMpeople = printPersonTableINT(query, VECTpers);
 	if(NUMpeople < 1)
@@ -423,7 +423,7 @@ void legalConnectionInput(int& IDpers, int& IDcomp, QSqlDatabase& db)
 			error = false; // Justin Case
 			vector<Computer> VECTcomp;
 			cout << "Inputing Computer" << endl;
-			QString computer = search_computer();
+            QString computer = getComputerQueryString();
 			QSqlQuery query2 = getQuery(db, computer);
 			int NUMcomputers = printComputerTableINT(query2, VECTcomp);
 			if(NUMpeople < 1)

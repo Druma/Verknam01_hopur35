@@ -43,6 +43,10 @@ QString search_people();
 QString search_computer();
 //QString search_type();
 
+QString getTypeQueryString();
+QString getComputerQueryString();
+QString getPeopleQueryString();
+
 QSqlQuery o_getPersonQuery(QSqlDatabase& db);
 QSqlQuery o_getComputerQuery(QSqlDatabase& db);
 QSqlQuery o_getConnectionQuery(QSqlDatabase& db);
