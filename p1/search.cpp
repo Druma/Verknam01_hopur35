@@ -17,6 +17,19 @@ void search_people(QSqlDatabase &db) {
     printPersonTable(query);
 
 }
+QString search_people() {
+    QString querystring;
+
+    string search;
+    cout << "Enter a name to search: ";
+    cin.ignore();
+    getline(cin, search);
+
+    querystring = get_str("Person", "name", search);
+
+    return querystring;
+
+}
 
 void search_computer(QSqlDatabase &db) {
     QString querystring;
@@ -31,6 +44,19 @@ void search_computer(QSqlDatabase &db) {
     QSqlQuery query = getQuery(db, querystring);
 
     printComputerTable(query);
+
+}
+QString search_computer() {
+    QString querystring;
+
+    string search;
+    cout << "Enter a name to search: ";
+    cin.ignore();
+    getline(cin, search);
+
+    querystring = get_str("Computer", "name", search);
+
+    return querystring;
 
 }
 
@@ -49,6 +75,21 @@ void search_type(QSqlDatabase &db) {
     printComputerTable(query);
 
 }
+/*
+QString search_type() {
+    QString querystring;
+
+    string search;
+    cout << "Enter a type to search: ";
+    cin.ignore();
+    getline(cin, search);
+
+    querystring = get_str("Computer", "type", search);
+
+    return querystring;
+
+}
+*/
 
 // return "SELECT * FROM x WHERE y LIKE '%z%'";
 QString get_str(string table, string column, string search)

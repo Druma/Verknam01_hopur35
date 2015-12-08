@@ -23,6 +23,16 @@ void NumOfComp(int& numOfCom)
     if(numOfCom != 0)
         cout <<"\n--- Reading computers ---" << endl;
 }
+
+void NumOfConn(int& numOfConn)
+{
+    cout <<"Number of connections: ";
+
+    numOfConn = inputIntC();
+
+    if(numOfConn != 0)
+        cout <<"\n--- Reading connections ---" << endl;
+}
 // update person
 void inputscie(int& numOfSci, QSqlDatabase& db)
 {
@@ -95,6 +105,46 @@ void inputComp(int& numOfCom, QSqlDatabase& db)
         }
         inputComp.append(full_info);
         bool prepared = query.prepare(inputComp);
+        if(prepared){
+            query.exec();
+        }
+        else
+            cout << query.lastError().text().toStdString() << endl; //report error
+    }
+    else
+        cout << "db.open() returned false" << endl;
+    db.close();
+
+}
+
+// update Connection
+void inputConn(int& numOfConn, QSqlDatabase& db)
+{
+    bool db_ok = db.open();
+    if(db_ok)
+    {
+        QString full_info = "";
+        QString inputConnect = "INSERT INTO PersonComputer (id_person, id_computer) VALUES ";
+        QSqlQuery query(db);
+
+        NumOfConn(numOfConn);
+		int id_pers, id_comp;
+        for(int i = 0; i < numOfConn; i++){
+            legalConnectionInput(id_pers, id_comp, db);
+            full_info.append("(");
+            full_info.append(QString::number(id_pers));
+            full_info.append(", ");
+            full_info.append(QString::number(id_comp));
+            full_info.append(")");
+            if(i >= numOfConn-1){
+                full_info.append(";");
+            }
+            else
+                full_info.append(", ");
+        }
+        inputConnect.append(full_info);
+        //cout << endl << inputConnect.toStdString() << endl;
+        bool prepared = query.prepare(inputConnect);
         if(prepared){
             query.exec();
         }

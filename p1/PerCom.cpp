@@ -222,7 +222,7 @@ void printComputer(QSqlDatabase& db)
         printComputerTable(query);
     cout << endl;
 }
-
+/* ------------------------------------------------------------------------------------------ */
 //helper function to output person + computer relations
 void printConnection(QSqlDatabase& db)
 {
@@ -259,6 +259,32 @@ void printPersonTable(QSqlQuery& query)
             cout << right << setw(width1) << setfill(sep) << query.value("year_death").toString().toStdString() << endl;
     }
 }
+int printPersonTableINT(QSqlQuery& query)
+{
+    int width1 = 16;
+    int width2 = 8;
+    char sep = ' ';
+
+    cout << " " << left << setw(width1) << setfill(sep) << "Name"           << " | "
+                << left << setw(width2) << setfill(sep) << "Sex"            << " | "
+                << left << setw(width1) << setfill(sep) << "Year of Birth"  << " | "
+                << left << setw(width1) << setfill(sep) << "Year of Death"  << endl;
+
+    cout << left << setw((width1+3)*3 + width2 + 1) << setfill('-') << "" << endl;
+	int i = 0;
+    while(query.next())
+    {
+        cout << " " << left  << setw(width1) << setfill(sep) << query.value("name").toString().toStdString()   << " | "
+                    << right << setw(width2) << setfill(sep) << query.value("sex").toString().toStdString()    << " | "
+                    << right << setw(width1) << setfill(sep) << query.value("year_birth").toString().toStdString()  << " | ";
+        if(query.value("year_death").toString().toStdString() == "0")
+            cout << right << setw(width1) << setfill(sep) << "" << endl;
+        else
+            cout << right << setw(width1) << setfill(sep) << query.value("year_death").toString().toStdString() << endl;
+		i++;
+    }
+	return i;
+}
 
 void printComputerTable(QSqlQuery &query)
 {
@@ -285,6 +311,33 @@ void printComputerTable(QSqlQuery &query)
         cout        << left  << setw(width1) << setfill(sep) << "No" << endl;
     }
 }
+int printComputerTableINT(QSqlQuery &query)
+{
+    int width1 = 16;
+    int width2 = 24;
+    int width3 = 12;
+    char sep = ' ';
+
+    cout << " " << left << setw(width2) << setfill(sep) << "Name"           << " | "
+                << left << setw(width1) << setfill(sep) << "Creation Time"  << " | "
+                << left << setw(width3) << setfill(sep) << "Type"           << " | "
+                << left << setw(width1) << setfill(sep) << "Was Built(?)"   << endl;
+
+    cout << left << setw((width1+3)*2 + width2 + width3) <<setfill('-') << "" << endl;
+	int i = 0;
+    while(query.next())
+    {
+        cout << " " << left  << setw(width2) << setfill(sep) << query.value("name").toString().toStdString()      << " | "
+                    << right << setw(width1) << setfill(sep) << query.value("year_creation").toString().toStdString()  << " | "
+                    << left  << setw(width3) << setfill(sep) << query.value("type").toString().toStdString()      << " | ";
+            if(query.value("was_built").toString().toStdString() == "1")
+        cout        << left  << setw(width1) << setfill(sep) << "Yes" << endl;
+            else
+        cout        << left  << setw(width1) << setfill(sep) << "No" << endl;
+		i++;
+    }
+	return i;
+}
 
 void printConnectionTable(QSqlQuery &query)
 {
@@ -306,4 +359,85 @@ void printConnectionTable(QSqlQuery &query)
                     << left << setw(width3) << setfill(sep) << query.value("Year").toString().toStdString()     << endl;
 
     }
+}
+
+void legalConnectionInput(int& IDpers, int& IDcomp, QSqlDatabase& db)
+{
+	bool error = false;
+	IDpers = 0;
+	IDcomp = 0;
+	cout << "Inputing Person" << endl;
+	QString person = search_people();
+	QSqlQuery query = getQuery(db, person);
+	int NUMpeople = printPersonTableINT(query);
+	if(NUMpeople < 1)
+		error = true;
+	if(!error)
+	{
+		if(NUMpeople ==1)
+		{
+			cout << "1 person found and set" << endl;
+			IDpers = NUMpeople -1;
+			error = false;
+		}
+		else
+		{
+			cout << NUMpeople << " people found" << endl;
+			cout << "Enter the row number of the correct person:";
+			IDpers = inputInt();
+			if(IDpers < 1)
+			{
+				cout << "Number not on list. Ending Input." << endl;
+				error = true;
+			}
+			else
+			{
+				error = false;
+				IDpers--;
+				cout << "Person set." << endl;
+			}
+		} // else for if(NUMpeople ==1) END
+		if(!error)
+		{
+			error = false; // Justin Case
+			cout << "Inputing Compter" << endl;
+			QString computer = search_computer();
+			QSqlQuery query2 = getQuery(db, computer);
+			int NUMcomputers = printComputerTableINT(query2);
+			if(NUMpeople < 1)
+				error = true;
+			if(!error)
+			{
+				if(NUMcomputers ==1)
+				{
+					cout << "1 computer found and set" << endl;
+					IDcomp = NUMcomputers -1;
+					error = false;
+				}
+				else
+				{
+					cout << NUMcomputers << " computers found" << endl;
+					cout << "Enter the row number of the correct person:";
+					IDcomp = inputInt();
+					if(IDcomp < 1)
+					{
+						cout << "Number not on list. Ending Input." << endl;
+						error = true;
+					}
+					else
+					{
+						error = false;
+						IDcomp--;
+						cout << "Computer set." << endl;
+					}
+				} // else for if(NUMcomputers ==1) END
+			}
+			else
+				cout << "No computer found. Ending Input." << endl;
+		} // if(!error) #2 END
+	} // if(!error) #1 END
+	else
+		cout << "No person found. Ending Input." << endl;
+		
+	
 }

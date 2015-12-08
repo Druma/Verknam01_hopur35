@@ -39,5 +39,6 @@ void legalComputer(string& name, int& yearCre, string& tp, bool& wc);
 Computer setComputer();
 void printComputer(QSqlDatabase& db);
 void printConnection(QSqlDatabase& db);
+void legalConnectionInput(int& IDpers, int& IDcomp, QSqlDatabase& db);
 
 #endif // person.h

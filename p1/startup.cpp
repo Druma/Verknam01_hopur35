@@ -55,9 +55,11 @@ void choice_input(QSqlDatabase& db)
 			inputscie(numOfChange, db);
         else if(strcmp(val, "2") == 0)
 			inputComp(numOfChange, db);
+		else if(strcmp(val, "3") == 0)
+			inputConn(numOfChange, db);
 		else
             cout << "Choice invalid! Please choose again" << endl;
-    }while((strcmp(val, "1") != 0) && (strcmp(val, "2") != 0));
+    }while((strcmp(val, "1") != 0) && (strcmp(val, "2") != 0 && (strcmp(val, "3") != 0)));
 }
 
 void choice_output(QSqlDatabase& db)
