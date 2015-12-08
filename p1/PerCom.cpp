@@ -29,7 +29,6 @@ int Person::getdth()
  {
      return year_death;
  }
-
 //Checks if users input data for person is legal or not
 void legalPerson(string& name, string& sex, int& brth, int& dth)
  {
@@ -40,10 +39,9 @@ void legalPerson(string& name, string& sex, int& brth, int& dth)
     cout << "Name: ";
     cin.sync();
     getline(cin, name);
-    toupper(name[0]);
 
     do{
-        cout << "Gender - female/male: ";
+        cout << "Gender - f/m: ";
         cin >> sex;
         if(sex[0] == 'f' || sex[0] == 'F'){
             sex = "Female";
@@ -55,7 +53,7 @@ void legalPerson(string& name, string& sex, int& brth, int& dth)
         }
         else{
             err = true;
-            cout << "please enter: [female/male/f/m/F/M]" << endl;
+            cout << "Input invalid, please enter 'f' for female or 'm' for male" << endl;
         }
     }while(err);
 
@@ -90,7 +88,7 @@ void legalPerson(string& name, string& sex, int& brth, int& dth)
             }while(err);
         }
         else if(ans[0] == 'y' || ans[0] == 'Y') {
-            dth  = '\0'; //TRY TO CHANGE THIS INTO EMPTY LINE INSTEAD OF 0
+            dth  = '\0';
             err = false;
         }
         else {
@@ -98,7 +96,6 @@ void legalPerson(string& name, string& sex, int& brth, int& dth)
             err = true;
         }
     }while(err);
-
 
  }
 
@@ -126,7 +123,7 @@ void printPer(QSqlDatabase& db)
 		cout << endl;
 	}
 	else
-		cout << "db.open() returned false in printPer()" << endl;
+        cout << "Error! Could not open database in function printPer()" << endl;
 }
 
 //Computer information
@@ -232,7 +229,7 @@ void printComputer(QSqlDatabase& db)
 		cout << endl;
 	}
 	else
-		cout << "db.open() returned false in printComputer()" << endl;
+        cout << "Error! Could not open database in function printComputer()" << endl;
 }
 /* ------------------------------------------------------------------------------------------ */
 //helper function to output person + computer relations
@@ -250,7 +247,7 @@ void printConnection(QSqlDatabase& db)
 		cout << endl;
 	}
 	else
-		cout << "db.open() returned false in printConnection()" << endl;
+        cout << "Error! Could not open database in function printConnection()" << endl;
 }
 
 void printPersonTable(QSqlQuery& query)
