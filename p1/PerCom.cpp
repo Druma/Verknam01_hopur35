@@ -114,13 +114,19 @@ Person setPerson()
 
 void printPer(QSqlDatabase& db)
 {
-    QSqlQuery query = o_getPersonQuery(db);
+	bool db_ok = db.open();
+	if(db_ok)
+	{
+		QSqlQuery query = o_getPersonQuery(db);
 
-    if(query.lastError().isValid())
-        cout << query.lastError().text().toStdString() << endl;
-    else
-        printPersonTable(query);
-    cout << endl;
+		if(query.lastError().isValid())
+			cout << query.lastError().text().toStdString() << endl;
+		else
+			printPersonTable(query);
+		cout << endl;
+	}
+	else
+		cout << "db.open() returned false in printPer()" << endl;
 }
 
 //Computer information
@@ -214,25 +220,37 @@ Computer setComputer()
 
 void printComputer(QSqlDatabase& db)
 {
-    QSqlQuery query = o_getComputerQuery(db);
+	bool db_ok = db.open();
+	if(db_ok)
+	{
+		QSqlQuery query = o_getComputerQuery(db);
 
-    if(query.lastError().isValid())
-        cout << query.lastError().text().toStdString() << endl;
-    else
-        printComputerTable(query);
-    cout << endl;
+		if(query.lastError().isValid())
+			cout << query.lastError().text().toStdString() << endl;
+		else
+			printComputerTable(query);
+		cout << endl;
+	}
+	else
+		cout << "db.open() returned false in printComputer()" << endl;
 }
 /* ------------------------------------------------------------------------------------------ */
 //helper function to output person + computer relations
 void printConnection(QSqlDatabase& db)
 {
-    QSqlQuery query = o_getConnectionQuery(db);
+	bool db_ok = db.open();
+	if(db_ok)
+	{
+		QSqlQuery query = o_getConnectionQuery(db);
 
-    if(query.lastError().isValid())
-        cout << query.lastError().text().toStdString() << endl;
-    else
-        printConnectionTable(query);
-    cout << endl;
+		if(query.lastError().isValid())
+			cout << query.lastError().text().toStdString() << endl;
+		else
+			printConnectionTable(query);
+		cout << endl;
+	}
+	else
+		cout << "db.open() returned false in printConnection()" << endl;
 }
 
 void printPersonTable(QSqlQuery& query)

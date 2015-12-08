@@ -120,13 +120,8 @@ void inputComp(int& numOfCom, QSqlDatabase& db)
 // update Connection
 void inputConn(int& numOfConn, QSqlDatabase& db)
 {
-    bool db_ok = db.open();
-    if(db_ok)
-    {
-        QString full_info = "";
-        QString inputConnect = "INSERT INTO PersonComputer (id_person, id_computer) VALUES ";
-        QSqlQuery query(db);
-
+    
+		QString full_info = "";
         NumOfConn(numOfConn);
 		int id_pers, id_comp;
         for(int i = 0; i < numOfConn; i++){
@@ -142,8 +137,17 @@ void inputConn(int& numOfConn, QSqlDatabase& db)
             else
                 full_info.append(", ");
         }
-        inputConnect.append(full_info);
+        
+	bool db_ok = db.open();
+    if(db_ok)
+    {
+        
+        QString inputConnect = "INSERT INTO PersonComputer (id_person, id_computer) VALUES ";
+        QSqlQuery query(db);
+		
+		inputConnect.append(full_info);
         //cout << endl << inputConnect.toStdString() << endl;
+		
         bool prepared = query.prepare(inputConnect);
         if(prepared){
             query.exec();
