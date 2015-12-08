@@ -91,6 +91,41 @@ QString search_type() {
 }
 */
 
+int search_for_id(QSqlDatabase &db, Person obj)
+{
+	QString querrystring = "SELECT ID FROM Person WHERE name = \"";
+	querrystring.append(QString::fromStdString(obj.getnm()));
+	querrystring.append("\" AND sex = \"");
+	querrystring.append(QString::fromStdString(obj.getsx()));
+	querrystring.append("\" AND year_birth = ");
+	querrystring.append(QString::number(obj.getbrth()));
+	querrystring.append(" AND year_death = ");
+	querrystring.append(QString::number(obj.getdth()));
+	querrystring.append(";");
+	QSqlQuery querry(db);
+	querry.exec(querrystring);
+	while(querry.next())
+		return querry.value("ID").toInt();
+	return 0;
+}
+int search_for_id(QSqlDatabase &db, Computer obj)
+{
+	QString querrystring = "SELECT ID FROM Computer WHERE name = \"";
+	querrystring.append(QString::fromStdString(obj.getnm()));
+	querrystring.append("\" AND year_creation = ");
+	querrystring.append(QString::number(obj.getyc()));
+	querrystring.append(" AND type = \"");
+	querrystring.append(QString::fromStdString(obj.gettp()));
+	querrystring.append("\" AND was_built = ");
+	querrystring.append(QString::number(obj.getwcb()));
+	querrystring.append(";");
+	QSqlQuery querry(db);
+	querry.exec(querrystring);
+	while(querry.next())
+		return querry.value("ID").toInt();
+	return 0;
+}
+
 // return "SELECT * FROM x WHERE y LIKE '%z%'";
 QString get_str(string table, string column, string search)
 {

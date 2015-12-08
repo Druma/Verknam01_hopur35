@@ -277,7 +277,7 @@ void printPersonTable(QSqlQuery& query)
             cout << right << setw(width1) << setfill(sep) << query.value("year_death").toString().toStdString() << endl;
     }
 }
-int printPersonTableINT(QSqlQuery& query)
+int printPersonTableINT(QSqlQuery& query, vector<Person>& vect)
 {
     int width1 = 16;
     int width2 = 8;
@@ -292,13 +292,14 @@ int printPersonTableINT(QSqlQuery& query)
 	int i = 0;
     while(query.next())
     {
-        cout << " " << left  << setw(width1) << setfill(sep) << query.value("name").toString().toStdString()   << " | "
-                    << right << setw(width2) << setfill(sep) << query.value("sex").toString().toStdString()    << " | "
-                    << right << setw(width1) << setfill(sep) << query.value("year_birth").toString().toStdString()  << " | ";
-        if(query.value("year_death").toString().toStdString() == "0")
+		vect.push_back(Person(query.value("name").toString().toStdString(), query.value("sex").toString().toStdString(), query.value("year_birth").toInt(), query.value("year_death").toInt()));
+        cout << " " << left  << setw(width1) << setfill(sep) << vect.back().getnm()   << " | "
+                    << right << setw(width2) << setfill(sep) << vect.back().getsx()   << " | "
+                    << right << setw(width1) << setfill(sep) << vect.back().getbrth()  << " | ";
+        if(vect.back().getdth() == 0)
             cout << right << setw(width1) << setfill(sep) << "" << endl;
         else
-            cout << right << setw(width1) << setfill(sep) << query.value("year_death").toString().toStdString() << endl;
+            cout << right << setw(width1) << setfill(sep) << vect.back().getdth() << endl;
 		i++;
     }
 	return i;
@@ -329,7 +330,7 @@ void printComputerTable(QSqlQuery &query)
         cout        << left  << setw(width1) << setfill(sep) << "No" << endl;
     }
 }
-int printComputerTableINT(QSqlQuery &query)
+int printComputerTableINT(QSqlQuery &query, vector<Computer>& vect)
 {
     int width1 = 16;
     int width2 = 24;
@@ -345,10 +346,11 @@ int printComputerTableINT(QSqlQuery &query)
 	int i = 0;
     while(query.next())
     {
-        cout << " " << left  << setw(width2) << setfill(sep) << query.value("name").toString().toStdString()      << " | "
-                    << right << setw(width1) << setfill(sep) << query.value("year_creation").toString().toStdString()  << " | "
-                    << left  << setw(width3) << setfill(sep) << query.value("type").toString().toStdString()      << " | ";
-            if(query.value("was_built").toString().toStdString() == "1")
+		vect.push_back(Computer(query.value("name").toString().toStdString(), query.value("year_creation").toInt(), query.value("type").toString().toStdString(), query.value("was_built").toInt()));
+        cout << " " << left  << setw(width2) << setfill(sep) <<  vect.back().getnm() << " | "
+                    << right << setw(width1) << setfill(sep) <<  vect.back().getyc() << " | "
+                    << left  << setw(width3) << setfill(sep) <<  vect.back().gettp() << " | ";
+            if(vect.back().getwcb() == true)
         cout        << left  << setw(width1) << setfill(sep) << "Yes" << endl;
             else
         cout        << left  << setw(width1) << setfill(sep) << "No" << endl;
@@ -384,10 +386,11 @@ void legalConnectionInput(int& IDpers, int& IDcomp, QSqlDatabase& db)
 	bool error = false;
 	IDpers = 0;
 	IDcomp = 0;
+	vector<Person> VECTpers;
 	cout << "Inputing Person" << endl;
 	QString person = search_people();
 	QSqlQuery query = getQuery(db, person);
-	int NUMpeople = printPersonTableINT(query);
+	int NUMpeople = printPersonTableINT(query, VECTpers);
 	if(NUMpeople < 1)
 		error = true;
 	if(!error)
@@ -402,7 +405,7 @@ void legalConnectionInput(int& IDpers, int& IDcomp, QSqlDatabase& db)
 		{
 			cout << NUMpeople << " people found" << endl;
 			cout << "Enter the row number of the correct person:";
-			IDpers = inputInt();
+			IDpers = inputInt(); 
 			if(IDpers < 1)
 			{
 				cout << "Number not on list. Ending Input." << endl;
@@ -418,10 +421,11 @@ void legalConnectionInput(int& IDpers, int& IDcomp, QSqlDatabase& db)
 		if(!error)
 		{
 			error = false; // Justin Case
-			cout << "Inputing Compter" << endl;
+			vector<Computer> VECTcomp;
+			cout << "Inputing Computer" << endl;
 			QString computer = search_computer();
 			QSqlQuery query2 = getQuery(db, computer);
-			int NUMcomputers = printComputerTableINT(query2);
+			int NUMcomputers = printComputerTableINT(query2, VECTcomp);
 			if(NUMpeople < 1)
 				error = true;
 			if(!error)
@@ -435,7 +439,7 @@ void legalConnectionInput(int& IDpers, int& IDcomp, QSqlDatabase& db)
 				else
 				{
 					cout << NUMcomputers << " computers found" << endl;
-					cout << "Enter the row number of the correct person:";
+					cout << "Enter the row number of the correct computer:";
 					IDcomp = inputInt();
 					if(IDcomp < 1)
 					{
@@ -448,6 +452,11 @@ void legalConnectionInput(int& IDpers, int& IDcomp, QSqlDatabase& db)
 						IDcomp--;
 						cout << "Computer set." << endl;
 					}
+					if(!error)
+					{
+						IDpers = search_for_id(db, VECTpers.at(IDpers));
+						IDcomp = search_for_id(db, VECTcomp.at(IDcomp));
+					} // if(!error) #3 END
 				} // else for if(NUMcomputers ==1) END
 			}
 			else

@@ -5,6 +5,7 @@
 #include "PerCom.h"
 #include <cstdlib>
 #include <QtSql>
+#include <vector>
 
 const char EXIT = '4';
 
@@ -53,8 +54,11 @@ void printPersonTable(QSqlQuery& query);
 void printComputerTable(QSqlQuery& query);
 void printConnectionTable(QSqlQuery& query);
 
-int printPersonTableINT(QSqlQuery& query);
-int printComputerTableINT(QSqlQuery& query);
+int printPersonTableINT(QSqlQuery& query, vector<Person>& vect);
+int printComputerTableINT(QSqlQuery& query, vector<Computer>& vect);
+
+int search_for_id(QSqlDatabase &db, Person obj);
+int search_for_id(QSqlDatabase &db, Computer obj);
 
 #endif // VARIABLES
 
