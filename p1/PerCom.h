@@ -1,5 +1,5 @@
-# ifndef PERSON_H
-# define PERSON_H
+# ifndef PERCOM_H
+# define PERCOM_H
 #include <string>
 #include <QtSql>
 
@@ -41,4 +41,4 @@ void printComputer(QSqlDatabase& db);
 void printConnection(QSqlDatabase& db);
 void legalConnectionInput(int& IDpers, int& IDcomp, QSqlDatabase& db);
 
-#endif // person.h
+#endif // PerCom.h

@@ -148,3 +148,4 @@ void sortCONNECTION(QString& text_connection, QString& order)
         }
     }while(valid);
 }
+

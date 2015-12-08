@@ -60,6 +60,7 @@ void inputscie(int& numOfSci, QSqlDatabase& db)
             }
             else
                 full_info.append(", ");
+            cout << endl;
         }
         inputPers.append(full_info);
         //cout << endl << inputPers.toStdString() << endl;
@@ -161,7 +162,8 @@ void inputConn(int& numOfConn, QSqlDatabase& db)
 
 }
 
-QSqlQuery o_getPersonQuery(QSqlDatabase& db) {
+QSqlQuery o_getPersonQuery(QSqlDatabase& db)
+{
     QSqlQuery query(db);
     QString text_person = "SELECT name, sex, year_birth, year_death FROM Person";
     QString order = ";";
@@ -172,7 +174,8 @@ QSqlQuery o_getPersonQuery(QSqlDatabase& db) {
     return query;
 }
 
-QSqlQuery o_getComputerQuery(QSqlDatabase& db) {
+QSqlQuery o_getComputerQuery(QSqlDatabase& db)
+{
     QSqlQuery query(db);
     QString text_computer = "SELECT name, type, year_creation, was_built FROM Computer";
     QString order = ";";
@@ -183,7 +186,8 @@ QSqlQuery o_getComputerQuery(QSqlDatabase& db) {
     return query;
 }
 
-QSqlQuery o_getConnectionQuery(QSqlDatabase& db) {
+QSqlQuery o_getConnectionQuery(QSqlDatabase& db)
+{
     QSqlQuery query(db);
     QString text_connection = "SELECT Person.name AS 'Person', Computer.name AS 'Computer', Computer.year_creation AS 'Year' FROM Person "
                               "JOIN PersonComputer ON Person.ID = PersonComputer.id_person JOIN Computer ON PersonComputer.id_computer = Computer.ID";
@@ -195,7 +199,8 @@ QSqlQuery o_getConnectionQuery(QSqlDatabase& db) {
     return query;
 }
 
-QSqlQuery getQuery(QSqlDatabase& db, QString querystring) {
+QSqlQuery getQuery(QSqlDatabase& db, QString querystring)
+{
     QSqlQuery query(db);
 
     query.exec(querystring);
