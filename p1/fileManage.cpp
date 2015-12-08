@@ -106,29 +106,45 @@ void inputComp(int& numOfCom, QSqlDatabase& db)
     db.close();
 
 }
-// basic output function
-void output(char val, QSqlDatabase& db)
-{
-    bool db_ok = db.open();
-    if(db_ok)
-    {
-        cout << endl;
 
-        if(val == '1')
-        {
-            printPer(db);
-        }
-        else if(val == '2')
-        {
-            printComputer(db);
-        }
-        else if(val == '3')
-        {
-            printConnection(db);
-        }
-    }
-    else
-        cout << "db.open() returned false" << endl;
-    db.close();
+QSqlQuery o_getPersonQuery(QSqlDatabase& db) {
+    QSqlQuery query(db);
+    QString text_person = "SELECT name, sex, year_birth, year_death FROM Person";
+    QString order = ";";
 
+    sortNAME(text_person, order);
+    query.exec(text_person);
+
+    return query;
+}
+
+QSqlQuery o_getComputerQuery(QSqlDatabase& db) {
+    QSqlQuery query(db);
+    QString text_computer = "SELECT name, type, year_creation, was_built FROM Computer";
+    QString order = ";";
+
+    sortCOMPUTER(text_computer, order);
+    query.exec(text_computer);
+
+    return query;
+}
+
+QSqlQuery o_getConnectionQuery(QSqlDatabase& db) {
+    QSqlQuery query(db);
+    QString text_connection = "SELECT Person.name AS 'Person', Computer.name AS 'Computer', Computer.year_creation AS 'Year' FROM Person "
+                              "JOIN PersonComputer ON Person.ID = PersonComputer.id_person JOIN Computer ON PersonComputer.id_computer = Computer.ID";
+    QString order = ";";
+
+    sortCONNECTION(text_connection, order);
+    query.exec(text_connection);
+
+    return query;
+}
+
+QSqlQuery getQuery(QSqlDatabase& db, QString querystring) {
+    QSqlQuery query(db);
+
+    query.exec(querystring);
+
+    return query;
 }

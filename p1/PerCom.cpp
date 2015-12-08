@@ -1,6 +1,7 @@
 #include "variables.h"
 #include <limits>
 #include <iomanip>
+
 Person::Person(string nm, string sx, int brth, int dth)
 {
     name = nm;
@@ -8,28 +9,29 @@ Person::Person(string nm, string sx, int brth, int dth)
     year_birth = brth;
     year_death = dth;
 }
- string Person::getnm()
+
+string Person::getnm()
  {
      return name;
  }
 
- string Person::getsx()
+string Person::getsx()
  {
      return sex;
  }
 
- int Person::getbrth()
+int Person::getbrth()
  {
      return year_birth;
  }
 
- int Person::getdth()
+int Person::getdth()
  {
      return year_death;
  }
 
 //Checks if users input data for person is legal or not
- void legalPerson(string& name, string& sex, int& brth, int& dth)
+void legalPerson(string& name, string& sex, int& brth, int& dth)
  {
     bool err = false;
     string ans;
@@ -100,7 +102,7 @@ Person::Person(string nm, string sx, int brth, int dth)
 
  }
 
- Person setPerson()
+Person setPerson()
 {
     string name, sex;
     int brth, dth;
@@ -112,38 +114,12 @@ Person::Person(string nm, string sx, int brth, int dth)
 
 void printPer(QSqlDatabase& db)
 {
-    QSqlQuery query(db);
-    QString text_person = "SELECT name, sex, year_birth AS 'birth', year_death AS 'death' FROM Person";
-    QString order = ";";
+    QSqlQuery query = o_getPersonQuery(db);
 
-    sortNAME(text_person, order);
-    query.exec(text_person);
     if(query.lastError().isValid())
         cout << query.lastError().text().toStdString() << endl;
     else
-    {
-        int width1 = 16;
-        int width2 = 8;
-        char sep = ' ';
-
-        cout << left << setw(width1) << setfill(sep) << "Name"           << " | "
-             << left << setw(width2) << setfill(sep) << "Sex"            << " | "
-             << left << setw(width1) << setfill(sep) << "Year of Birth"  << " | "
-             << left << setw(width1) << setfill(sep) << "Year of Death"  << endl;
-
-        cout << left << setw((width1+3)*3 + width2) <<setfill('-') << "" << endl;
-
-        while(query.next())
-        {
-            cout << " " << left  << setw(width1) << setfill(sep) << query.value("name").toString().toStdString()   << " | "
-                        << right << setw(width2) << setfill(sep) << query.value("sex").toString().toStdString()    << " | "
-                        << right << setw(width1) << setfill(sep) << query.value("birth").toString().toStdString()  << " | ";
-            if(query.value("death").toString().toStdString() == "0")
-                cout << right << setw(width1) << setfill(sep) << "" << endl;
-            else
-                cout << right << setw(width1) << setfill(sep) << query.value("death").toString().toStdString() << endl;
-        }
-    }
+        printPersonTable(query);
     cout << endl;
 }
 
@@ -155,28 +131,29 @@ Computer::Computer(string nm, int yc, string tp, bool wc){
     comptype = tp;
     was_created = wc;
 }
- string Computer::getnm()
+
+string Computer::getnm()
  {
      return name;
  }
 
- int Computer::getyc()
+int Computer::getyc()
  {
      return year_creation;
  }
 
- string Computer::gettp()
+string Computer::gettp()
  {
      return comptype;
  }
 
- bool Computer::getwcb()
+bool Computer::getwcb()
  {
      return was_created;
  }
 
  //Checks if users input data is legal or not
- void legalComputer(string& name, int& yearCre, string& tp, bool& wc)
+void legalComputer(string& name, int& yearCre, string& tp, bool& wc)
  {
     bool err = false;
     string ans;
@@ -237,73 +214,96 @@ Computer setComputer()
 
 void printComputer(QSqlDatabase& db)
 {
-    QSqlQuery query(db);
-    QString text_computer = "SELECT name, year_creation AS 'creation', was_built AS 'built', type FROM Computer";
-    QString order = ";";
+    QSqlQuery query = o_getComputerQuery(db);
 
-    sortCOMPUTER(text_computer, order);
-    query.exec(text_computer);
     if(query.lastError().isValid())
         cout << query.lastError().text().toStdString() << endl;
     else
-    {
-        int width1 = 16;
-        int width2 = 24;
-        int width3 = 12;
-        char sep = ' ';
-
-        cout << " " << left << setw(width2) << setfill(sep) << "Name"           << " | "
-                    << left << setw(width1) << setfill(sep) << "Creation Time"  << " | "
-                    << left << setw(width3) << setfill(sep) << "Type"           << " | "
-                    << left << setw(width1) << setfill(sep) << "Was Built(?)"   << endl;
-
-        cout << left << setw((width1+3)*2 + width2 + width3) <<setfill('-') << "" << endl;
-
-        while(query.next())
-        {
-            cout << " " << left  << setw(width2) << setfill(sep) << query.value("name").toString().toStdString()      << " | "
-                        << right << setw(width1) << setfill(sep) << query.value("creation").toString().toStdString()  << " | "
-                        << left  << setw(width3) << setfill(sep) << query.value("type").toString().toStdString()      << " | ";
-                if(query.value("built").toString().toStdString() == "1")
-            cout        << left  << setw(width1) << setfill(sep) << "Yes" << endl;
-                else
-            cout        << left  << setw(width1) << setfill(sep) << "No" << endl;
-        }
-    }
+        printComputerTable(query);
     cout << endl;
 }
+
 //helper function to output person + computer relations
 void printConnection(QSqlDatabase& db)
 {
-    QSqlQuery query(db);
-    QString text_connection = "SELECT Person.name AS 'Person', Computer.name AS 'Computer', Computer.year_creation AS 'Year' FROM Person "
-                              "JOIN PersonComputer ON Person.ID = PersonComputer.id_person JOIN Computer ON PersonComputer.id_computer = Computer.ID";
-    QString order = ";";
+    QSqlQuery query = o_getConnectionQuery(db);
 
-    sortCONNECTION(text_connection, order);
-    query.exec(text_connection);
     if(query.lastError().isValid())
         cout << query.lastError().text().toStdString() << endl;
     else
-    {
-        int width1 = 16;
-        int width2 = 24;
-        int width3 = 8;
-        char sep = ' ';
-
-        cout << " " << left << setw(width1) << setfill(sep) << "Person"         << " | "
-                    << left << setw(width2) << setfill(sep) << "Computer"       << " | "
-                    << left << setw(width3) << setfill(sep) << "Year"           << endl;
-
-        cout << left << setw(width1 + width2 + width3 + 6) <<setfill('-') << "" << endl;
-
-        while(query.next())
-        {
-            cout << " " << left << setw(width1) << setfill(sep) << query.value("Person").toString().toStdString()   << " | "
-                        << left << setw(width2) << setfill(sep) << query.value("Computer").toString().toStdString() << " | "
-                        << left << setw(width3) << setfill(sep) << query.value("Year").toString().toStdString()     << endl;
-
-        }
-    }
+        printConnectionTable(query);
     cout << endl;
+}
+
+void printPersonTable(QSqlQuery& query)
+{
+    int width1 = 16;
+    int width2 = 8;
+    char sep = ' ';
+
+    cout << " " << left << setw(width1) << setfill(sep) << "Name"           << " | "
+                << left << setw(width2) << setfill(sep) << "Sex"            << " | "
+                << left << setw(width1) << setfill(sep) << "Year of Birth"  << " | "
+                << left << setw(width1) << setfill(sep) << "Year of Death"  << endl;
+
+    cout << left << setw((width1+3)*3 + width2 + 1) << setfill('-') << "" << endl;
+
+    while(query.next())
+    {
+        cout << " " << left  << setw(width1) << setfill(sep) << query.value("name").toString().toStdString()   << " | "
+                    << right << setw(width2) << setfill(sep) << query.value("sex").toString().toStdString()    << " | "
+                    << right << setw(width1) << setfill(sep) << query.value("year_birth").toString().toStdString()  << " | ";
+        if(query.value("year_death").toString().toStdString() == "0")
+            cout << right << setw(width1) << setfill(sep) << "" << endl;
+        else
+            cout << right << setw(width1) << setfill(sep) << query.value("year_death").toString().toStdString() << endl;
+    }
+}
+
+void printComputerTable(QSqlQuery &query)
+{
+    int width1 = 16;
+    int width2 = 24;
+    int width3 = 12;
+    char sep = ' ';
+
+    cout << " " << left << setw(width2) << setfill(sep) << "Name"           << " | "
+                << left << setw(width1) << setfill(sep) << "Creation Time"  << " | "
+                << left << setw(width3) << setfill(sep) << "Type"           << " | "
+                << left << setw(width1) << setfill(sep) << "Was Built(?)"   << endl;
+
+    cout << left << setw((width1+3)*2 + width2 + width3) <<setfill('-') << "" << endl;
+
+    while(query.next())
+    {
+        cout << " " << left  << setw(width2) << setfill(sep) << query.value("name").toString().toStdString()      << " | "
+                    << right << setw(width1) << setfill(sep) << query.value("year_creation").toString().toStdString()  << " | "
+                    << left  << setw(width3) << setfill(sep) << query.value("type").toString().toStdString()      << " | ";
+            if(query.value("was_built").toString().toStdString() == "1")
+        cout        << left  << setw(width1) << setfill(sep) << "Yes" << endl;
+            else
+        cout        << left  << setw(width1) << setfill(sep) << "No" << endl;
+    }
+}
+
+void printConnectionTable(QSqlQuery &query)
+{
+    int width1 = 16;
+    int width2 = 24;
+    int width3 = 8;
+    char sep = ' ';
+
+    cout << " " << left << setw(width1) << setfill(sep) << "Person"         << " | "
+                << left << setw(width2) << setfill(sep) << "Computer"       << " | "
+                << left << setw(width3) << setfill(sep) << "Year"           << endl;
+
+    cout << left << setw(width1 + width2 + width3 + 6) <<setfill('-') << "" << endl;
+
+    while(query.next())
+    {
+        cout << " " << left << setw(width1) << setfill(sep) << query.value("Person").toString().toStdString()   << " | "
+                    << left << setw(width2) << setfill(sep) << query.value("Computer").toString().toStdString() << " | "
+                    << left << setw(width3) << setfill(sep) << query.value("Year").toString().toStdString()     << endl;
+
+    }
 }
