@@ -29,8 +29,7 @@ QString getPeopleQueryString() {
 
     string search;
     cout << "Enter a name to search: ";
-    cin.ignore();
-    getline(cin, search);
+    search = inputchoice();
 
     querystring = get_str("Person", "name", search);
 
@@ -43,8 +42,7 @@ QString getComputerQueryString() {
 
     string search;
     cout << "Enter a name to search: ";
-    cin.ignore();
-    getline(cin, search);
+    search = inputchoice();
 
     querystring = get_str("Computer", "name", search);
 
@@ -70,6 +68,7 @@ QString getTypeQueryString() {
 int search_for_id(QSqlDatabase &db, Person obj)
 {
 	QString querrystring = "SELECT ID FROM Person WHERE name = \"";
+	
 	querrystring.append(QString::fromStdString(obj.getnm()));
 	querrystring.append("\" AND sex = \"");
 	querrystring.append(QString::fromStdString(obj.getsx()));
@@ -78,8 +77,10 @@ int search_for_id(QSqlDatabase &db, Person obj)
 	querrystring.append(" AND year_death = ");
 	querrystring.append(QString::number(obj.getdth()));
 	querrystring.append(";");
+	
 	QSqlQuery querry(db);
 	querry.exec(querrystring);
+	
 	while(querry.next())
 		return querry.value("ID").toInt();
 	return 0;
@@ -87,6 +88,7 @@ int search_for_id(QSqlDatabase &db, Person obj)
 int search_for_id(QSqlDatabase &db, Computer obj)
 {
 	QString querrystring = "SELECT ID FROM Computer WHERE name = \"";
+	
 	querrystring.append(QString::fromStdString(obj.getnm()));
 	querrystring.append("\" AND year_creation = ");
 	querrystring.append(QString::number(obj.getyc()));
@@ -95,8 +97,10 @@ int search_for_id(QSqlDatabase &db, Computer obj)
 	querrystring.append("\" AND was_built = ");
 	querrystring.append(QString::number(obj.getwcb()));
 	querrystring.append(";");
+	
 	QSqlQuery querry(db);
 	querry.exec(querrystring);
+	
 	while(querry.next())
 		return querry.value("ID").toInt();
 	return 0;
