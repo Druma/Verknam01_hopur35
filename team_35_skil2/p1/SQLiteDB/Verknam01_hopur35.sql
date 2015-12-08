@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS "Computer";
+CREATE TABLE "Computer" ("ID" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL , "name" VARCHAR(255) NOT NULL , "year_creation" INTEGER, "was_built" BOOL NOT NULL , type VARCHAR(255));
+INSERT INTO "Computer" VALUES(1,'The difference engine',1832,0,'mechanical');
+INSERT INTO "Computer" VALUES(2,'Analytical engine',1871,0,'mechanical');
+DROP TABLE IF EXISTS "Person";
+CREATE TABLE "Person" ("ID" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , "name" VARCHAR(255) NOT NULL , "sex" VARCHAR(5), "year_birth" INTEGER NOT NULL , "year_death" INTEGER NOT NULL  DEFAULT 0);
+INSERT INTO "Person" VALUES(1,'Charles Babbage','Male',1791,1871);
+DROP TABLE IF EXISTS "PersonComputer";
+CREATE TABLE "PersonComputer" ("ID" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL , "id_person" INTEGER NOT NULL , "id_computer" INTEGER NOT NULL, FOREIGN KEY(id_person) REFERENCES Person(ID), FOREIGN KEY(id_computer) REFERENCES Computer(ID) );
+INSERT INTO "PersonComputer" VALUES(1,1,1);
+INSERT INTO "PersonComputer" VALUES(2,1,2);

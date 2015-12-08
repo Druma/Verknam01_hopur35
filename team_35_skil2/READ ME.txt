@@ -1,0 +1,5 @@
+Það þarf að láta SQL_hopur35.sqlite í build möppuna.
+
+Þegar er í "input connections", ef það er látt 2+ tengingar og það er gert villu kemur "ending input" en það fer það í að búa til næstu tenginu.
+Ef að það er slegið stafi í stað tölustafi fyrir "number of conections" þá kemur villa með query.
+Það kemur stundum "database not open", það virðist gerast að handhófi. Ef svo tilvig gerist virkar (stundum) að gera einhvað annað í forritinu eða endurhlaða það.
