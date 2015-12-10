@@ -2,7 +2,8 @@
 #define VARIABLES
 #include <iostream>
 #include <limits>
-#include "PerCom.h"
+#include "person.h"
+#include "computer.h"
 #include <cstdlib>
 #include <QtSql>
 #include <vector>
@@ -19,6 +20,14 @@ void NumOfConn(int& numOfConn);
 void inputscie(int& numOfSci, QSqlDatabase& db);
 void inputComp(int& numOfCom, QSqlDatabase& db);
 void inputConn(int& numOfConn, QSqlDatabase& db);
+
+void printPer(QSqlDatabase& db);
+void printComputer(QSqlDatabase& db);
+void printConnection(QSqlDatabase& db);
+
+void legalConnectionInput(int& IDpers, int& IDcomp, QSqlDatabase& db);
+void legalPerson(string& name, string& sex, int& brth, int& dth);
+void legalComputer(string& name, int& yearCre, string& tp, bool& wc);
 
 void output(char val, QSqlDatabase& db);
 QString get_str(string table, string column, string search);

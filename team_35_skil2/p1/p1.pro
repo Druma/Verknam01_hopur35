@@ -13,11 +13,13 @@ SOURCES += main.cpp \
     startup.cpp \
     errorhandling.cpp \ 
     search.cpp \
-    PerCom.cpp
+    computer.cpp \
+    person.cpp
 
 HEADERS += \
     variables.h \
-    PerCom.h
+    computer.h \
+    person.h
 
 DISTFILES +=
 

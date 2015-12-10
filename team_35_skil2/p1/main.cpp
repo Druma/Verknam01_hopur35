@@ -1,4 +1,5 @@
-#include "PerCom.h"
+#include "person.h"
+#include "computer.h"
 #include "variables.h"
 #include <QtSql>
 using namespace std;

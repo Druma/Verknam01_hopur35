@@ -1,5 +1,6 @@
 #include <algorithm>
-#include "PerCom.h"
+#include "person.h"
+#include "computer.h"
 #include "variables.h"
 
 using namespace std;

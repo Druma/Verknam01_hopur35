@@ -1,5 +1,6 @@
 #include <sstream>
-#include "PerCom.h"
+#include "person.h"
+#include "computer.h"
 #include "variables.h"
 
 void search_people(QSqlDatabase &db) {
@@ -69,13 +70,13 @@ int search_for_id(QSqlDatabase &db, Person obj)
 {
 	QString querrystring = "SELECT ID FROM Person WHERE name = \"";
 	
-	querrystring.append(QString::fromStdString(obj.getnm()));
+    querrystring.append(QString::fromStdString(obj.getname()));
 	querrystring.append("\" AND sex = \"");
-	querrystring.append(QString::fromStdString(obj.getsx()));
+    querrystring.append(QString::fromStdString(obj.getsex()));
 	querrystring.append("\" AND year_birth = ");
-	querrystring.append(QString::number(obj.getbrth()));
+    querrystring.append(QString::number(obj.getbirth()));
 	querrystring.append(" AND year_death = ");
-	querrystring.append(QString::number(obj.getdth()));
+    querrystring.append(QString::number(obj.getdeath()));
 	querrystring.append(";");
 	
 	QSqlQuery querry(db);
@@ -89,13 +90,13 @@ int search_for_id(QSqlDatabase &db, Computer obj)
 {
 	QString querrystring = "SELECT ID FROM Computer WHERE name = \"";
 	
-	querrystring.append(QString::fromStdString(obj.getnm()));
+    querrystring.append(QString::fromStdString(obj.getname()));
 	querrystring.append("\" AND year_creation = ");
-	querrystring.append(QString::number(obj.getyc()));
+    querrystring.append(QString::number(obj.getyearcreated()));
 	querrystring.append(" AND type = \"");
-	querrystring.append(QString::fromStdString(obj.gettp()));
+    querrystring.append(QString::fromStdString(obj.gettype()));
 	querrystring.append("\" AND was_built = ");
-	querrystring.append(QString::number(obj.getwcb()));
+    querrystring.append(QString::number(obj.getwascreated()));
 	querrystring.append(";");
 	
 	QSqlQuery querry(db);
