@@ -3,7 +3,7 @@
 #include <QtSql>
 #include <string>
 #include "person.h"
-
+//class for comp
 class Computer {
 public:
     Computer(string nm, int yc, string tp, bool wc);

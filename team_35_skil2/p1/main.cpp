@@ -3,7 +3,7 @@
 #include "variables.h"
 #include <QtSql>
 using namespace std;
-
+//I BELIEVE I CAN FLY
 QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
 QString dbName = "SQL_hopur35.sqlite";
 int main()

@@ -4,7 +4,7 @@
 #include <QtSql>
 
 using namespace std;
-
+//class for pers
 class Person {
 public:
     Person(string nm, string sx, int brth, int dth);

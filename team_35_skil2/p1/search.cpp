@@ -2,7 +2,7 @@
 #include "person.h"
 #include "computer.h"
 #include "variables.h"
-
+//WHAT DO YOU MEAN
 void search_people(QSqlDatabase &db) {
     QString querystring = getPeopleQueryString();
     QSqlQuery query = getQuery(db, querystring);

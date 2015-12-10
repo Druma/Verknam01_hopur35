@@ -1,6 +1,6 @@
 #include "computer.h"
 #include "variables.h"
-
+//computer class
 //Computer information
 Computer::Computer(string nm, int yc, string tp, bool wc){
 

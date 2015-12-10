@@ -2,7 +2,7 @@
 #include "person.h"
 #include "computer.h"
 #include "variables.h"
-
+//SORTERI SORT SORT SORT
 using namespace std;
 
 void sortNAME(QString& text_person, QString& order)

@@ -1,5 +1,5 @@
 #include "variables.h"
-
+//HAKUNA MATATA
 void startup()
 {
     cout << "=================================="    << endl;

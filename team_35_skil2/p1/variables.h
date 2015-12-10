@@ -9,7 +9,7 @@
 #include <vector>
 
 const char EXIT = '4';
-
+//function declaration
 int changeToInt(char* val);
 int inputInt(bool pos = true);
 

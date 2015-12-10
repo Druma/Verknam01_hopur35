@@ -1,5 +1,5 @@
 #include "variables.h"
-
+//errrrrrrr
 int changeToInt(char* val)
 {
 	if(isdigit(val[0]))
