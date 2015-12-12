@@ -90,5 +90,15 @@ void MainWindow::displayComputers(vector<Computer> computers)
 
 void MainWindow::on_button_add_scientist_clicked()
 {
+    addScientistDialog add_ScientistDialog;
+    int addScientist = add_ScientistDialog.exec();
 
+    if(addScientist == 0)
+    {
+        displayAllScientists();
+    }
+    else
+    {
+        //Error
+    }
 }
