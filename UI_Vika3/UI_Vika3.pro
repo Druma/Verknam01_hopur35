@@ -47,4 +47,5 @@ FORMS    += UI/mainwindow.ui \
 INCLUDEPATH += UI \
     Models \
     repositories \
-    services
+    services \
+    ui
