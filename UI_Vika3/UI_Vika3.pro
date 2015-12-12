@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     services/linkservice.cpp \
     repositories/scientistrepository.cpp \
     repositories/computerrepository.cpp \
-    repositories/linkrepository.cpp
+    repositories/linkrepository.cpp \
+    UI/addscientistdialog.cpp
 
 HEADERS  += UI/mainwindow.h \
     models/scientist.h \
@@ -37,9 +38,11 @@ HEADERS  += UI/mainwindow.h \
     services/linkservice.h \
     repositories/scientistrepository.h \
     repositories/computerrepository.h \
-    repositories/linkrepository.h
+    repositories/linkrepository.h \
+    UI/addscientistdialog.h
 
-FORMS    += UI/mainwindow.ui
+FORMS    += UI/mainwindow.ui \
+    UI/addscientistdialog.ui
 
 INCLUDEPATH += UI \
     Models \

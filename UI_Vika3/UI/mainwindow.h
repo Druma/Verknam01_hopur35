@@ -20,9 +20,13 @@ public:
 
 private slots:
 
+    void on_button_add_scientist_clicked();
+
 private:
     void displayAllScientists();
     void displayScientists(std::vector<Scientist>);
+
+    ScientistService scientistService;
 
     Ui::MainWindow *ui;
 };

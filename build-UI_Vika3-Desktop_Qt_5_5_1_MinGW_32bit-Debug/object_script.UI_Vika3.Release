@@ -10,5 +10,7 @@ INPUT(
 ./release\scientistrepository.o
 ./release\computerrepository.o
 ./release\linkrepository.o
+./release\addscientistdialog.o
 ./release\moc_mainwindow.o
+./release\moc_addscientistdialog.o
 );

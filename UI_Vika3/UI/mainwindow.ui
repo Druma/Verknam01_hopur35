@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Scientists and Computers</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -102,6 +102,13 @@
              </widget>
             </item>
             <item>
+             <widget class="QPushButton" name="button_edit_scientist">
+              <property name="text">
+               <string>Edit</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QPushButton" name="button_remove_scientist">
               <property name="text">
                <string>Remove</string>
@@ -110,18 +117,11 @@
             </item>
            </layout>
           </item>
-          <item>
-           <widget class="QPushButton" name="button_edit_scientist">
-            <property name="text">
-             <string>Edit</string>
-            </property>
-           </widget>
-          </item>
          </layout>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_scientist">
+      <widget class="QWidget" name="tab_computer">
        <attribute name="title">
         <string>Computers</string>
        </attribute>
@@ -206,6 +206,13 @@
              </widget>
             </item>
             <item>
+             <widget class="QPushButton" name="button_edit_computer">
+              <property name="text">
+               <string>Edit</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QPushButton" name="button_remove_computer">
               <property name="text">
                <string>Remove</string>
@@ -214,18 +221,11 @@
             </item>
            </layout>
           </item>
-          <item>
-           <widget class="QPushButton" name="button_edit_computer">
-            <property name="text">
-             <string>Edit</string>
-            </property>
-           </widget>
-          </item>
          </layout>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_scientist">
+      <widget class="QWidget" name="tab_connection">
        <attribute name="title">
         <string>Connections</string>
        </attribute>
@@ -238,22 +238,17 @@
              <widget class="QComboBox" name="dropbox_output_computer_column_2">
               <item>
                <property name="text">
-                <string>Name</string>
+                <string>Scientist</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>Type</string>
+                <string>Computer</string>
                </property>
               </item>
               <item>
                <property name="text">
                 <string>Year built</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Was built</string>
                </property>
               </item>
              </widget>
@@ -305,6 +300,13 @@
              </widget>
             </item>
             <item>
+             <widget class="QPushButton" name="button_edit_computer_2">
+              <property name="text">
+               <string>Edit</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <widget class="QPushButton" name="button_remove_computer_2">
               <property name="text">
                <string>Remove</string>
@@ -312,13 +314,6 @@
              </widget>
             </item>
            </layout>
-          </item>
-          <item>
-           <widget class="QPushButton" name="button_edit_computer_2">
-            <property name="text">
-             <string>Edit</string>
-            </property>
-           </widget>
           </item>
          </layout>
         </item>

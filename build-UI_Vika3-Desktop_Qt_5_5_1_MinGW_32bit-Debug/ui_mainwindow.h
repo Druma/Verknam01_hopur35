@@ -44,9 +44,9 @@ public:
     QTableWidget *table_scientist;
     QHBoxLayout *horizontalLayout;
     QPushButton *button_add_scientist;
-    QPushButton *button_remove_scientist;
     QPushButton *button_edit_scientist;
-    QWidget *tab_scientist1;
+    QPushButton *button_remove_scientist;
+    QWidget *tab_computer;
     QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayout_6;
     QHBoxLayout *horizontalLayout_4;
@@ -55,9 +55,9 @@ public:
     QTableWidget *table_computer;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *button_add_computer;
-    QPushButton *button_remove_computer;
     QPushButton *button_edit_computer;
-    QWidget *tab_scientist2;
+    QPushButton *button_remove_computer;
+    QWidget *tab_connection;
     QVBoxLayout *verticalLayout_5;
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_5;
@@ -66,8 +66,8 @@ public:
     QTableWidget *table_connection;
     QHBoxLayout *horizontalLayout_6;
     QPushButton *button_add_computer_2;
-    QPushButton *button_remove_computer_2;
     QPushButton *button_edit_computer_2;
+    QPushButton *button_remove_computer_2;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -135,6 +135,11 @@ public:
 
         horizontalLayout->addWidget(button_add_scientist);
 
+        button_edit_scientist = new QPushButton(tab_scientist);
+        button_edit_scientist->setObjectName(QStringLiteral("button_edit_scientist"));
+
+        horizontalLayout->addWidget(button_edit_scientist);
+
         button_remove_scientist = new QPushButton(tab_scientist);
         button_remove_scientist->setObjectName(QStringLiteral("button_remove_scientist"));
 
@@ -143,18 +148,13 @@ public:
 
         verticalLayout_7->addLayout(horizontalLayout);
 
-        button_edit_scientist = new QPushButton(tab_scientist);
-        button_edit_scientist->setObjectName(QStringLiteral("button_edit_scientist"));
-
-        verticalLayout_7->addWidget(button_edit_scientist);
-
 
         verticalLayout_2->addLayout(verticalLayout_7);
 
         tabWidget_choose_table->addTab(tab_scientist, QString());
-        tab_scientist1 = new QWidget();
-        tab_scientist1->setObjectName(QStringLiteral("tab_scientist1"));
-        verticalLayout_3 = new QVBoxLayout(tab_scientist1);
+        tab_computer = new QWidget();
+        tab_computer->setObjectName(QStringLiteral("tab_computer"));
+        verticalLayout_3 = new QVBoxLayout(tab_computer);
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
@@ -164,12 +164,12 @@ public:
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        dropbox_output_computer_column = new QComboBox(tab_scientist1);
+        dropbox_output_computer_column = new QComboBox(tab_computer);
         dropbox_output_computer_column->setObjectName(QStringLiteral("dropbox_output_computer_column"));
 
         horizontalLayout_4->addWidget(dropbox_output_computer_column);
 
-        search_computer = new QLineEdit(tab_scientist1);
+        search_computer = new QLineEdit(tab_computer);
         search_computer->setObjectName(QStringLiteral("search_computer"));
 
         horizontalLayout_4->addWidget(search_computer);
@@ -177,7 +177,7 @@ public:
 
         verticalLayout_6->addLayout(horizontalLayout_4);
 
-        table_computer = new QTableWidget(tab_scientist1);
+        table_computer = new QTableWidget(tab_computer);
         if (table_computer->columnCount() < 4)
             table_computer->setColumnCount(4);
         QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
@@ -198,12 +198,17 @@ public:
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        button_add_computer = new QPushButton(tab_scientist1);
+        button_add_computer = new QPushButton(tab_computer);
         button_add_computer->setObjectName(QStringLiteral("button_add_computer"));
 
         horizontalLayout_2->addWidget(button_add_computer);
 
-        button_remove_computer = new QPushButton(tab_scientist1);
+        button_edit_computer = new QPushButton(tab_computer);
+        button_edit_computer->setObjectName(QStringLiteral("button_edit_computer"));
+
+        horizontalLayout_2->addWidget(button_edit_computer);
+
+        button_remove_computer = new QPushButton(tab_computer);
         button_remove_computer->setObjectName(QStringLiteral("button_remove_computer"));
 
         horizontalLayout_2->addWidget(button_remove_computer);
@@ -211,18 +216,13 @@ public:
 
         verticalLayout_6->addLayout(horizontalLayout_2);
 
-        button_edit_computer = new QPushButton(tab_scientist1);
-        button_edit_computer->setObjectName(QStringLiteral("button_edit_computer"));
-
-        verticalLayout_6->addWidget(button_edit_computer);
-
 
         verticalLayout_3->addLayout(verticalLayout_6);
 
-        tabWidget_choose_table->addTab(tab_scientist1, QString());
-        tab_scientist2 = new QWidget();
-        tab_scientist2->setObjectName(QStringLiteral("tab_scientist2"));
-        verticalLayout_5 = new QVBoxLayout(tab_scientist2);
+        tabWidget_choose_table->addTab(tab_computer, QString());
+        tab_connection = new QWidget();
+        tab_connection->setObjectName(QStringLiteral("tab_connection"));
+        verticalLayout_5 = new QVBoxLayout(tab_connection);
         verticalLayout_5->setSpacing(6);
         verticalLayout_5->setContentsMargins(11, 11, 11, 11);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
@@ -232,12 +232,12 @@ public:
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setSpacing(6);
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        dropbox_output_computer_column_2 = new QComboBox(tab_scientist2);
+        dropbox_output_computer_column_2 = new QComboBox(tab_connection);
         dropbox_output_computer_column_2->setObjectName(QStringLiteral("dropbox_output_computer_column_2"));
 
         horizontalLayout_5->addWidget(dropbox_output_computer_column_2);
 
-        search_computer_2 = new QLineEdit(tab_scientist2);
+        search_computer_2 = new QLineEdit(tab_connection);
         search_computer_2->setObjectName(QStringLiteral("search_computer_2"));
 
         horizontalLayout_5->addWidget(search_computer_2);
@@ -245,7 +245,7 @@ public:
 
         verticalLayout_4->addLayout(horizontalLayout_5);
 
-        table_connection = new QTableWidget(tab_scientist2);
+        table_connection = new QTableWidget(tab_connection);
         if (table_connection->columnCount() < 3)
             table_connection->setColumnCount(3);
         QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
@@ -264,12 +264,17 @@ public:
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setSpacing(6);
         horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
-        button_add_computer_2 = new QPushButton(tab_scientist2);
+        button_add_computer_2 = new QPushButton(tab_connection);
         button_add_computer_2->setObjectName(QStringLiteral("button_add_computer_2"));
 
         horizontalLayout_6->addWidget(button_add_computer_2);
 
-        button_remove_computer_2 = new QPushButton(tab_scientist2);
+        button_edit_computer_2 = new QPushButton(tab_connection);
+        button_edit_computer_2->setObjectName(QStringLiteral("button_edit_computer_2"));
+
+        horizontalLayout_6->addWidget(button_edit_computer_2);
+
+        button_remove_computer_2 = new QPushButton(tab_connection);
         button_remove_computer_2->setObjectName(QStringLiteral("button_remove_computer_2"));
 
         horizontalLayout_6->addWidget(button_remove_computer_2);
@@ -277,15 +282,10 @@ public:
 
         verticalLayout_4->addLayout(horizontalLayout_6);
 
-        button_edit_computer_2 = new QPushButton(tab_scientist2);
-        button_edit_computer_2->setObjectName(QStringLiteral("button_edit_computer_2"));
-
-        verticalLayout_4->addWidget(button_edit_computer_2);
-
 
         verticalLayout_5->addLayout(verticalLayout_4);
 
-        tabWidget_choose_table->addTab(tab_scientist2, QString());
+        tabWidget_choose_table->addTab(tab_connection, QString());
 
         verticalLayout->addWidget(tabWidget_choose_table);
 
@@ -313,7 +313,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Scientists and Computers", 0));
         dropbox_output_scientist_column->clear();
         dropbox_output_scientist_column->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "Name", 0)
@@ -331,8 +331,8 @@ public:
         QTableWidgetItem *___qtablewidgetitem3 = table_scientist->horizontalHeaderItem(3);
         ___qtablewidgetitem3->setText(QApplication::translate("MainWindow", "Year of Death", 0));
         button_add_scientist->setText(QApplication::translate("MainWindow", "Add", 0));
-        button_remove_scientist->setText(QApplication::translate("MainWindow", "Remove", 0));
         button_edit_scientist->setText(QApplication::translate("MainWindow", "Edit", 0));
+        button_remove_scientist->setText(QApplication::translate("MainWindow", "Remove", 0));
         tabWidget_choose_table->setTabText(tabWidget_choose_table->indexOf(tab_scientist), QApplication::translate("MainWindow", "Scientists", 0));
         dropbox_output_computer_column->clear();
         dropbox_output_computer_column->insertItems(0, QStringList()
@@ -351,15 +351,14 @@ public:
         QTableWidgetItem *___qtablewidgetitem7 = table_computer->horizontalHeaderItem(3);
         ___qtablewidgetitem7->setText(QApplication::translate("MainWindow", "Was built", 0));
         button_add_computer->setText(QApplication::translate("MainWindow", "Add", 0));
-        button_remove_computer->setText(QApplication::translate("MainWindow", "Remove", 0));
         button_edit_computer->setText(QApplication::translate("MainWindow", "Edit", 0));
-        tabWidget_choose_table->setTabText(tabWidget_choose_table->indexOf(tab_scientist1), QApplication::translate("MainWindow", "Computers", 0));
+        button_remove_computer->setText(QApplication::translate("MainWindow", "Remove", 0));
+        tabWidget_choose_table->setTabText(tabWidget_choose_table->indexOf(tab_computer), QApplication::translate("MainWindow", "Computers", 0));
         dropbox_output_computer_column_2->clear();
         dropbox_output_computer_column_2->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "Name", 0)
-         << QApplication::translate("MainWindow", "Type", 0)
+         << QApplication::translate("MainWindow", "Scientist", 0)
+         << QApplication::translate("MainWindow", "Computer", 0)
          << QApplication::translate("MainWindow", "Year built", 0)
-         << QApplication::translate("MainWindow", "Was built", 0)
         );
         search_computer_2->setPlaceholderText(QApplication::translate("MainWindow", "Search...", 0));
         QTableWidgetItem *___qtablewidgetitem8 = table_connection->horizontalHeaderItem(0);
@@ -369,9 +368,9 @@ public:
         QTableWidgetItem *___qtablewidgetitem10 = table_connection->horizontalHeaderItem(2);
         ___qtablewidgetitem10->setText(QApplication::translate("MainWindow", "Year Built", 0));
         button_add_computer_2->setText(QApplication::translate("MainWindow", "Add", 0));
-        button_remove_computer_2->setText(QApplication::translate("MainWindow", "Remove", 0));
         button_edit_computer_2->setText(QApplication::translate("MainWindow", "Edit", 0));
-        tabWidget_choose_table->setTabText(tabWidget_choose_table->indexOf(tab_scientist2), QApplication::translate("MainWindow", "Connections", 0));
+        button_remove_computer_2->setText(QApplication::translate("MainWindow", "Remove", 0));
+        tabWidget_choose_table->setTabText(tabWidget_choose_table->indexOf(tab_connection), QApplication::translate("MainWindow", "Connections", 0));
     } // retranslateUi
 
 };

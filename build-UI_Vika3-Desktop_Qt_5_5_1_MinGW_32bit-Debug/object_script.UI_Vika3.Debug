@@ -10,5 +10,7 @@ INPUT(
 ./debug\scientistrepository.o
 ./debug\computerrepository.o
 ./debug\linkrepository.o
+./debug\addscientistdialog.o
 ./debug\moc_mainwindow.o
+./debug\moc_addscientistdialog.o
 );
