@@ -25,8 +25,11 @@ private slots:
 private:
     void displayAllScientists();
     void displayScientists(std::vector<Scientist>);
+    void displayAllComputers();
+    void displayComputers(std::vector<Computer>);
 
     ScientistService scientistService;
+    ComputerService computerService;
 
     Ui::MainWindow *ui;
 };

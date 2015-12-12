@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     displayAllScientists();
+    displayAllComputers();
 }
 
 
@@ -49,6 +50,41 @@ void MainWindow::displayScientists(vector<Scientist> scientists)
         ui->table_scientist->setItem(row, 1, new QTableWidgetItem(sex));
         ui->table_scientist->setItem(row, 2, new QTableWidgetItem(yearBorn));
         ui->table_scientist->setItem(row, 3, new QTableWidgetItem(yearDied));
+    }
+}
+
+void MainWindow::displayAllComputers()
+{
+    vector<Computer> computers = computerService.getAllComputers("name", true);
+
+    displayComputers(computers);
+}
+
+void MainWindow::displayComputers(vector<Computer> computers)
+{
+    ui->table_computer->clearContents();
+    ui->table_computer->setRowCount(computers.size());
+
+    for (unsigned int row = 0; row < computers.size(); row++)
+    {
+        Computer currentComputer = computers.at(row);
+        QString name = QString::fromStdString(currentComputer.getName());
+        QString type = QString::fromStdString(currentComputer.getTypeName());
+        QString yearBuilt = QString::number(currentComputer.getYearBuilt());
+        QString wasBuilt;
+        if(currentComputer.wasBuilt() == true) {
+            wasBuilt = "Yes";
+        }
+        else {
+            wasBuilt = "No";
+        }
+
+        ui->table_computer->setItem(row, 0, new QTableWidgetItem(name));
+        ui->table_computer->setItem(row, 1, new QTableWidgetItem(type));
+        if(currentComputer.wasBuilt()) {
+            ui->table_computer->setItem(row, 2, new QTableWidgetItem(yearBuilt));
+        }
+        ui->table_computer->setItem(row, 3, new QTableWidgetItem(wasBuilt));
     }
 }
 
