@@ -11,6 +11,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->dropdown_scientist_order->addItem("Name");
+    ui->dropdown_scientist_order->addItem("Sex");
+    ui->dropdown_scientist_order->addItem("Year of Birth");
+    ui->dropdown_scientist_order->addItem("Year of Death");
+    ui->dropdown_scientist_asc->addItem("Ascending");
+    ui->dropdown_scientist_asc->addItem("Descending");
+
     displayAllScientists();
     displayAllComputers();
 }
@@ -23,7 +30,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::displayAllScientists()
 {
-    vector<Scientist> scientists = scientistService.getAllScientists("name", true);
+    vector<Scientist> scientists = scientistService.getAllScientists(orderBy(), getOrder());
 
     displayScientists(scientists);
 }
@@ -146,4 +153,58 @@ void MainWindow::on_button_remove_computer_clicked()
     {
         //Error
     }
+}
+
+void MainWindow::on_search_scientist_textChanged(const QString &arg1)
+{
+    string search = ui->search_scientist->text().toStdString();
+
+    vector<Scientist> scientist = scientistService.searchForScientists(search, orderBy(), getOrder());
+    displayScientists(scientist);
+}
+
+string MainWindow::orderBy()
+{
+    string currentOrderBy = ui->dropdown_scientist_order->currentText().toStdString();
+
+    if(currentOrderBy == "Name")
+    {
+        return "name";
+    }
+    else if(currentOrderBy == "Sex")
+    {
+        return "sex";
+    }
+    else if(currentOrderBy == "Year of Birth")
+    {
+        return "yearBorn";
+    }
+    else if(currentOrderBy == "Year of Death")
+    {
+        return "yearDied";
+    }
+    else
+        return "name";
+}
+
+bool MainWindow::getOrder()
+{
+    string order = ui->dropdown_scientist_asc->currentText().toStdString();
+
+    if(order == "Ascending")
+    {
+        return true;
+    }
+    else
+        return false;
+}
+
+void MainWindow::on_dropdown_scientist_order_currentIndexChanged(int index)
+{
+    on_search_scientist_textChanged("");
+}
+
+void MainWindow::on_dropdown_scientist_asc_activated(const QString &arg1)
+{
+    on_search_scientist_textChanged("");
 }

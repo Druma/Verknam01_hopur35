@@ -74,7 +74,7 @@ vector<Computer> ComputerRepository::searchForComputers(string searchTerm)
     return queryComputers(QString::fromStdString(sqlQuery.str()));
 }
 
-bool ComputerRepository::addComputer(Computer computer)
+/*bool ComputerRepository::addComputer(Computer computer)
 {
     db.open();
 
@@ -101,7 +101,7 @@ bool ComputerRepository::addComputer(Computer computer)
 
     return true;
 }
-
+*/
 bool ComputerRepository::removeComputer(Computer computer)
 {
     db.open();

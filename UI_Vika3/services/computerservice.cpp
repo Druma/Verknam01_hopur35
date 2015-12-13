@@ -15,10 +15,10 @@ std::vector<Computer> ComputerService::searchForComputers(std::string searchTerm
     return computerRepo.searchForComputers(searchTerm);
 }
 
-bool ComputerService::addComputer(Computer computer)
+/*bool ComputerService::addComputer(Computer computer)
 {
     return computerRepo.addComputer(computer);
-}
+}*/
 
 bool ComputerService::removeComputer(Computer computer)
 {

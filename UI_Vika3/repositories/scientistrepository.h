@@ -26,14 +26,14 @@ public:
      * @param searchTerm Contains the input that the user wishes to filter on
      * @return a vector of scientists filtered by searchTerm
      */
-    std::vector<Scientist> searchForScientists(std::string searchTerm);
+    std::vector<Scientist> searchForScientists(std::string searchTerm, std::string orderBy, bool orderAscending);
 
     /**
      * @brief addScientist saves a scientist model to the database
      * @param scientist The model to save
      * @return true if it was a success, false if it was a failure
      */
-    bool addScientist(Scientist scientist);
+    //bool addScientist(Scientist scientist);
     bool removeScientist(Scientist scientist);
 
 private:

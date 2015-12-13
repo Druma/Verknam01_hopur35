@@ -17,8 +17,11 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QTabWidget" name="tabWidget_choose_table">
+      <property name="locale">
+       <locale language="Icelandic" country="Iceland"/>
+      </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_scientist">
        <attribute name="title">
@@ -30,33 +33,21 @@
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_3">
             <item>
-             <widget class="QComboBox" name="dropbox_output_scientist_column">
-              <item>
-               <property name="text">
-                <string>Name</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Sex</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Year of Birth</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Year of Death</string>
-               </property>
-              </item>
-             </widget>
+             <widget class="QComboBox" name="dropdown_scientist_order"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="dropdown_scientist_asc"/>
             </item>
             <item>
              <widget class="QLineEdit" name="search_scientist">
+              <property name="locale">
+               <locale language="Icelandic" country="Iceland"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
               <property name="placeholderText">
-               <string>Search...</string>
+               <string>Search name...</string>
               </property>
              </widget>
             </item>
@@ -183,8 +174,14 @@
             </item>
             <item>
              <widget class="QLineEdit" name="search_computer">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="echoMode">
+               <enum>QLineEdit::Normal</enum>
+              </property>
               <property name="placeholderText">
-               <string>Search...</string>
+               <string>Search name...</string>
               </property>
              </widget>
             </item>
@@ -268,23 +265,10 @@
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_5">
             <item>
-             <widget class="QComboBox" name="dropbox_output_computer_column_2">
-              <item>
-               <property name="text">
-                <string>Scientist</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Computer</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Year built</string>
-               </property>
-              </item>
-             </widget>
+             <widget class="QComboBox" name="dropdown_order_by_scientist"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="order_asc_scientist"/>
             </item>
             <item>
              <widget class="QLineEdit" name="search_computer_2">

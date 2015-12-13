@@ -40,7 +40,8 @@ public:
     QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout_7;
     QHBoxLayout *horizontalLayout_3;
-    QComboBox *dropbox_output_scientist_column;
+    QComboBox *dropdown_scientist_order;
+    QComboBox *dropdown_scientist_asc;
     QLineEdit *search_scientist;
     QTableWidget *table_scientist;
     QHBoxLayout *horizontalLayout;
@@ -62,7 +63,8 @@ public:
     QVBoxLayout *verticalLayout_5;
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_5;
-    QComboBox *dropbox_output_computer_column_2;
+    QComboBox *dropdown_order_by_scientist;
+    QComboBox *order_asc_scientist;
     QLineEdit *search_computer_2;
     QTableWidget *table_connection;
     QHBoxLayout *horizontalLayout_6;
@@ -86,6 +88,7 @@ public:
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         tabWidget_choose_table = new QTabWidget(centralWidget);
         tabWidget_choose_table->setObjectName(QStringLiteral("tabWidget_choose_table"));
+        tabWidget_choose_table->setLocale(QLocale(QLocale::Icelandic, QLocale::Iceland));
         tab_scientist = new QWidget();
         tab_scientist->setObjectName(QStringLiteral("tab_scientist"));
         verticalLayout_2 = new QVBoxLayout(tab_scientist);
@@ -98,13 +101,19 @@ public:
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        dropbox_output_scientist_column = new QComboBox(tab_scientist);
-        dropbox_output_scientist_column->setObjectName(QStringLiteral("dropbox_output_scientist_column"));
+        dropdown_scientist_order = new QComboBox(tab_scientist);
+        dropdown_scientist_order->setObjectName(QStringLiteral("dropdown_scientist_order"));
 
-        horizontalLayout_3->addWidget(dropbox_output_scientist_column);
+        horizontalLayout_3->addWidget(dropdown_scientist_order);
+
+        dropdown_scientist_asc = new QComboBox(tab_scientist);
+        dropdown_scientist_asc->setObjectName(QStringLiteral("dropdown_scientist_asc"));
+
+        horizontalLayout_3->addWidget(dropdown_scientist_asc);
 
         search_scientist = new QLineEdit(tab_scientist);
         search_scientist->setObjectName(QStringLiteral("search_scientist"));
+        search_scientist->setLocale(QLocale(QLocale::Icelandic, QLocale::Iceland));
 
         horizontalLayout_3->addWidget(search_scientist);
 
@@ -181,6 +190,7 @@ public:
 
         search_computer = new QLineEdit(tab_computer);
         search_computer->setObjectName(QStringLiteral("search_computer"));
+        search_computer->setEchoMode(QLineEdit::Normal);
 
         horizontalLayout_4->addWidget(search_computer);
 
@@ -244,10 +254,15 @@ public:
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setSpacing(6);
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        dropbox_output_computer_column_2 = new QComboBox(tab_connection);
-        dropbox_output_computer_column_2->setObjectName(QStringLiteral("dropbox_output_computer_column_2"));
+        dropdown_order_by_scientist = new QComboBox(tab_connection);
+        dropdown_order_by_scientist->setObjectName(QStringLiteral("dropdown_order_by_scientist"));
 
-        horizontalLayout_5->addWidget(dropbox_output_computer_column_2);
+        horizontalLayout_5->addWidget(dropdown_order_by_scientist);
+
+        order_asc_scientist = new QComboBox(tab_connection);
+        order_asc_scientist->setObjectName(QStringLiteral("order_asc_scientist"));
+
+        horizontalLayout_5->addWidget(order_asc_scientist);
 
         search_computer_2 = new QLineEdit(tab_connection);
         search_computer_2->setObjectName(QStringLiteral("search_computer_2"));
@@ -318,7 +333,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget_choose_table->setCurrentIndex(2);
+        tabWidget_choose_table->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -327,14 +342,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Scientists and Computers", 0));
-        dropbox_output_scientist_column->clear();
-        dropbox_output_scientist_column->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "Name", 0)
-         << QApplication::translate("MainWindow", "Sex", 0)
-         << QApplication::translate("MainWindow", "Year of Birth", 0)
-         << QApplication::translate("MainWindow", "Year of Death", 0)
-        );
-        search_scientist->setPlaceholderText(QApplication::translate("MainWindow", "Search...", 0));
+        search_scientist->setText(QString());
+        search_scientist->setPlaceholderText(QApplication::translate("MainWindow", "Search name...", 0));
         QTableWidgetItem *___qtablewidgetitem = table_scientist->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Name", 0));
         QTableWidgetItem *___qtablewidgetitem1 = table_scientist->horizontalHeaderItem(1);
@@ -354,7 +363,8 @@ public:
          << QApplication::translate("MainWindow", "Year built", 0)
          << QApplication::translate("MainWindow", "Was built", 0)
         );
-        search_computer->setPlaceholderText(QApplication::translate("MainWindow", "Search...", 0));
+        search_computer->setText(QString());
+        search_computer->setPlaceholderText(QApplication::translate("MainWindow", "Search name...", 0));
         QTableWidgetItem *___qtablewidgetitem4 = table_computer->horizontalHeaderItem(0);
         ___qtablewidgetitem4->setText(QApplication::translate("MainWindow", "Name", 0));
         QTableWidgetItem *___qtablewidgetitem5 = table_computer->horizontalHeaderItem(1);
@@ -367,12 +377,6 @@ public:
         button_edit_computer->setText(QApplication::translate("MainWindow", "Edit", 0));
         button_remove_computer->setText(QApplication::translate("MainWindow", "Remove", 0));
         tabWidget_choose_table->setTabText(tabWidget_choose_table->indexOf(tab_computer), QApplication::translate("MainWindow", "Computers", 0));
-        dropbox_output_computer_column_2->clear();
-        dropbox_output_computer_column_2->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "Scientist", 0)
-         << QApplication::translate("MainWindow", "Computer", 0)
-         << QApplication::translate("MainWindow", "Year built", 0)
-        );
         search_computer_2->setPlaceholderText(QApplication::translate("MainWindow", "Search...", 0));
         QTableWidgetItem *___qtablewidgetitem8 = table_connection->horizontalHeaderItem(0);
         ___qtablewidgetitem8->setText(QApplication::translate("MainWindow", "Scientist", 0));

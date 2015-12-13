@@ -63,19 +63,15 @@ vector<Scientist> ScientistRepository::getAllScientists(string orderBy, bool ord
     return queryScientists(QString::fromStdString(sqlQuery.str()));
 }
 
-vector<Scientist> ScientistRepository::searchForScientists(string searchTerm)
+vector<Scientist> ScientistRepository::searchForScientists(string searchTerm, std::string orderBy, bool orderAscending)
 {
     stringstream sqlQuery;
-    sqlQuery << "SELECT * FROM Scientists WHERE name LIKE '%" << searchTerm << "%"
-           << "' UNION "
-           << "SELECT * FROM Scientists WHERE yearBorn LIKE '%" << searchTerm << "%"
-           << "' UNION "
-           << "SELECT * FROM Scientists WHERE yearDied LIKE '%" << searchTerm << "%'";
+    sqlQuery << "SELECT * FROM Scientists WHERE name LIKE '%" << searchTerm << "%' ORDER BY " << orderBy << " " << ((orderAscending) ? "ASC" : "DESC");
 
     return queryScientists(QString::fromStdString(sqlQuery.str()));
 }
 
-bool ScientistRepository::addScientist(Scientist scientist)
+/*bool ScientistRepository::addScientist(Scientist scientist)
 {
     db.open();
 
@@ -103,7 +99,7 @@ bool ScientistRepository::addScientist(Scientist scientist)
 
     return true;
 }
-
+*/
 bool ScientistRepository::removeScientist(Scientist scientist)
 {
     db.open();

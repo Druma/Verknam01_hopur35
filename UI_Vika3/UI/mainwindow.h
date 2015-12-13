@@ -27,7 +27,16 @@ private slots:
 
     void on_button_remove_computer_clicked();
 
+    void on_search_scientist_textChanged(const QString &arg1);
+
+
+    void on_dropdown_scientist_order_currentIndexChanged(int index);
+
+    void on_dropdown_scientist_asc_activated(const QString &arg1);
+
 private:
+    std::string orderBy(); //current order for Scientists
+    bool getOrder();        //ascending or descending order for Scientists
     void displayAllScientists();
     void displayScientists(std::vector<Scientist>);
     void displayAllComputers();
