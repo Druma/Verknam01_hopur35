@@ -12,7 +12,7 @@ addScientistDialog::~addScientistDialog()
 {
     delete ui;
 }
-
+/*
 //function does not work correctly to add scientists
 void addScientistDialog::on_add_newScientist_button_clicked()
 {
@@ -72,5 +72,5 @@ void addScientistDialog::on_add_newScientist_button_clicked()
         this->done(-1);
     }
 
-}
+}*/
 

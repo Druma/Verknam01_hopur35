@@ -52,6 +52,7 @@ void MainWindow::displayScientists(vector<Scientist> scientists)
         ui->table_scientist->setItem(row, 2, new QTableWidgetItem(yearBorn));
         ui->table_scientist->setItem(row, 3, new QTableWidgetItem(yearDied));
     }
+    scientist_list = scientists;
 }
 
 void MainWindow::displayAllComputers()
@@ -88,7 +89,7 @@ void MainWindow::displayComputers(vector<Computer> computers)
         ui->table_computer->setItem(row, 3, new QTableWidgetItem(wasBuilt));
     }
 }
-
+/*
 void MainWindow::on_button_add_scientist_clicked()
 {
     addScientistDialog add_ScientistDialog;
@@ -97,6 +98,49 @@ void MainWindow::on_button_add_scientist_clicked()
     if(addScientist == 0)
     {
         displayAllScientists();
+    }
+    else
+    {
+        //Error
+    }
+}
+*/
+
+void MainWindow::on_table_scientist_clicked(const QModelIndex &index)
+{
+    ui->button_remove_scientist->setEnabled(true);
+}
+
+void MainWindow::on_button_remove_scientist_clicked()
+{
+    int selected_scientist = ui->table_scientist->currentIndex().row();
+    Scientist scientist_select = scientist_list.at(selected_scientist);
+
+    if (scientistService.removeScientist(scientist_select))
+    {
+        ui->search_scientist->setText("");
+        displayAllScientists();
+
+        ui->button_remove_scientist->setEnabled(false);
+    }
+    else
+    {
+        //Error
+    }
+
+}
+
+void MainWindow::on_button_remove_computer_clicked()
+{
+    int selected_computer = ui->table_computer->currentIndex().row();
+    Computer computer_select = computer_list.at(selected_computer);
+
+    if (computerService.removeComputer(computer_select))
+    {
+        ui->search_computer->setText("");
+        displayAllComputers();
+
+        ui->button_remove_computer->setEnabled(false);
     }
     else
     {

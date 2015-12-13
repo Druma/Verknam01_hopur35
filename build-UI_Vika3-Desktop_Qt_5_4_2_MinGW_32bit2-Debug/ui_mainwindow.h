@@ -9,6 +9,7 @@
 #ifndef UI_MAINWINDOW_H
 #define UI_MAINWINDOW_H
 
+#include <QtCore/QLocale>
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
@@ -65,9 +66,9 @@ public:
     QLineEdit *search_computer_2;
     QTableWidget *table_connection;
     QHBoxLayout *horizontalLayout_6;
-    QPushButton *button_add_computer_2;
-    QPushButton *button_edit_computer_2;
-    QPushButton *button_remove_computer_2;
+    QPushButton *button_add_connection;
+    QPushButton *button_edit_connection;
+    QPushButton *button_remove_connection;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -122,8 +123,16 @@ public:
         QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
         table_scientist->setHorizontalHeaderItem(3, __qtablewidgetitem3);
         table_scientist->setObjectName(QStringLiteral("table_scientist"));
+        table_scientist->setEnabled(true);
+        table_scientist->setMouseTracking(false);
+        table_scientist->setLocale(QLocale(QLocale::Icelandic, QLocale::Iceland));
+        table_scientist->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        table_scientist->setAlternatingRowColors(false);
+        table_scientist->setSelectionBehavior(QAbstractItemView::SelectRows);
+        table_scientist->setShowGrid(true);
         table_scientist->setSortingEnabled(true);
         table_scientist->horizontalHeader()->setStretchLastSection(true);
+        table_scientist->verticalHeader()->setVisible(false);
 
         verticalLayout_7->addWidget(table_scientist);
 
@@ -142,6 +151,7 @@ public:
 
         button_remove_scientist = new QPushButton(tab_scientist);
         button_remove_scientist->setObjectName(QStringLiteral("button_remove_scientist"));
+        button_remove_scientist->setEnabled(false);
 
         horizontalLayout->addWidget(button_remove_scientist);
 
@@ -189,6 +199,8 @@ public:
         QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
         table_computer->setHorizontalHeaderItem(3, __qtablewidgetitem7);
         table_computer->setObjectName(QStringLiteral("table_computer"));
+        table_computer->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        table_computer->setSelectionBehavior(QAbstractItemView::SelectRows);
         table_computer->setSortingEnabled(true);
         table_computer->horizontalHeader()->setProperty("showSortIndicator", QVariant(true));
         table_computer->horizontalHeader()->setStretchLastSection(true);
@@ -256,6 +268,8 @@ public:
         table_connection->setHorizontalHeaderItem(2, __qtablewidgetitem10);
         table_connection->setObjectName(QStringLiteral("table_connection"));
         table_connection->setAutoFillBackground(false);
+        table_connection->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        table_connection->setSelectionBehavior(QAbstractItemView::SelectRows);
         table_connection->setSortingEnabled(true);
         table_connection->horizontalHeader()->setStretchLastSection(true);
 
@@ -264,20 +278,20 @@ public:
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setSpacing(6);
         horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
-        button_add_computer_2 = new QPushButton(tab_connection);
-        button_add_computer_2->setObjectName(QStringLiteral("button_add_computer_2"));
+        button_add_connection = new QPushButton(tab_connection);
+        button_add_connection->setObjectName(QStringLiteral("button_add_connection"));
 
-        horizontalLayout_6->addWidget(button_add_computer_2);
+        horizontalLayout_6->addWidget(button_add_connection);
 
-        button_edit_computer_2 = new QPushButton(tab_connection);
-        button_edit_computer_2->setObjectName(QStringLiteral("button_edit_computer_2"));
+        button_edit_connection = new QPushButton(tab_connection);
+        button_edit_connection->setObjectName(QStringLiteral("button_edit_connection"));
 
-        horizontalLayout_6->addWidget(button_edit_computer_2);
+        horizontalLayout_6->addWidget(button_edit_connection);
 
-        button_remove_computer_2 = new QPushButton(tab_connection);
-        button_remove_computer_2->setObjectName(QStringLiteral("button_remove_computer_2"));
+        button_remove_connection = new QPushButton(tab_connection);
+        button_remove_connection->setObjectName(QStringLiteral("button_remove_connection"));
 
-        horizontalLayout_6->addWidget(button_remove_computer_2);
+        horizontalLayout_6->addWidget(button_remove_connection);
 
 
         verticalLayout_4->addLayout(horizontalLayout_6);
@@ -292,20 +306,19 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 556, 26));
+        menuBar->setGeometry(QRect(0, 0, 556, 21));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
         mainToolBar->setEnabled(true);
         MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
-        MainWindow->insertToolBarBreak(mainToolBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
 
-        tabWidget_choose_table->setCurrentIndex(0);
+        tabWidget_choose_table->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -367,9 +380,9 @@ public:
         ___qtablewidgetitem9->setText(QApplication::translate("MainWindow", "Computer", 0));
         QTableWidgetItem *___qtablewidgetitem10 = table_connection->horizontalHeaderItem(2);
         ___qtablewidgetitem10->setText(QApplication::translate("MainWindow", "Year Built", 0));
-        button_add_computer_2->setText(QApplication::translate("MainWindow", "Add", 0));
-        button_edit_computer_2->setText(QApplication::translate("MainWindow", "Edit", 0));
-        button_remove_computer_2->setText(QApplication::translate("MainWindow", "Remove", 0));
+        button_add_connection->setText(QApplication::translate("MainWindow", "Add", 0));
+        button_edit_connection->setText(QApplication::translate("MainWindow", "Edit", 0));
+        button_remove_connection->setText(QApplication::translate("MainWindow", "Remove", 0));
         tabWidget_choose_table->setTabText(tabWidget_choose_table->indexOf(tab_connection), QApplication::translate("MainWindow", "Connections", 0));
     } // retranslateUi
 

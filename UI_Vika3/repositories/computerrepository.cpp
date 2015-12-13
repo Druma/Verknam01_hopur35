@@ -2,6 +2,10 @@
 #include "utilities/utils.h"
 #include "utilities/constants.h"
 
+#include <cstdlib>
+#include <sstream>
+#include <QString>
+
 using namespace std;
 
 ComputerRepository::ComputerRepository()
@@ -41,7 +45,8 @@ vector<Computer> ComputerRepository::queryComputers(QString sqlQuery)
 
     for (unsigned int i = 0; i < computers.size(); i++)
     {
-        computers.at(i).setScientists(queryScientistsByComputer(computers.at(i)));
+        Computer currentComputer = computers.at(i);
+        currentComputer.setScientists(queryScientistsByComputer(currentComputer));
     }
 
     return computers;
@@ -85,7 +90,7 @@ bool ComputerRepository::addComputer(Computer computer)
              << "'" << computer.getName() << "', "
              << computer.getType() << ", "
              << computer.getYearBuilt()
-             << ")";
+             << ");";
 
     if (!query.exec(QString::fromStdString(sqlQuery.str())))
     {
@@ -94,6 +99,29 @@ bool ComputerRepository::addComputer(Computer computer)
 
     db.close();
 
+    return true;
+}
+
+bool ComputerRepository::removeComputer(Computer computer)
+{
+    db.open();
+
+    if (!db.isOpen())
+    {
+        return false;
+    }
+
+    QSqlQuery query(db);
+
+    stringstream sqlQuery;
+    sqlQuery << "DELETE FROM Computers WHERE id = " << computer.getId();
+
+    if (!query.exec(QString::fromStdString(sqlQuery.str())))
+    {
+        return false;
+    }
+
+    db.close();
     return true;
 }
 

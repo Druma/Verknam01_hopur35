@@ -92,7 +92,7 @@ bool ScientistRepository::addScientist(Scientist scientist)
              << scientist.getSex() << ", "
              << scientist.getYearBorn() << ", "
              << scientist.getYearDied()
-             << ")";
+             << ");";
 
     if (!query.exec(QString::fromStdString(sqlQuery.str())))
     {
@@ -103,6 +103,30 @@ bool ScientistRepository::addScientist(Scientist scientist)
 
     return true;
 }
+
+bool ScientistRepository::removeScientist(Scientist scientist)
+{
+    db.open();
+
+    if (!db.isOpen())
+    {
+        return false;
+    }
+
+    QSqlQuery query(db);
+
+    stringstream sqlQuery;
+    sqlQuery << "DELETE FROM Scientists WHERE id = " << scientist.getId();
+
+    if (!query.exec(QString::fromStdString(sqlQuery.str())))
+    {
+        return false;
+    }
+
+    db.close();
+    return true;
+}
+
 
 std::vector<Computer> ScientistRepository::queryComputersByScientist(Scientist scientist)
 {
@@ -131,6 +155,7 @@ std::vector<Computer> ScientistRepository::queryComputersByScientist(Scientist s
         string name = query.value("name").toString().toStdString();
         enum computerType type = utils::intToComputerType(query.value("type").toInt());
         int yearBuilt = query.value("yearBuilt").toInt();
+
 
         computers.push_back(Computer(id, name, type, yearBuilt));
     }
