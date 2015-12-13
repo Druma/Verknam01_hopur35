@@ -10,9 +10,16 @@ std::vector<Computer> ComputerService::getAllComputers(std::string orderBy, bool
     return computerRepo.getAllComputers(orderBy, orderAscending);
 }
 
-std::vector<Computer> ComputerService::searchForComputers(std::string searchTerm)
+std::vector<Computer> ComputerService::searchForComputers(std::string searchTerm, std::string orderBy, bool orderAscending)
 {
-    return computerRepo.searchForComputers(searchTerm);
+    if (searchTerm.length() > 0)
+    {
+        return computerRepo.searchForComputers(searchTerm, orderBy, orderAscending);
+    }
+    else
+    {
+        return computerRepo.getAllComputers(orderBy, orderAscending);
+    }
 }
 
 /*bool ComputerService::addComputer(Computer computer)

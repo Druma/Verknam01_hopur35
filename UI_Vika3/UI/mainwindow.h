@@ -29,14 +29,21 @@ private slots:
 
     void on_search_scientist_textChanged(const QString &arg1);
 
-
     void on_dropdown_scientist_order_currentIndexChanged(int index);
 
     void on_dropdown_scientist_asc_activated(const QString &arg1);
 
+    void on_search_computer_textChanged(const QString &arg1);
+
+    void on_dropdown_computer_asc_activated(const QString &arg1);
+
+    void on_dropdown_computer_order_currentIndexChanged(int index);
+
 private:
     std::string orderBy(); //current order for Scientists
     bool getOrder();        //ascending or descending order for Scientists
+    std::string orderByComputer(); //current order for Computers
+    bool getOrderByComputer();     //ascending or descending order for Computers
     void displayAllScientists();
     void displayScientists(std::vector<Scientist>);
     void displayAllComputers();

@@ -26,7 +26,7 @@ public:
      * @param searchTerm Contains the input that the user wishes to filter on
      * @return a vector of computers filtered by searchTerm
      */
-    std::vector<Computer> searchForComputers(std::string searchTerm);
+    std::vector<Computer> searchForComputers(std::string searchTerm, std::string orderBy, bool orderAscending);
 
     /**
      * @brief addComputer saves a computer model to a database

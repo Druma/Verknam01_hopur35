@@ -18,6 +18,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->dropdown_scientist_asc->addItem("Ascending");
     ui->dropdown_scientist_asc->addItem("Descending");
 
+    ui->dropdown_computer_order->addItem("Name");
+    ui->dropdown_computer_order->addItem("Type");
+    ui->dropdown_computer_order->addItem("Year Built");
+    ui->dropdown_computer_asc->addItem("Ascending");
+    ui->dropdown_computer_asc->addItem("Descending");
+
     displayAllScientists();
     displayAllComputers();
 }
@@ -64,7 +70,7 @@ void MainWindow::displayScientists(vector<Scientist> scientists)
 
 void MainWindow::displayAllComputers()
 {
-    vector<Computer> computers = computerService.getAllComputers("name", true);
+    vector<Computer> computers = computerService.getAllComputers(orderByComputer(), getOrderByComputer());
 
     displayComputers(computers);
 }
@@ -199,6 +205,38 @@ bool MainWindow::getOrder()
         return false;
 }
 
+string MainWindow::orderByComputer()
+{
+    string currentOrderBy = ui->dropdown_computer_order->currentText().toStdString();
+
+    if(currentOrderBy == "Name")
+    {
+        return "name";
+    }
+    else if(currentOrderBy == "Type")
+    {
+        return "type";
+    }
+    else if(currentOrderBy == "Year Built")
+    {
+        return "yearBuilt";
+    }
+    else
+        return "name";
+}
+
+bool MainWindow::getOrderByComputer()
+{
+    string order = ui->dropdown_computer_asc->currentText().toStdString();
+
+    if(order == "Ascending")
+    {
+        return true;
+    }
+    else
+        return false;
+}
+
 void MainWindow::on_dropdown_scientist_order_currentIndexChanged(int index)
 {
     on_search_scientist_textChanged("");
@@ -207,4 +245,22 @@ void MainWindow::on_dropdown_scientist_order_currentIndexChanged(int index)
 void MainWindow::on_dropdown_scientist_asc_activated(const QString &arg1)
 {
     on_search_scientist_textChanged("");
+}
+
+void MainWindow::on_search_computer_textChanged(const QString &arg1)
+{
+    string search = ui->search_computer->text().toStdString();
+
+    vector<Computer> computer = computerService.searchForComputers(search, orderByComputer(), getOrderByComputer());
+    displayComputers(computer);
+}
+
+void MainWindow::on_dropdown_computer_asc_activated(const QString &arg1)
+{
+    on_search_computer_textChanged("");
+}
+
+void MainWindow::on_dropdown_computer_order_currentIndexChanged(int index)
+{
+    on_search_computer_textChanged("");
 }

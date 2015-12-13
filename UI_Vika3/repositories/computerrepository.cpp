@@ -62,14 +62,10 @@ vector<Computer> ComputerRepository::getAllComputers(string orderBy, bool orderA
     return queryComputers(QString::fromStdString(sqlQuery.str()));
 }
 
-vector<Computer> ComputerRepository::searchForComputers(string searchTerm)
+vector<Computer> ComputerRepository::searchForComputers(string searchTerm, std::string orderBy, bool orderAscending)
 {
     stringstream sqlQuery;
-    sqlQuery << "SELECT * FROM Computers WHERE name LIKE '%" << searchTerm << "%"
-           << "' UNION "
-           << "SELECT * FROM Computers WHERE type LIKE '%" << searchTerm << "%"
-           << "' UNION "
-           << "SELECT * FROM Computers WHERE yearBuilt LIKE '%" << searchTerm << "%'";
+    sqlQuery << "SELECT * FROM Computers WHERE name LIKE '%" << searchTerm << "%' ORDER BY " << orderBy << " " << ((orderAscending) ? "ASC" : "DESC");
 
     return queryComputers(QString::fromStdString(sqlQuery.str()));
 }

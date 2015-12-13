@@ -17,11 +17,14 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QTabWidget" name="tabWidget_choose_table">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="locale">
        <locale language="Icelandic" country="Iceland"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_scientist">
        <attribute name="title">
@@ -149,28 +152,10 @@
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
-             <widget class="QComboBox" name="dropbox_output_computer_column">
-              <item>
-               <property name="text">
-                <string>Name</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Type</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Year built</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string>Was built</string>
-               </property>
-              </item>
-             </widget>
+             <widget class="QComboBox" name="dropdown_computer_order"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="dropdown_computer_asc"/>
             </item>
             <item>
              <widget class="QLineEdit" name="search_computer">
@@ -244,6 +229,9 @@
             </item>
             <item>
              <widget class="QPushButton" name="button_remove_computer">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
               <property name="text">
                <string>Remove</string>
               </property>
