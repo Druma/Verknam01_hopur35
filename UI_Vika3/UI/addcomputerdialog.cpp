@@ -31,25 +31,25 @@ void addComputerDialog::on_add_newComputer_button_clicked()
 
     if(name.isEmpty())
     {
-        ui->label_error_computer_name->setText("<span style='color: #ED1C14'>Computer Name cannot be empty</span>");
+        ui->label_error_computer_name->setText("<span style='color: #ED1C14'>Computer Name can not be empty</span>");
         error = true;
     }
 
     if(type.isEmpty())
     {
-        ui->label_error_computer_type->setText("<span style='color: #ED1C14'>Computer Type cannot be empty</span>");
+        ui->label_error_computer_type->setText("<span style='color: #ED1C14'>Computer Type can not be empty</span>");
         error = true;
     }
 
     if(wasBuilt.isEmpty())
     {
-        ui->label_error_computer_wasbuilt->setText("<span style='color: #ED1C14'>Computer Was Built cannot be empty</span>");
+        ui->label_error_computer_wasbuilt->setText("<span style='color: #ED1C14'>Computer Was Built can not be empty</span>");
         error = true;
     }
 
     if(wasBuilt.toInt() == true && yearBuilt.isEmpty())
     {
-        ui->label_error_computer_yearbuilt->setText("<span style='color: #ED1C14'>Computer Year Built cannot be empty</span>");
+        ui->label_error_computer_yearbuilt->setText("<span style='color: #ED1C14'>Computer Year Built can not be empty</span>");
         error = true;
     }
 
