@@ -2,54 +2,54 @@
 #include "ui_addscientistdialog.h"
 #include "utilities/utils.h"
 
-addScientistDialog::addScientistDialog(QWidget *parent) :
+addComputerDialog::addComputerDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::addScientistDialog)
+    ui(new Ui::addComputerDialog)
 {
     ui->setupUi(this);
 }
 
-addScientistDialog::~addScientistDialog()
+addComputerDialog::~addComputerDialog()
 {
     delete ui;
 }
 
 //function does not work correctly to add scientists
-void addScientistDialog::on_add_newScientist_button_clicked()
+void addComputerDialog::on_add_newComputer_button_clicked()
 {
     bool error = false;
 
-    ui->label_error_sci_name->setText("");
-    ui->label_error_sci_gender->setText("");
-    ui->label_error_sci_yob->setText("");
-    ui->label_error_sci_yod->setText("");
+    ui->label_error_comp_name->setText("");
+    ui->label_error_comp_gender->setText("");
+    ui->label_error_comp_yob->setText("");
+    ui->label_error_comp_yod->setText("");
 
-    QString name = ui->input_scientist_name->text();
-    QString sex = ui->input_scientist_gender->text();
-    QString yearBorn = ui->input_scientist_yob->text();
-    QString yearDeath = ui->input_scientist_yod->text();
+    QString name = ui->input_computer_name->text();
+    QString sex = ui->input_computer_gender->text();
+    QString yearBorn = ui->input_computer_yob->text();
+    QString yearDeath = ui->input_computer_yod->text();
 
     if(name.isEmpty())
     {
-        ui->label_error_sci_name->setText("Error, please input a name");
+        ui->label_error_comp_name->setText("Error, please input a name");
         error = true;
     }
 
     if(sex.isEmpty())
     {
-        ui->label_error_sci_gender->setText("Error, please input a gender");
+        ui->label_error_comp_gender->setText("Error, please input a gender");
         error = true;
     }
 
     if(yearBorn.isEmpty())
     {
-        ui->label_error_sci_yob->setText("Error, please input year of birth");
+        ui->label_error_comp_yob->setText("Error, please input year of birth");
         error = true;
     }
 
     if(yearDeath.isEmpty())
     {
-        ui->label_error_sci_yod->setText("Scientist is still alive");
+        ui->label_error_comp_yod->setText("Scientist is still alive");
         error = false;
     }
 
@@ -62,10 +62,10 @@ void addScientistDialog::on_add_newScientist_button_clicked()
     //bool add = false;
     if(add)
     {
-        ui->input_scientist_name->setText("");
-        ui->input_scientist_gender->setText("");
-        ui->input_scientist_yob->setText("");
-        ui->input_scientist_yod->setText("");
+        ui->input_computer_name->setText("");
+        ui->input_computer_gender->setText("");
+        ui->input_computer_yob->setText("");
+        ui->input_computer_yod->setText("");
 
         this->done(0);
     }

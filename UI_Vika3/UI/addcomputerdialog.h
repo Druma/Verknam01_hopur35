@@ -1,28 +1,28 @@
-#ifndef ADDSCIENTISTDIALOG_H
-#define ADDSCIENTISTDIALOG_H
+#ifndef ADDCOMPUTERDIALOG_H
+#define ADDCOMPUTERDIALOG_H
 
 #include <QDialog>
-#include "scientistservice.h"
+#include "computerservice.h"
 
 namespace Ui {
-class addScientistDialog;
+class addComputerDialog;
 }
 
-class addScientistDialog : public QDialog
+class addComputerDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit addScientistDialog(QWidget *parent = 0);
-    ~addScientistDialog();
+    explicit addComputerDialog(QWidget *parent = 0);
+    ~addComputerDialog();
 
 private slots:
-    void on_add_newScientist_button_clicked();
+    void on_add_newComputer_button_clicked();
 
 private:
-    Ui::addScientistDialog *ui;
+    Ui::addComputerDialog *ui;
 
-    ScientistService scientistService;
+    ComputerService computerService;
 };
 
-#endif // ADDSCIENTISTDIALOG_H
+#endif // ADDCOMPUTERDIALOG_H

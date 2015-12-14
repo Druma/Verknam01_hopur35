@@ -18,28 +18,28 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-struct qt_meta_stringdata_addScientistDialog_t {
+struct qt_meta_stringdata_addComputerDialog_t {
     QByteArrayData data[3];
-    char stringdata[55];
+    char stringdata[53];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_addScientistDialog_t, stringdata) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_addComputerDialog_t, stringdata) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_addScientistDialog_t qt_meta_stringdata_addScientistDialog = {
+static const qt_meta_stringdata_addComputerDialog_t qt_meta_stringdata_addComputerDialog = {
     {
-QT_MOC_LITERAL(0, 0, 18), // "addScientistDialog"
-QT_MOC_LITERAL(1, 19, 34), // "on_add_newScientist_button_cl..."
-QT_MOC_LITERAL(2, 54, 0) // ""
+QT_MOC_LITERAL(0, 0, 17), // "addComputerDialog"
+QT_MOC_LITERAL(1, 18, 33), // "on_add_newComputer_button_cli..."
+QT_MOC_LITERAL(2, 52, 0) // ""
 
     },
-    "addScientistDialog\0"
-    "on_add_newScientist_button_clicked\0"
+    "addComputerDialog\0on_add_newComputer_button_clicked\0"
+    ""
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_addScientistDialog[] = {
+static const uint qt_meta_data_addComputerDialog[] = {
 
  // content:
        7,       // revision
@@ -61,38 +61,38 @@ static const uint qt_meta_data_addScientistDialog[] = {
        0        // eod
 };
 
-void addScientistDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void addComputerDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        addScientistDialog *_t = static_cast<addScientistDialog *>(_o);
+        addComputerDialog *_t = static_cast<addComputerDialog *>(_o);
         switch (_id) {
-        case 0: _t->on_add_newScientist_button_clicked(); break;
+        case 0: _t->on_add_newComputer_button_clicked(); break;
         default: ;
         }
     }
     Q_UNUSED(_a);
 }
 
-const QMetaObject addScientistDialog::staticMetaObject = {
-    { &QDialog::staticMetaObject, qt_meta_stringdata_addScientistDialog.data,
-      qt_meta_data_addScientistDialog,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
+const QMetaObject addComputerDialog::staticMetaObject = {
+    { &QDialog::staticMetaObject, qt_meta_stringdata_addComputerDialog.data,
+      qt_meta_data_addComputerDialog,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
-const QMetaObject *addScientistDialog::metaObject() const
+const QMetaObject *addComputerDialog::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *addScientistDialog::qt_metacast(const char *_clname)
+void *addComputerDialog::qt_metacast(const char *_clname)
 {
     if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_addScientistDialog.stringdata))
-        return static_cast<void*>(const_cast< addScientistDialog*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_addComputerDialog.stringdata))
+        return static_cast<void*>(const_cast< addComputerDialog*>(this));
     return QDialog::qt_metacast(_clname);
 }
 
-int addScientistDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int addComputerDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)
