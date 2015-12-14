@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     repositories/scientistrepository.cpp \
     repositories/computerrepository.cpp \
     repositories/linkrepository.cpp \
-    UI/addscientistdialog.cpp
+    UI/addscientistdialog.cpp \
+	UI/addcomputerdialog.cpp
 
 HEADERS  += UI/mainwindow.h \
     models/scientist.h \
@@ -39,10 +40,12 @@ HEADERS  += UI/mainwindow.h \
     repositories/scientistrepository.h \
     repositories/computerrepository.h \
     repositories/linkrepository.h \
-    UI/addscientistdialog.h
+    UI/addscientistdialog.h \
+	UI/addcomputerdialog.cpp
 
 FORMS    += UI/mainwindow.ui \
-    UI/addscientistdialog.ui
+    UI/addscientistdialog.ui \
+	UI/addcomputerdialog.cpp
 
 INCLUDEPATH += UI \
     Models \
