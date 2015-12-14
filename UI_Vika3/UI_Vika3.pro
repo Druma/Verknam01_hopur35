@@ -41,11 +41,11 @@ HEADERS  += UI/mainwindow.h \
     repositories/computerrepository.h \
     repositories/linkrepository.h \
     UI/addscientistdialog.h \
-	UI/addcomputerdialog.cpp
+        UI/addcomputerdialog.h
 
 FORMS    += UI/mainwindow.ui \
     UI/addscientistdialog.ui \
-	UI/addcomputerdialog.cpp
+        UI/addcomputerdialog.ui
 
 INCLUDEPATH += UI \
     Models \
