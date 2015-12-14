@@ -39,6 +39,8 @@ private slots:
 
     void on_dropdown_computer_order_currentIndexChanged(int index);
 
+    void on_table_computer_clicked(const QModelIndex &index);
+
 private:
     std::string orderBy(); //current order for Scientists
     bool getOrder();        //ascending or descending order for Scientists

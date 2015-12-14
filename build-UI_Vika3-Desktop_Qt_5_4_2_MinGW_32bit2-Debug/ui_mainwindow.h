@@ -141,7 +141,7 @@ public:
         table_scientist->setAlternatingRowColors(false);
         table_scientist->setSelectionBehavior(QAbstractItemView::SelectRows);
         table_scientist->setShowGrid(true);
-        table_scientist->setSortingEnabled(true);
+        table_scientist->setSortingEnabled(false);
         table_scientist->horizontalHeader()->setStretchLastSection(true);
         table_scientist->verticalHeader()->setVisible(false);
 
@@ -218,8 +218,8 @@ public:
         table_computer->setObjectName(QStringLiteral("table_computer"));
         table_computer->setEditTriggers(QAbstractItemView::NoEditTriggers);
         table_computer->setSelectionBehavior(QAbstractItemView::SelectRows);
-        table_computer->setSortingEnabled(true);
-        table_computer->horizontalHeader()->setProperty("showSortIndicator", QVariant(true));
+        table_computer->setSortingEnabled(false);
+        table_computer->horizontalHeader()->setProperty("showSortIndicator", QVariant(false));
         table_computer->horizontalHeader()->setStretchLastSection(true);
 
         verticalLayout_6->addWidget(table_computer);
@@ -341,7 +341,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget_choose_table->setCurrentIndex(1);
+        tabWidget_choose_table->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

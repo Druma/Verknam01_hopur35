@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[13];
-    char stringdata[348];
+    QByteArrayData data[14];
+    char stringdata[374];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,7 +41,8 @@ QT_MOC_LITERAL(8, 151, 47), // "on_dropdown_scientist_order_c..."
 QT_MOC_LITERAL(9, 199, 35), // "on_dropdown_scientist_asc_act..."
 QT_MOC_LITERAL(10, 235, 30), // "on_search_computer_textChanged"
 QT_MOC_LITERAL(11, 266, 34), // "on_dropdown_computer_asc_acti..."
-QT_MOC_LITERAL(12, 301, 46) // "on_dropdown_computer_order_cu..."
+QT_MOC_LITERAL(12, 301, 46), // "on_dropdown_computer_order_cu..."
+QT_MOC_LITERAL(13, 348, 25) // "on_table_computer_clicked"
 
     },
     "MainWindow\0on_table_scientist_clicked\0"
@@ -52,7 +53,8 @@ QT_MOC_LITERAL(12, 301, 46) // "on_dropdown_computer_order_cu..."
     "on_dropdown_scientist_asc_activated\0"
     "on_search_computer_textChanged\0"
     "on_dropdown_computer_asc_activated\0"
-    "on_dropdown_computer_order_currentIndexChanged"
+    "on_dropdown_computer_order_currentIndexChanged\0"
+    "on_table_computer_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -62,7 +64,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -70,15 +72,16 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   59,    2, 0x08 /* Private */,
-       4,    0,   62,    2, 0x08 /* Private */,
-       5,    0,   63,    2, 0x08 /* Private */,
-       6,    1,   64,    2, 0x08 /* Private */,
-       8,    1,   67,    2, 0x08 /* Private */,
-       9,    1,   70,    2, 0x08 /* Private */,
-      10,    1,   73,    2, 0x08 /* Private */,
-      11,    1,   76,    2, 0x08 /* Private */,
-      12,    1,   79,    2, 0x08 /* Private */,
+       1,    1,   64,    2, 0x08 /* Private */,
+       4,    0,   67,    2, 0x08 /* Private */,
+       5,    0,   68,    2, 0x08 /* Private */,
+       6,    1,   69,    2, 0x08 /* Private */,
+       8,    1,   72,    2, 0x08 /* Private */,
+       9,    1,   75,    2, 0x08 /* Private */,
+      10,    1,   78,    2, 0x08 /* Private */,
+      11,    1,   81,    2, 0x08 /* Private */,
+      12,    1,   84,    2, 0x08 /* Private */,
+      13,    1,   87,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QModelIndex,    3,
@@ -90,6 +93,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void, QMetaType::QString,    7,
     QMetaType::Void, QMetaType::QString,    7,
     QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void, QMetaType::QModelIndex,    3,
 
        0        // eod
 };
@@ -108,6 +112,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 6: _t->on_search_computer_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 7: _t->on_dropdown_computer_asc_activated((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 8: _t->on_dropdown_computer_order_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 9: _t->on_table_computer_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -138,13 +143,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 10;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 10)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 9;
+        _id -= 10;
     }
     return _id;
 }

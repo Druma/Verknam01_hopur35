@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "addscientistdialog.h"
 #include <QDebug>
+#include <QMessageBox>
 
 using namespace std;
 
@@ -101,6 +102,7 @@ void MainWindow::displayComputers(vector<Computer> computers)
         }
         ui->table_computer->setItem(row, 3, new QTableWidgetItem(wasBuilt));
     }
+    computer_list = computers;
 }
 /*
 void MainWindow::on_button_add_scientist_clicked()
@@ -143,6 +145,11 @@ void MainWindow::on_button_remove_scientist_clicked()
 
 }
 
+void MainWindow::on_table_computer_clicked(const QModelIndex &index)
+{
+    ui->button_remove_computer->setEnabled(true);
+}
+
 void MainWindow::on_button_remove_computer_clicked()
 {
     int selected_computer = ui->table_computer->currentIndex().row();
@@ -167,6 +174,16 @@ void MainWindow::on_search_scientist_textChanged(const QString &arg1)
 
     vector<Scientist> scientist = scientistService.searchForScientists(search, orderBy(), getOrder());
     displayScientists(scientist);
+}
+
+void MainWindow::on_dropdown_scientist_order_currentIndexChanged(int index)
+{
+    on_search_scientist_textChanged("");
+}
+
+void MainWindow::on_dropdown_scientist_asc_activated(const QString &arg1)
+{
+    on_search_scientist_textChanged("");
 }
 
 string MainWindow::orderBy()
@@ -235,16 +252,6 @@ bool MainWindow::getOrderByComputer()
     }
     else
         return false;
-}
-
-void MainWindow::on_dropdown_scientist_order_currentIndexChanged(int index)
-{
-    on_search_scientist_textChanged("");
-}
-
-void MainWindow::on_dropdown_scientist_asc_activated(const QString &arg1)
-{
-    on_search_scientist_textChanged("");
 }
 
 void MainWindow::on_search_computer_textChanged(const QString &arg1)
