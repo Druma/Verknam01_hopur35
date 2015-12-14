@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>addScientistDialog</class>
- <widget class="QDialog" name="addScientistDialog">
+ <class>addComputerDialog</class>
+ <widget class="QDialog" name="addComputerDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Type:</string>
+    <string>Type (int):</string>
    </property>
   </widget>
   <widget class="QLabel" name="computer_label_yearbuilt">

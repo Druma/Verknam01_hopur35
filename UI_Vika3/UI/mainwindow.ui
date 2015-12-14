@@ -24,7 +24,7 @@
        <locale language="Icelandic" country="Iceland"/>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_scientist">
        <attribute name="title">

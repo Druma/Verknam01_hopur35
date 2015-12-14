@@ -1,5 +1,5 @@
-#include "addscientistdialog.h"
-#include "ui_addscientistdialog.h"
+#include "addcomputerdialog.h"
+#include "ui_addcomputerdialog.h"
 #include "utilities/utils.h"
 
 addComputerDialog::addComputerDialog(QWidget *parent) :
@@ -19,37 +19,37 @@ void addComputerDialog::on_add_newComputer_button_clicked()
 {
     bool error = false;
 
-    ui->label_error_comp_name->setText("");
-    ui->label_error_comp_gender->setText("");
-    ui->label_error_comp_yob->setText("");
-    ui->label_error_comp_yod->setText("");
+    ui->label_error_computer_name->setText("");
+    ui->label_error_computer_type->setText("");
+    ui->label_error_computer_wasbuilt->setText("");
+    ui->label_error_computer_yearbuilt->setText("");
 
     QString name = ui->input_computer_name->text();
-    QString sex = ui->input_computer_gender->text();
-    QString yearBorn = ui->input_computer_yob->text();
-    QString yearDeath = ui->input_computer_yod->text();
+    QString type = ui->input_computer_type->text();
+    QString wasBuilt = ui->input_computer_wasbuilt->text();
+    QString yearBuilt = ui->input_computer_yearbuilt->text();
 
     if(name.isEmpty())
     {
-        ui->label_error_comp_name->setText("Error, please input a name");
+        ui->label_error_computer_name->setText("Error, please input a name");
         error = true;
     }
 
-    if(sex.isEmpty())
+    if(type.isEmpty())
     {
-        ui->label_error_comp_gender->setText("Error, please input a gender");
+        ui->label_error_computer_type->setText("Error, please input a type");
         error = true;
     }
 
-    if(yearBorn.isEmpty())
+    if(wasBuilt.isEmpty())
     {
-        ui->label_error_comp_yob->setText("Error, please input year of birth");
+        ui->label_error_computer_wasbuilt->setText("Error");
         error = true;
     }
 
-    if(yearDeath.isEmpty())
+    if(yearBuilt.isEmpty())
     {
-        ui->label_error_comp_yod->setText("Scientist is still alive");
+        ui->label_error_computer_yearbuilt->setText("Error, please input year of creation");
         error = false;
     }
 
@@ -58,14 +58,14 @@ void addComputerDialog::on_add_newComputer_button_clicked()
     }
     //veit ekki alveg hvad eg eigi ad setja inn sem parameter i scientist( , sex, , , ); hvada typu tha fyrst sex er enum!!
     //qDebug() << sex;
-    bool add = scientistService.addScientist(Scientist(name.toStdString(), utils::stringToSex(sex.toStdString()), yearBorn.toInt(), yearDeath.toInt()));
+    bool add = computerService.addComputer(Computer(name.toStdString(), utils::intToComputerType(type.toInt()), yearBuilt.toInt()));
     //bool add = false;
     if(add)
     {
         ui->input_computer_name->setText("");
-        ui->input_computer_gender->setText("");
-        ui->input_computer_yob->setText("");
-        ui->input_computer_yod->setText("");
+        ui->input_computer_type->setText("");
+        ui->input_computer_wasbuilt->setText("");
+        ui->input_computer_yearbuilt->setText("");
 
         this->done(0);
     }

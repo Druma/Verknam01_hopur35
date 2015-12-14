@@ -922,8 +922,8 @@ release\moc_addcomputerdialog.cpp: C:\Qt\5.4\msvc2012_opengl\include\QtWidgets\Q
 		C:\Qt\5.4\msvc2012_opengl\include\QtCore\qfiledevice.h \
 		C:\Qt\5.4\msvc2012_opengl\include\QtGui\qvector2d.h \
 		C:\Qt\5.4\msvc2012_opengl\include\QtGui\qtouchdevice.h \
-		..\UI_Vika3\services\scientistservice.h \
-		..\UI_Vika3\repositories\scientistrepository.h \
+		..\UI_Vika3\services\computerservice.h \
+		..\UI_Vika3\repositories\computerrepository.h \
 		C:\Qt\5.4\msvc2012_opengl\include\QtSql\QtSql \
 		C:\Qt\5.4\msvc2012_opengl\include\QtSql\QtSqlDepends \
 		C:\Qt\5.4\msvc2012_opengl\include\QtCore\QtCore \
@@ -1067,6 +1067,7 @@ release\moc_addcomputerdialog.cpp: C:\Qt\5.4\msvc2012_opengl\include\QtWidgets\Q
 		C:\Qt\5.4\msvc2012_opengl\include\QtSql\qsqlrelationaltablemodel.h \
 		C:\Qt\5.4\msvc2012_opengl\include\QtSql\qsqltablemodel.h \
 		C:\Qt\5.4\msvc2012_opengl\include\QtSql\qtsqlversion.h \
+		..\UI_Vika3\Models\computer.h \
 		..\UI_Vika3\Models\scientist.h \
 		..\UI_Vika3\UI\addcomputerdialog.h
 	C:\Qt\5.4\msvc2012_opengl\bin\moc.exe $(DEFINES) -D_MSC_VER=1700 -D_WIN32 -IC:/Qt/5.4/msvc2012_opengl/mkspecs/win32-msvc2012 -IC:/Users/Birgitta/Documents/GitHub/Verknam01_hopur35/UI_Vika3 -IC:/Users/Birgitta/Documents/GitHub/Verknam01_hopur35/UI_Vika3/UI -IC:/Users/Birgitta/Documents/GitHub/Verknam01_hopur35/UI_Vika3/Models -IC:/Users/Birgitta/Documents/GitHub/Verknam01_hopur35/UI_Vika3/repositories -IC:/Users/Birgitta/Documents/GitHub/Verknam01_hopur35/UI_Vika3/services -IC:/Users/Birgitta/Documents/GitHub/Verknam01_hopur35/UI_Vika3/ui -IC:/Qt/5.4/msvc2012_opengl/include -IC:/Qt/5.4/msvc2012_opengl/include/QtWidgets -IC:/Qt/5.4/msvc2012_opengl/include/QtGui -IC:/Qt/5.4/msvc2012_opengl/include/QtSql -IC:/Qt/5.4/msvc2012_opengl/include/QtCore -I. ..\UI_Vika3\UI\addcomputerdialog.h -o release\moc_addcomputerdialog.cpp

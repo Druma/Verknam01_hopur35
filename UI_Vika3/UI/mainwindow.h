@@ -42,6 +42,8 @@ private slots:
 
     void on_table_computer_clicked(const QModelIndex &index);
 
+    void on_button_add_computer_clicked();
+
 private:
     std::string orderBy(); //current order for Scientists
     bool getOrder();        //ascending or descending order for Scientists

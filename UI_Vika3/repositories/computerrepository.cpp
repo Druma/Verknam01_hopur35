@@ -70,7 +70,7 @@ vector<Computer> ComputerRepository::searchForComputers(string searchTerm, std::
     return queryComputers(QString::fromStdString(sqlQuery.str()));
 }
 
-/*bool ComputerRepository::addComputer(Computer computer)
+bool ComputerRepository::addComputer(Computer computer)
 {
     db.open();
 
@@ -97,7 +97,7 @@ vector<Computer> ComputerRepository::searchForComputers(string searchTerm, std::
 
     return true;
 }
-*/
+
 bool ComputerRepository::removeComputer(Computer computer)
 {
     db.open();

@@ -341,7 +341,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget_choose_table->setCurrentIndex(2);
+        tabWidget_choose_table->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

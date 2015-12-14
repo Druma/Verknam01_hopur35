@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "addscientistdialog.h"
+#include "addcomputerdialog.h"
 #include <QDebug>
 #include <QMessageBox>
 
@@ -270,4 +271,19 @@ void MainWindow::on_dropdown_computer_asc_activated(const QString &arg1)
 void MainWindow::on_dropdown_computer_order_currentIndexChanged(int index)
 {
     on_search_computer_textChanged("");
+}
+
+void MainWindow::on_button_add_computer_clicked()
+{
+    addComputerDialog add_ComputerDialog;
+    int addComputer = add_ComputerDialog.exec();
+
+    if(addComputer == 0)
+    {
+        displayAllComputers();
+    }
+    else
+    {
+        //Error
+    }
 }

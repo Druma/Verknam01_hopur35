@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[15];
-    char stringdata[406];
+    QByteArrayData data[16];
+    char stringdata[437];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -43,7 +43,8 @@ QT_MOC_LITERAL(10, 231, 35), // "on_dropdown_scientist_asc_act..."
 QT_MOC_LITERAL(11, 267, 30), // "on_search_computer_textChanged"
 QT_MOC_LITERAL(12, 298, 34), // "on_dropdown_computer_asc_acti..."
 QT_MOC_LITERAL(13, 333, 46), // "on_dropdown_computer_order_cu..."
-QT_MOC_LITERAL(14, 380, 25) // "on_table_computer_clicked"
+QT_MOC_LITERAL(14, 380, 25), // "on_table_computer_clicked"
+QT_MOC_LITERAL(15, 406, 30) // "on_button_add_computer_clicked"
 
     },
     "MainWindow\0on_button_add_scientist_clicked\0"
@@ -56,7 +57,8 @@ QT_MOC_LITERAL(14, 380, 25) // "on_table_computer_clicked"
     "on_search_computer_textChanged\0"
     "on_dropdown_computer_asc_activated\0"
     "on_dropdown_computer_order_currentIndexChanged\0"
-    "on_table_computer_clicked"
+    "on_table_computer_clicked\0"
+    "on_button_add_computer_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -66,7 +68,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -74,17 +76,18 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   69,    2, 0x08 /* Private */,
-       3,    1,   70,    2, 0x08 /* Private */,
-       5,    0,   73,    2, 0x08 /* Private */,
-       6,    0,   74,    2, 0x08 /* Private */,
-       7,    1,   75,    2, 0x08 /* Private */,
-       9,    1,   78,    2, 0x08 /* Private */,
-      10,    1,   81,    2, 0x08 /* Private */,
-      11,    1,   84,    2, 0x08 /* Private */,
-      12,    1,   87,    2, 0x08 /* Private */,
-      13,    1,   90,    2, 0x08 /* Private */,
-      14,    1,   93,    2, 0x08 /* Private */,
+       1,    0,   74,    2, 0x08 /* Private */,
+       3,    1,   75,    2, 0x08 /* Private */,
+       5,    0,   78,    2, 0x08 /* Private */,
+       6,    0,   79,    2, 0x08 /* Private */,
+       7,    1,   80,    2, 0x08 /* Private */,
+       9,    1,   83,    2, 0x08 /* Private */,
+      10,    1,   86,    2, 0x08 /* Private */,
+      11,    1,   89,    2, 0x08 /* Private */,
+      12,    1,   92,    2, 0x08 /* Private */,
+      13,    1,   95,    2, 0x08 /* Private */,
+      14,    1,   98,    2, 0x08 /* Private */,
+      15,    0,  101,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -98,6 +101,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void, QMetaType::QString,    8,
     QMetaType::Void, QMetaType::Int,    4,
     QMetaType::Void, QMetaType::QModelIndex,    4,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -118,6 +122,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 8: _t->on_dropdown_computer_asc_activated((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 9: _t->on_dropdown_computer_order_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 10: _t->on_table_computer_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
+        case 11: _t->on_button_add_computer_clicked(); break;
         default: ;
         }
     }
@@ -148,13 +153,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 12)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 11;
+        _id -= 12;
     }
     return _id;
 }
