@@ -24,7 +24,7 @@
        <locale language="Icelandic" country="Iceland"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_scientist">
        <attribute name="title">
@@ -32,9 +32,9 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_7">
+         <layout class="QVBoxLayout" name="main_scientist">
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <layout class="QHBoxLayout" name="header_scientist">
             <item>
              <widget class="QComboBox" name="dropdown_scientist_order"/>
             </item>
@@ -111,7 +111,7 @@
            </widget>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout">
+           <layout class="QHBoxLayout" name="footer_scientist">
             <item>
              <widget class="QPushButton" name="button_add_scientist">
               <property name="text">
@@ -148,9 +148,9 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_6">
+         <layout class="QVBoxLayout" name="main_computer">
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <layout class="QHBoxLayout" name="header_computer">
             <item>
              <widget class="QComboBox" name="dropdown_computer_order"/>
             </item>
@@ -212,7 +212,7 @@
            </widget>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <layout class="QHBoxLayout" name="footer_computer">
             <item>
              <widget class="QPushButton" name="button_add_computer">
               <property name="text">
@@ -249,19 +249,19 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
+         <layout class="QVBoxLayout" name="main_connection">
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <layout class="QHBoxLayout" name="header_connection">
             <item>
-             <widget class="QComboBox" name="dropdown_order_by_scientist"/>
+             <widget class="QComboBox" name="dropdown_connection_order"/>
             </item>
             <item>
-             <widget class="QComboBox" name="order_asc_scientist"/>
+             <widget class="QComboBox" name="dropdown_connection_asc"/>
             </item>
             <item>
-             <widget class="QLineEdit" name="search_computer_2">
+             <widget class="QLineEdit" name="search_connection">
               <property name="placeholderText">
-               <string>Search...</string>
+               <string>Search name...</string>
               </property>
              </widget>
             </item>
@@ -302,7 +302,7 @@
            </widget>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <layout class="QHBoxLayout" name="footer_connection">
             <item>
              <widget class="QPushButton" name="button_add_connection">
               <property name="text">

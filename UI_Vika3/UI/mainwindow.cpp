@@ -26,8 +26,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->dropdown_computer_asc->addItem("Ascending");
     ui->dropdown_computer_asc->addItem("Descending");
 
+    ui->dropdown_connection_order->addItem("Scientist");
+    ui->dropdown_connection_order->addItem("Computer");
+    ui->dropdown_connection_order->addItem("Year Built");
+    ui->dropdown_connection_asc->addItem("Ascending");
+    ui->dropdown_connection_asc->addItem("Descending");
+
     displayAllScientists();
     displayAllComputers();
+    //displayAllConnections();
 }
 
 

@@ -38,37 +38,37 @@ public:
     QTabWidget *tabWidget_choose_table;
     QWidget *tab_scientist;
     QVBoxLayout *verticalLayout_2;
-    QVBoxLayout *verticalLayout_7;
-    QHBoxLayout *horizontalLayout_3;
+    QVBoxLayout *main_scientist;
+    QHBoxLayout *header_scientist;
     QComboBox *dropdown_scientist_order;
     QComboBox *dropdown_scientist_asc;
     QLineEdit *search_scientist;
     QTableWidget *table_scientist;
-    QHBoxLayout *horizontalLayout;
+    QHBoxLayout *footer_scientist;
     QPushButton *button_add_scientist;
     QPushButton *button_edit_scientist;
     QPushButton *button_remove_scientist;
     QWidget *tab_computer;
     QVBoxLayout *verticalLayout_3;
-    QVBoxLayout *verticalLayout_6;
-    QHBoxLayout *horizontalLayout_4;
+    QVBoxLayout *main_computer;
+    QHBoxLayout *header_computer;
     QComboBox *dropdown_computer_order;
     QComboBox *dropdown_computer_asc;
     QLineEdit *search_computer;
     QTableWidget *table_computer;
-    QHBoxLayout *horizontalLayout_2;
+    QHBoxLayout *footer_computer;
     QPushButton *button_add_computer;
     QPushButton *button_edit_computer;
     QPushButton *button_remove_computer;
     QWidget *tab_connection;
     QVBoxLayout *verticalLayout_5;
-    QVBoxLayout *verticalLayout_4;
-    QHBoxLayout *horizontalLayout_5;
-    QComboBox *dropdown_order_by_scientist;
-    QComboBox *order_asc_scientist;
-    QLineEdit *search_computer_2;
+    QVBoxLayout *main_connection;
+    QHBoxLayout *header_connection;
+    QComboBox *dropdown_connection_order;
+    QComboBox *dropdown_connection_asc;
+    QLineEdit *search_connection;
     QTableWidget *table_connection;
-    QHBoxLayout *horizontalLayout_6;
+    QHBoxLayout *footer_connection;
     QPushButton *button_add_connection;
     QPushButton *button_edit_connection;
     QPushButton *button_remove_connection;
@@ -97,30 +97,30 @@ public:
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        verticalLayout_7 = new QVBoxLayout();
-        verticalLayout_7->setSpacing(6);
-        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setSpacing(6);
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        main_scientist = new QVBoxLayout();
+        main_scientist->setSpacing(6);
+        main_scientist->setObjectName(QStringLiteral("main_scientist"));
+        header_scientist = new QHBoxLayout();
+        header_scientist->setSpacing(6);
+        header_scientist->setObjectName(QStringLiteral("header_scientist"));
         dropdown_scientist_order = new QComboBox(tab_scientist);
         dropdown_scientist_order->setObjectName(QStringLiteral("dropdown_scientist_order"));
 
-        horizontalLayout_3->addWidget(dropdown_scientist_order);
+        header_scientist->addWidget(dropdown_scientist_order);
 
         dropdown_scientist_asc = new QComboBox(tab_scientist);
         dropdown_scientist_asc->setObjectName(QStringLiteral("dropdown_scientist_asc"));
 
-        horizontalLayout_3->addWidget(dropdown_scientist_asc);
+        header_scientist->addWidget(dropdown_scientist_asc);
 
         search_scientist = new QLineEdit(tab_scientist);
         search_scientist->setObjectName(QStringLiteral("search_scientist"));
         search_scientist->setLocale(QLocale(QLocale::Icelandic, QLocale::Iceland));
 
-        horizontalLayout_3->addWidget(search_scientist);
+        header_scientist->addWidget(search_scientist);
 
 
-        verticalLayout_7->addLayout(horizontalLayout_3);
+        main_scientist->addLayout(header_scientist);
 
         table_scientist = new QTableWidget(tab_scientist);
         if (table_scientist->columnCount() < 4)
@@ -145,32 +145,32 @@ public:
         table_scientist->horizontalHeader()->setStretchLastSection(true);
         table_scientist->verticalHeader()->setVisible(false);
 
-        verticalLayout_7->addWidget(table_scientist);
+        main_scientist->addWidget(table_scientist);
 
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        footer_scientist = new QHBoxLayout();
+        footer_scientist->setSpacing(6);
+        footer_scientist->setObjectName(QStringLiteral("footer_scientist"));
         button_add_scientist = new QPushButton(tab_scientist);
         button_add_scientist->setObjectName(QStringLiteral("button_add_scientist"));
 
-        horizontalLayout->addWidget(button_add_scientist);
+        footer_scientist->addWidget(button_add_scientist);
 
         button_edit_scientist = new QPushButton(tab_scientist);
         button_edit_scientist->setObjectName(QStringLiteral("button_edit_scientist"));
 
-        horizontalLayout->addWidget(button_edit_scientist);
+        footer_scientist->addWidget(button_edit_scientist);
 
         button_remove_scientist = new QPushButton(tab_scientist);
         button_remove_scientist->setObjectName(QStringLiteral("button_remove_scientist"));
         button_remove_scientist->setEnabled(false);
 
-        horizontalLayout->addWidget(button_remove_scientist);
+        footer_scientist->addWidget(button_remove_scientist);
 
 
-        verticalLayout_7->addLayout(horizontalLayout);
+        main_scientist->addLayout(footer_scientist);
 
 
-        verticalLayout_2->addLayout(verticalLayout_7);
+        verticalLayout_2->addLayout(main_scientist);
 
         tabWidget_choose_table->addTab(tab_scientist, QString());
         tab_computer = new QWidget();
@@ -179,30 +179,30 @@ public:
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        verticalLayout_6 = new QVBoxLayout();
-        verticalLayout_6->setSpacing(6);
-        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setSpacing(6);
-        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        main_computer = new QVBoxLayout();
+        main_computer->setSpacing(6);
+        main_computer->setObjectName(QStringLiteral("main_computer"));
+        header_computer = new QHBoxLayout();
+        header_computer->setSpacing(6);
+        header_computer->setObjectName(QStringLiteral("header_computer"));
         dropdown_computer_order = new QComboBox(tab_computer);
         dropdown_computer_order->setObjectName(QStringLiteral("dropdown_computer_order"));
 
-        horizontalLayout_4->addWidget(dropdown_computer_order);
+        header_computer->addWidget(dropdown_computer_order);
 
         dropdown_computer_asc = new QComboBox(tab_computer);
         dropdown_computer_asc->setObjectName(QStringLiteral("dropdown_computer_asc"));
 
-        horizontalLayout_4->addWidget(dropdown_computer_asc);
+        header_computer->addWidget(dropdown_computer_asc);
 
         search_computer = new QLineEdit(tab_computer);
         search_computer->setObjectName(QStringLiteral("search_computer"));
         search_computer->setEchoMode(QLineEdit::Normal);
 
-        horizontalLayout_4->addWidget(search_computer);
+        header_computer->addWidget(search_computer);
 
 
-        verticalLayout_6->addLayout(horizontalLayout_4);
+        main_computer->addLayout(header_computer);
 
         table_computer = new QTableWidget(tab_computer);
         if (table_computer->columnCount() < 4)
@@ -222,32 +222,32 @@ public:
         table_computer->horizontalHeader()->setProperty("showSortIndicator", QVariant(false));
         table_computer->horizontalHeader()->setStretchLastSection(true);
 
-        verticalLayout_6->addWidget(table_computer);
+        main_computer->addWidget(table_computer);
 
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setSpacing(6);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        footer_computer = new QHBoxLayout();
+        footer_computer->setSpacing(6);
+        footer_computer->setObjectName(QStringLiteral("footer_computer"));
         button_add_computer = new QPushButton(tab_computer);
         button_add_computer->setObjectName(QStringLiteral("button_add_computer"));
 
-        horizontalLayout_2->addWidget(button_add_computer);
+        footer_computer->addWidget(button_add_computer);
 
         button_edit_computer = new QPushButton(tab_computer);
         button_edit_computer->setObjectName(QStringLiteral("button_edit_computer"));
 
-        horizontalLayout_2->addWidget(button_edit_computer);
+        footer_computer->addWidget(button_edit_computer);
 
         button_remove_computer = new QPushButton(tab_computer);
         button_remove_computer->setObjectName(QStringLiteral("button_remove_computer"));
         button_remove_computer->setEnabled(true);
 
-        horizontalLayout_2->addWidget(button_remove_computer);
+        footer_computer->addWidget(button_remove_computer);
 
 
-        verticalLayout_6->addLayout(horizontalLayout_2);
+        main_computer->addLayout(footer_computer);
 
 
-        verticalLayout_3->addLayout(verticalLayout_6);
+        verticalLayout_3->addLayout(main_computer);
 
         tabWidget_choose_table->addTab(tab_computer, QString());
         tab_connection = new QWidget();
@@ -256,29 +256,29 @@ public:
         verticalLayout_5->setSpacing(6);
         verticalLayout_5->setContentsMargins(11, 11, 11, 11);
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        verticalLayout_4 = new QVBoxLayout();
-        verticalLayout_4->setSpacing(6);
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setSpacing(6);
-        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        dropdown_order_by_scientist = new QComboBox(tab_connection);
-        dropdown_order_by_scientist->setObjectName(QStringLiteral("dropdown_order_by_scientist"));
+        main_connection = new QVBoxLayout();
+        main_connection->setSpacing(6);
+        main_connection->setObjectName(QStringLiteral("main_connection"));
+        header_connection = new QHBoxLayout();
+        header_connection->setSpacing(6);
+        header_connection->setObjectName(QStringLiteral("header_connection"));
+        dropdown_connection_order = new QComboBox(tab_connection);
+        dropdown_connection_order->setObjectName(QStringLiteral("dropdown_connection_order"));
 
-        horizontalLayout_5->addWidget(dropdown_order_by_scientist);
+        header_connection->addWidget(dropdown_connection_order);
 
-        order_asc_scientist = new QComboBox(tab_connection);
-        order_asc_scientist->setObjectName(QStringLiteral("order_asc_scientist"));
+        dropdown_connection_asc = new QComboBox(tab_connection);
+        dropdown_connection_asc->setObjectName(QStringLiteral("dropdown_connection_asc"));
 
-        horizontalLayout_5->addWidget(order_asc_scientist);
+        header_connection->addWidget(dropdown_connection_asc);
 
-        search_computer_2 = new QLineEdit(tab_connection);
-        search_computer_2->setObjectName(QStringLiteral("search_computer_2"));
+        search_connection = new QLineEdit(tab_connection);
+        search_connection->setObjectName(QStringLiteral("search_connection"));
 
-        horizontalLayout_5->addWidget(search_computer_2);
+        header_connection->addWidget(search_connection);
 
 
-        verticalLayout_4->addLayout(horizontalLayout_5);
+        main_connection->addLayout(header_connection);
 
         table_connection = new QTableWidget(tab_connection);
         if (table_connection->columnCount() < 3)
@@ -296,31 +296,31 @@ public:
         table_connection->setSortingEnabled(true);
         table_connection->horizontalHeader()->setStretchLastSection(true);
 
-        verticalLayout_4->addWidget(table_connection);
+        main_connection->addWidget(table_connection);
 
-        horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setSpacing(6);
-        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
+        footer_connection = new QHBoxLayout();
+        footer_connection->setSpacing(6);
+        footer_connection->setObjectName(QStringLiteral("footer_connection"));
         button_add_connection = new QPushButton(tab_connection);
         button_add_connection->setObjectName(QStringLiteral("button_add_connection"));
 
-        horizontalLayout_6->addWidget(button_add_connection);
+        footer_connection->addWidget(button_add_connection);
 
         button_edit_connection = new QPushButton(tab_connection);
         button_edit_connection->setObjectName(QStringLiteral("button_edit_connection"));
 
-        horizontalLayout_6->addWidget(button_edit_connection);
+        footer_connection->addWidget(button_edit_connection);
 
         button_remove_connection = new QPushButton(tab_connection);
         button_remove_connection->setObjectName(QStringLiteral("button_remove_connection"));
 
-        horizontalLayout_6->addWidget(button_remove_connection);
+        footer_connection->addWidget(button_remove_connection);
 
 
-        verticalLayout_4->addLayout(horizontalLayout_6);
+        main_connection->addLayout(footer_connection);
 
 
-        verticalLayout_5->addLayout(verticalLayout_4);
+        verticalLayout_5->addLayout(main_connection);
 
         tabWidget_choose_table->addTab(tab_connection, QString());
 
@@ -341,7 +341,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget_choose_table->setCurrentIndex(1);
+        tabWidget_choose_table->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -378,7 +378,7 @@ public:
         button_edit_computer->setText(QApplication::translate("MainWindow", "Edit", 0));
         button_remove_computer->setText(QApplication::translate("MainWindow", "Remove", 0));
         tabWidget_choose_table->setTabText(tabWidget_choose_table->indexOf(tab_computer), QApplication::translate("MainWindow", "Computers", 0));
-        search_computer_2->setPlaceholderText(QApplication::translate("MainWindow", "Search...", 0));
+        search_connection->setPlaceholderText(QApplication::translate("MainWindow", "Search name...", 0));
         QTableWidgetItem *___qtablewidgetitem8 = table_connection->horizontalHeaderItem(0);
         ___qtablewidgetitem8->setText(QApplication::translate("MainWindow", "Scientist", 0));
         QTableWidgetItem *___qtablewidgetitem9 = table_connection->horizontalHeaderItem(1);
