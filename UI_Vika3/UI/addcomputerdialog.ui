@@ -203,6 +203,14 @@ Type:
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>input_computer_name</tabstop>
+  <tabstop>input_computer_type</tabstop>
+  <tabstop>input_computer_wasbuilt</tabstop>
+  <tabstop>input_computer_yearbuilt</tabstop>
+  <tabstop>add_newComputer_button</tabstop>
+  <tabstop>cancel_add_newComputer_button</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

@@ -4,36 +4,22 @@
 #include <vector>
 #include "computerrepository.h"
 
-/**
- * @brief The ComputerService acts as a middle layer between the UI and Data layers
- */
-
+//The ComputerService acts as a middle layer between the UI and Data layers
 class ComputerService
 {
 public:
     ComputerService();
 
-    /**
-     * @brief getAllComputers fetches computers from the ComputerRepository
-     * @param orderBy Which column the scientists should be sorted on
-     * @param orderAscending Should the list be sorted in ascending order?
-     * @return a vector containing all scientists in the repository
-     */
+    //getAllComputers fetches computers from the ComputerRepository
     std::vector<Computer> getAllComputers(std::string orderBy, bool orderAscending);
 
-    /**
-     * @brief searchForComputers fetches all computers filtered on searchTerm
-     * @param searchTerm Contains the input that the user wishes to filter on
-     * @return a vector of computers filtered by searchTerm
-     */
+    //searchForComputers fetches all computers filtered on searchTerm
     std::vector<Computer> searchForComputers(std::string searchTerm, std::string orderBy, bool orderAscending);
 
-    /**
-     * @brief addComputer saves a computer model to a database
-     * @param computer The model to save
-     * @return true if it was a success, false if it was a failure
-     */
+    //addComputer saves a computer model to a database
     bool addComputer(Computer computer);
+
+    //removeComputer removes computer from the database
     bool removeComputer(Computer computer);
 
 private:

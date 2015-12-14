@@ -3,8 +3,6 @@
 
 #include <string>
 #include <vector>
-
-// Computer can just include scientist like normally
 #include "scientist.h"
 
 enum computerType {

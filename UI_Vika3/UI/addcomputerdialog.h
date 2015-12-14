@@ -17,6 +17,7 @@ public:
     ~addComputerDialog();
 
 private slots:
+    //Gives user access to confirm adding new computer and adding computers to the database
     void on_add_newComputer_button_clicked();
 
 private:

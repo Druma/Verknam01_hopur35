@@ -4,52 +4,33 @@
 #include <QtSql>
 #include <vector>
 #include <string>
-
 #include "scientist.h"
 
-/**
- * @brief The ScientistRepository class handles reading and writing scientists to and from a database
- */
+//The ScientistRepository class handles reading and writing scientists to and from a database
+
 class ScientistRepository
 {
 public:
     ScientistRepository();
 
-    /**
-     * @brief getAllScientists fetches all scientists from the database
-     * @return a vector containing all scientists in the database
-     */
+    //getAllScientists fetches all scientists from the database
     std::vector<Scientist> getAllScientists(std::string orderBy, bool orderAscending);
 
-    /**
-     * @brief searchForScientists fetches all scientists from the database and filters them on searchTerm
-     * @param searchTerm Contains the input that the user wishes to filter on
-     * @return a vector of scientists filtered by searchTerm
-     */
+    //searchForScientists fetches all scientists from the database and filters them on searchTerm
     std::vector<Scientist> searchForScientists(std::string searchTerm, std::string orderBy, bool orderAscending);
 
-    /**
-     * @brief addScientist saves a scientist model to the database
-     * @param scientist The model to save
-     * @return true if it was a success, false if it was a failure
-     */
+    //addScientist saves a scientist model to the database
     bool addScientist(Scientist scientist);
+
+    //removeScientist removes scientist from the database
     bool removeScientist(Scientist scientist);
 
 private:
 
-    /**
-     * @brief queryComputersByScientist queries the database for computers by scientists
-     * @param scientist A scientist to query by
-     * @return a vector of computers
-     */
+    //queryComputersByScientist queries the database for computers by scientists
     std::vector<Computer> queryComputersByScientist(Scientist scientist);
 
-    /**
-     * @brief queryScientists queries the database for scientists
-     * @param sqlQuery A query which returns scientists
-     * @return a vector of scientists
-     */
+    //queryScientists queries the database for scientists
     std::vector<Scientist> queryScientists(QString sqlQuery);
 
     QSqlDatabase db;

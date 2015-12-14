@@ -4,11 +4,7 @@
 #include <string>
 #include <vector>
 
-/**
- * @brief The data model for scientists
- */
-
-// Forward declaration to let Scientist know that Computer exists
+//Declaration to let Scientist know that Computer exists
 class Computer;
 
 enum sexType {

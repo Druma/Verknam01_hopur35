@@ -199,6 +199,14 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>input_scientist_name</tabstop>
+  <tabstop>input_scientist_gender</tabstop>
+  <tabstop>input_scientist_yob</tabstop>
+  <tabstop>input_scientist_yod</tabstop>
+  <tabstop>add_newScientist_button</tabstop>
+  <tabstop>cancel_add_newScientist_button</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

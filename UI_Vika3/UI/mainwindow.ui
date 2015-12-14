@@ -358,6 +358,30 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>tabWidget_choose_table</tabstop>
+  <tabstop>dropdown_scientist_order</tabstop>
+  <tabstop>dropdown_scientist_asc</tabstop>
+  <tabstop>search_scientist</tabstop>
+  <tabstop>table_scientist</tabstop>
+  <tabstop>button_add_scientist</tabstop>
+  <tabstop>button_edit_scientist</tabstop>
+  <tabstop>button_remove_scientist</tabstop>
+  <tabstop>dropdown_computer_order</tabstop>
+  <tabstop>dropdown_computer_asc</tabstop>
+  <tabstop>search_computer</tabstop>
+  <tabstop>table_computer</tabstop>
+  <tabstop>button_add_computer</tabstop>
+  <tabstop>button_edit_computer</tabstop>
+  <tabstop>button_remove_computer</tabstop>
+  <tabstop>dropdown_connection_order</tabstop>
+  <tabstop>dropdown_connection_asc</tabstop>
+  <tabstop>search_connection</tabstop>
+  <tabstop>table_connection</tabstop>
+  <tabstop>button_add_connection</tabstop>
+  <tabstop>button_edit_connection</tabstop>
+  <tabstop>button_remove_connection</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

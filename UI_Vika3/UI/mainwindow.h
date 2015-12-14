@@ -45,14 +45,14 @@ private slots:
     void on_button_add_computer_clicked();
 
 private:
-    std::string orderBy(); //current order for Scientists
-    bool getOrder();        //ascending or descending order for Scientists
-    std::string orderByComputer(); //current order for Computers
-    bool getOrderByComputer();     //ascending or descending order for Computers
+    std::string orderBy();          //current order for Scientists
+    bool getOrder();                //ascending or descending order for Scientists
+    std::string orderByComputer();  //current order for Computers
+    bool getOrderByComputer();      //ascending or descending order for Computers
     void displayAllScientists();
-    void displayScientists(std::vector<Scientist>);
+    void displayScientists(std::vector<Scientist>); //helping function for displaying all scientists
     void displayAllComputers();
-    void displayComputers(std::vector<Computer>);
+    void displayComputers(std::vector<Computer>);   //helping function for displaying all computers
 
     ScientistService scientistService;
     ComputerService computerService;

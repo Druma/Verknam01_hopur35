@@ -3,9 +3,7 @@
 
 #include <string>
 
-/**
- * This file contains constants that this application uses
- */
+//This file contains constants that this application uses
 
 namespace constants {
     const char FILE_DELIMETER = '\t';

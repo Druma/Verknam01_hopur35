@@ -10,9 +10,7 @@
 #include "scientist.h"
 #include "computer.h"
 
-/**
- * This file contains reusable utility functions used throughout the application
- */
+//This file contains reusable utility functions used throughout the application
 
 namespace utils {    
     std::vector<std::string> split(std::string line, char delimeter);

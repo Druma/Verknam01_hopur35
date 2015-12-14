@@ -17,6 +17,7 @@ public:
     ~addScientistDialog();
 
 private slots:
+    //Gives user access to confirm adding new scientist and adding scientist to the database
     void on_add_newScientist_button_clicked();
 
 private:

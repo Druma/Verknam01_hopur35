@@ -3,36 +3,23 @@
 
 #include "scientistrepository.h"
 
-/**
- * @brief The ScientistService acts as a middle layer between the UI and Data layers
- */
+//The ScientistService acts as a middle layer between the UI and Data layers
 
 class ScientistService
 {
 public:
     ScientistService();
 
-    /**
-     * @brief getAllScientists fetches scientists from the ScientistRepository
-     * @param orderBy Which column the scientists should be sorted on
-     * @param orderAscending Should the list be sorted in ascending order?
-     * @return a vector containing all scientists in the repository
-     */
+    //getAllScientists fetches scientists from the ScientistRepository
     std::vector<Scientist> getAllScientists(std::string orderBy, bool orderAscending);
 
-    /**
-     * @brief searchForScientists fetches all scientists filtered on searchTerm
-     * @param searchTerm Contains the input that the user wishes to filter on
-     * @return a vector of scientists filtered by searchTerm
-     */
+    //searchForScientists fetches all scientists filtered on searchTerm
     std::vector<Scientist> searchForScientists(std::string searchTerm, std::string orderBy, bool orderAscending);
 
-    /**
-     * @brief addScientist saves a scientist model to a database
-     * @param scientist The model to save
-     * @return true if it was a success, false if it was a failure
-     */
+    //addScientist saves a scientist model to a database
     bool addScientist(Scientist scientist);
+
+    //removeScientist removes scientist from the database
     bool removeScientist(Scientist scientist);
 private:
     ScientistRepository scientistRepo;
