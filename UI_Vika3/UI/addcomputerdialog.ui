@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="scientist_gender_label">
+  <widget class="QLabel" name="computer_label_type">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -23,10 +23,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>Gender - m/f:</string>
+    <string>Type:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="scientist_yod_label">
+  <widget class="QLabel" name="computer_label_yearbuilt">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -36,10 +36,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>Year of Death:</string>
+    <string>Year Built</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="input_scientist_gender">
+  <widget class="QLineEdit" name="input_computer_type">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -49,7 +49,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label_error_sci_name">
+  <widget class="QLabel" name="label_error_computer_name">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -62,7 +62,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="add_new_scientist_label">
+  <widget class="QLabel" name="add_new_computer_label">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -72,10 +72,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#550000;&quot;&gt;Add a new scientist&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#550000;&quot;&gt;Add a new computer&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_error_sci_gender">
+  <widget class="QLabel" name="label_error_computer_type">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -88,7 +88,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="label_error_sci_yob">
+  <widget class="QLabel" name="label_error_computer_wasbuilt">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -101,7 +101,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="input_scientist_yod">
+  <widget class="QLineEdit" name="input_computer_yearbuilt">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -111,7 +111,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="cancel_add_newScientist_button">
+  <widget class="QPushButton" name="cancel_add_newComputer_button">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -124,7 +124,7 @@
     <string>cancel</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_error_sci_yod">
+  <widget class="QLabel" name="label_error_computer_yearbuilt">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -137,7 +137,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="input_scientist_name">
+  <widget class="QLineEdit" name="input_computer_name">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -147,7 +147,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="input_scientist_yob">
+  <widget class="QLineEdit" name="input_computer_wasbuilt">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -157,7 +157,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="scientist_yob_label">
+  <widget class="QLabel" name="computer_label_wasbuilt">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -167,10 +167,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>Year of Birth:</string>
+    <string>Was Built: y/n</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="add_newScientist_button">
+  <widget class="QPushButton" name="add_newComputer_button">
    <property name="geometry">
     <rect>
      <x>200</x>
@@ -183,7 +183,7 @@
     <string>Add</string>
    </property>
   </widget>
-  <widget class="QLabel" name="scientist_name_label">
+  <widget class="QLabel" name="computer_labe_name">
    <property name="geometry">
     <rect>
      <x>10</x>

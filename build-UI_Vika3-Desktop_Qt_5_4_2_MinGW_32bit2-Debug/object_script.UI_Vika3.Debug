@@ -11,6 +11,8 @@ INPUT(
 ./debug\computerrepository.o
 ./debug\linkrepository.o
 ./debug\addscientistdialog.o
+./debug\addcomputerdialog.o
 ./debug\moc_mainwindow.o
 ./debug\moc_addscientistdialog.o
+./debug\moc_addcomputerdialog.o
 );
