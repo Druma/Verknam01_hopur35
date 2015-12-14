@@ -26,10 +26,10 @@ std::vector<Scientist> ScientistService::searchForScientists(string searchTerm, 
     }
 }
 
-/*bool ScientistService::addScientist(Scientist scientist)
+bool ScientistService::addScientist(Scientist scientist)
 {
     return scientistRepo.addScientist(scientist);
-}*/
+}
 
 bool ScientistService::removeScientist(Scientist scientist)
 {

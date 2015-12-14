@@ -104,7 +104,7 @@ void MainWindow::displayComputers(vector<Computer> computers)
     }
     computer_list = computers;
 }
-/*
+
 void MainWindow::on_button_add_scientist_clicked()
 {
     addScientistDialog add_ScientistDialog;
@@ -119,7 +119,7 @@ void MainWindow::on_button_add_scientist_clicked()
         //Error
     }
 }
-*/
+
 
 void MainWindow::on_table_scientist_clicked(const QModelIndex &index)
 {

@@ -71,7 +71,7 @@ vector<Scientist> ScientistRepository::searchForScientists(string searchTerm, st
     return queryScientists(QString::fromStdString(sqlQuery.str()));
 }
 
-/*bool ScientistRepository::addScientist(Scientist scientist)
+bool ScientistRepository::addScientist(Scientist scientist)
 {
     db.open();
 
@@ -99,7 +99,7 @@ vector<Scientist> ScientistRepository::searchForScientists(string searchTerm, st
 
     return true;
 }
-*/
+
 bool ScientistRepository::removeScientist(Scientist scientist)
 {
     db.open();

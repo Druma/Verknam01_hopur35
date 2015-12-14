@@ -1,5 +1,6 @@
 #include "addscientistdialog.h"
 #include "ui_addscientistdialog.h"
+#include "utilities/utils.h"
 
 addScientistDialog::addScientistDialog(QWidget *parent) :
     QDialog(parent),
@@ -12,7 +13,7 @@ addScientistDialog::~addScientistDialog()
 {
     delete ui;
 }
-/*
+
 //function does not work correctly to add scientists
 void addScientistDialog::on_add_newScientist_button_clicked()
 {
@@ -56,8 +57,9 @@ void addScientistDialog::on_add_newScientist_button_clicked()
         return;
     }
     //veit ekki alveg hvad eg eigi ad setja inn sem parameter i scientist( , sex, , , ); hvada typu tha fyrst sex er enum!!
-    bool add = ScientistService.addScientist(Scientist(name.toStdString(),sex, yearBorn.toInt(), yearDeath.toInt()));
-
+    //qDebug() << sex;
+    bool add = scientistService.addScientist(Scientist(name.toStdString(), utils::stringToSex(sex.toStdString()), yearBorn.toInt(), yearDeath.toInt()));
+    //bool add = false;
     if(add)
     {
         ui->input_scientist_name->setText("");
@@ -72,5 +74,5 @@ void addScientistDialog::on_add_newScientist_button_clicked()
         this->done(-1);
     }
 
-}*/
+}
 

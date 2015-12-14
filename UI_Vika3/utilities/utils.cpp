@@ -91,7 +91,7 @@ namespace utils {
 
     QSqlDatabase getDatabaseConnection()
     {
-        QString connectionName = "Smuu";
+        QString connectionName = "Smuu"; /*<-- change this, i guess*/
         QSqlDatabase db;
 
         if(QSqlDatabase::contains(connectionName))

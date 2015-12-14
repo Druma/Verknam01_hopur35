@@ -5,6 +5,7 @@
 #include <vector>
 #include "scientistservice.h"
 #include "computerservice.h"
+#include "addscientistdialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -19,7 +20,7 @@ public:
     ~MainWindow();
 
 private slots:
-    //void on_button_add_scientist_clicked();
+    void on_button_add_scientist_clicked();
 
     void on_table_scientist_clicked(const QModelIndex &index);
 
