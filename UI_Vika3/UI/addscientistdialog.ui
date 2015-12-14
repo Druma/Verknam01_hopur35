@@ -19,11 +19,13 @@
      <x>10</x>
      <y>90</y>
      <width>71</width>
-     <height>16</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>Gender - m/f:</string>
+    <string>Gender:
+0 = Female
+1 = Male</string>
    </property>
   </widget>
   <widget class="QLabel" name="scientist_yod_label">

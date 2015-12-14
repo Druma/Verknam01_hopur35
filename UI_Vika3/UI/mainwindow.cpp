@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "addscientistdialog.h"
 #include "addcomputerdialog.h"
+#include "utilities/utils.h"
 #include <QDebug>
 #include <QMessageBox>
 
@@ -63,11 +64,20 @@ void MainWindow::displayScientists(vector<Scientist> scientists)
         if(currentScientist.getSex() == female) {
             sex = "Female";
         }
-        else {
+        else if(currentScientist.getSex() == male) {
             sex = "Male";
         }
+        else
+            sex = "Shemale";
+
         QString yearBorn = QString::number(currentScientist.getYearBorn());
-        QString yearDied = QString::number(currentScientist.getYearDied());
+        QString yearDied;
+        if(currentScientist.getYearDied() == '\0')
+        {
+            yearDied = "";
+        }
+        else
+            yearDied = QString::number(currentScientist.getYearDied());
 
         ui->table_scientist->setItem(row, 0, new QTableWidgetItem(name));
         ui->table_scientist->setItem(row, 1, new QTableWidgetItem(sex));
@@ -75,42 +85,6 @@ void MainWindow::displayScientists(vector<Scientist> scientists)
         ui->table_scientist->setItem(row, 3, new QTableWidgetItem(yearDied));
     }
     scientist_list = scientists;
-}
-
-void MainWindow::displayAllComputers()
-{
-    vector<Computer> computers = computerService.getAllComputers(orderByComputer(), getOrderByComputer());
-
-    displayComputers(computers);
-}
-
-void MainWindow::displayComputers(vector<Computer> computers)
-{
-    ui->table_computer->clearContents();
-    ui->table_computer->setRowCount(computers.size());
-
-    for (unsigned int row = 0; row < computers.size(); row++)
-    {
-        Computer currentComputer = computers.at(row);
-        QString name = QString::fromStdString(currentComputer.getName());
-        QString type = QString::fromStdString(currentComputer.getTypeName());
-        QString yearBuilt = QString::number(currentComputer.getYearBuilt());
-        QString wasBuilt;
-        if(currentComputer.wasBuilt() == true) {
-            wasBuilt = "Yes";
-        }
-        else {
-            wasBuilt = "No";
-        }
-
-        ui->table_computer->setItem(row, 0, new QTableWidgetItem(name));
-        ui->table_computer->setItem(row, 1, new QTableWidgetItem(type));
-        if(currentComputer.wasBuilt()) {
-            ui->table_computer->setItem(row, 2, new QTableWidgetItem(yearBuilt));
-        }
-        ui->table_computer->setItem(row, 3, new QTableWidgetItem(wasBuilt));
-    }
-    computer_list = computers;
 }
 
 void MainWindow::on_button_add_scientist_clicked()
@@ -121,13 +95,13 @@ void MainWindow::on_button_add_scientist_clicked()
     if(addScientist == 0)
     {
         displayAllScientists();
+        ui->statusBar->showMessage("Scientist added!", 2000);
     }
     else
     {
-        //Error
+        ui->statusBar->showMessage("Could not add scientist!", 1500);
     }
 }
-
 
 void MainWindow::on_table_scientist_clicked(const QModelIndex &index)
 {
@@ -136,6 +110,7 @@ void MainWindow::on_table_scientist_clicked(const QModelIndex &index)
 
 void MainWindow::on_button_remove_scientist_clicked()
 {
+
     int selected_scientist = ui->table_scientist->currentIndex().row();
     Scientist scientist_select = scientist_list.at(selected_scientist);
 
@@ -145,35 +120,13 @@ void MainWindow::on_button_remove_scientist_clicked()
         displayAllScientists();
 
         ui->button_remove_scientist->setEnabled(false);
+        ui->statusBar->showMessage("Scientist removed!", 2000);
     }
     else
     {
-        //Error
+        ui->statusBar->showMessage("Could not remove scientist!", 1500);
     }
 
-}
-
-void MainWindow::on_table_computer_clicked(const QModelIndex &index)
-{
-    ui->button_remove_computer->setEnabled(true);
-}
-
-void MainWindow::on_button_remove_computer_clicked()
-{
-    int selected_computer = ui->table_computer->currentIndex().row();
-    Computer computer_select = computer_list.at(selected_computer);
-
-    if (computerService.removeComputer(computer_select))
-    {
-        ui->search_computer->setText("");
-        displayAllComputers();
-
-        ui->button_remove_computer->setEnabled(false);
-    }
-    else
-    {
-        //Error
-    }
 }
 
 void MainWindow::on_search_scientist_textChanged(const QString &arg1)
@@ -228,6 +181,66 @@ bool MainWindow::getOrder()
     }
     else
         return false;
+}
+
+void MainWindow::displayAllComputers()
+{
+    vector<Computer> computers = computerService.getAllComputers(orderByComputer(), getOrderByComputer());
+
+    displayComputers(computers);
+}
+
+void MainWindow::displayComputers(vector<Computer> computers)
+{
+    ui->table_computer->clearContents();
+    ui->table_computer->setRowCount(computers.size());
+
+    for (unsigned int row = 0; row < computers.size(); row++)
+    {
+        Computer currentComputer = computers.at(row);
+        QString name = QString::fromStdString(currentComputer.getName());
+        QString type = QString::fromStdString(currentComputer.getTypeName());
+        QString yearBuilt = QString::number(currentComputer.getYearBuilt());
+        QString wasBuilt;
+        if(currentComputer.wasBuilt() == true) {
+            wasBuilt = "Yes";
+        }
+        else {
+            wasBuilt = "No";
+        }
+
+        ui->table_computer->setItem(row, 0, new QTableWidgetItem(name));
+        ui->table_computer->setItem(row, 1, new QTableWidgetItem(type));
+        if(currentComputer.wasBuilt()) {
+            ui->table_computer->setItem(row, 2, new QTableWidgetItem(yearBuilt));
+        }
+        ui->table_computer->setItem(row, 3, new QTableWidgetItem(wasBuilt));
+    }
+    computer_list = computers;
+}
+
+void MainWindow::on_table_computer_clicked(const QModelIndex &index)
+{
+    ui->button_remove_computer->setEnabled(true);
+}
+
+void MainWindow::on_button_remove_computer_clicked()
+{
+    int selected_computer = ui->table_computer->currentIndex().row();
+    Computer computer_select = computer_list.at(selected_computer);
+
+    if (computerService.removeComputer(computer_select))
+    {
+        ui->search_computer->setText("");
+        displayAllComputers();
+
+        ui->button_remove_computer->setEnabled(false);
+        ui->statusBar->showMessage("Computer removed!", 2000);
+    }
+    else
+    {
+        ui->statusBar->showMessage("Could not remove computer!", 1500);
+    }
 }
 
 string MainWindow::orderByComputer()
@@ -288,9 +301,10 @@ void MainWindow::on_button_add_computer_clicked()
     if(addComputer == 0)
     {
         displayAllComputers();
+        ui->statusBar->showMessage("Computer added!", 2000);
     }
     else
     {
-        //Error
+        ui->statusBar->showMessage("Could not add computer!", 1500);
     }
 }

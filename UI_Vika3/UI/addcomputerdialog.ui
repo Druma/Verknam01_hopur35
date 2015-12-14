@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>338</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,18 +19,22 @@
      <x>10</x>
      <y>90</y>
      <width>71</width>
-     <height>16</height>
+     <height>61</height>
     </rect>
    </property>
    <property name="text">
-    <string>Type (int):</string>
+    <string>
+Type: 
+0 = Electronic
+1 = Mechatronic
+2 = Transistor</string>
    </property>
   </widget>
   <widget class="QLabel" name="computer_label_yearbuilt">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>190</y>
+     <y>250</y>
      <width>71</width>
      <height>16</height>
     </rect>
@@ -43,7 +47,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>90</y>
+     <y>100</y>
      <width>271</width>
      <height>20</height>
     </rect>
@@ -92,7 +96,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>165</y>
+     <y>200</y>
      <width>271</width>
      <height>21</height>
     </rect>
@@ -105,7 +109,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>190</y>
+     <y>250</y>
      <width>271</width>
      <height>20</height>
     </rect>
@@ -115,7 +119,7 @@
    <property name="geometry">
     <rect>
      <x>290</x>
-     <y>240</y>
+     <y>310</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -128,7 +132,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>210</y>
+     <y>270</y>
      <width>271</width>
      <height>21</height>
     </rect>
@@ -151,7 +155,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>140</y>
+     <y>180</y>
      <width>271</width>
      <height>20</height>
     </rect>
@@ -161,20 +165,22 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>140</y>
+     <y>170</y>
      <width>71</width>
-     <height>16</height>
+     <height>51</height>
     </rect>
    </property>
    <property name="text">
-    <string>Was Built: y/n</string>
+    <string>Was Built: 
+1 = yes
+0 = no</string>
    </property>
   </widget>
   <widget class="QPushButton" name="add_newComputer_button">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>240</y>
+     <x>180</x>
+     <y>310</y>
      <width>75</width>
      <height>23</height>
     </rect>

@@ -1,6 +1,7 @@
 #include "addcomputerdialog.h"
 #include "ui_addcomputerdialog.h"
 #include "utilities/utils.h"
+#include <QMessageBox>
 
 addComputerDialog::addComputerDialog(QWidget *parent) :
     QDialog(parent),
@@ -14,7 +15,6 @@ addComputerDialog::~addComputerDialog()
     delete ui;
 }
 
-//function does not work correctly to add scientists
 void addComputerDialog::on_add_newComputer_button_clicked()
 {
     bool error = false;
@@ -31,35 +31,40 @@ void addComputerDialog::on_add_newComputer_button_clicked()
 
     if(name.isEmpty())
     {
-        ui->label_error_computer_name->setText("Error, please input a name");
+        ui->label_error_computer_name->setText("<span style='color: #ED1C14'>Computer Name cannot be empty</span>");
         error = true;
     }
 
     if(type.isEmpty())
     {
-        ui->label_error_computer_type->setText("Error, please input a type");
+        ui->label_error_computer_type->setText("<span style='color: #ED1C14'>Computer Type cannot be empty</span>");
         error = true;
     }
 
     if(wasBuilt.isEmpty())
     {
-        ui->label_error_computer_wasbuilt->setText("Error");
+        ui->label_error_computer_wasbuilt->setText("<span style='color: #ED1C14'>Computer Was Built cannot be empty</span>");
         error = true;
     }
 
-    if(yearBuilt.isEmpty())
+    if(wasBuilt.toInt() == true && yearBuilt.isEmpty())
     {
-        ui->label_error_computer_yearbuilt->setText("Error, please input year of creation");
-        error = false;
+        ui->label_error_computer_yearbuilt->setText("<span style='color: #ED1C14'>Computer Year Built cannot be empty</span>");
+        error = true;
     }
 
-    if(error){
+    if(error)
+        return;
+
+    int confirm = QMessageBox::question(this, "Add new computer", "Are you sure?");
+
+    if(confirm == QMessageBox::No)
+    {
         return;
     }
-    //veit ekki alveg hvad eg eigi ad setja inn sem parameter i scientist( , sex, , , ); hvada typu tha fyrst sex er enum!!
-    //qDebug() << sex;
+
     bool add = computerService.addComputer(Computer(name.toStdString(), utils::intToComputerType(type.toInt()), yearBuilt.toInt()));
-    //bool add = false;
+
     if(add)
     {
         ui->input_computer_name->setText("");
@@ -73,6 +78,4 @@ void addComputerDialog::on_add_newComputer_button_clicked()
     {
         this->done(-1);
     }
-
 }
-

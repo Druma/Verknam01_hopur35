@@ -7,10 +7,6 @@
 // Computer can just include scientist like normally
 #include "scientist.h"
 
-/**
- * @brief The data model for computers
- */
-
 enum computerType {
     electronic,
     mechatronic,

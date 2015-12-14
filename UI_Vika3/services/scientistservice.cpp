@@ -1,5 +1,5 @@
 #include "scientistservice.h"
-
+#include <QMessageBox>
 #include <algorithm>
 
 using namespace std;
@@ -35,3 +35,6 @@ bool ScientistService::removeScientist(Scientist scientist)
 {
     return scientistRepo.removeScientist(scientist);
 }
+
+
+
