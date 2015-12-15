@@ -46,7 +46,10 @@ vector<Computer> ComputerRepository::queryComputers(QString sqlQuery)
     for (unsigned int i = 0; i < computers.size(); i++)
     {
         Computer currentComputer = computers.at(i);
-        currentComputer.setScientists(queryScientistsByComputer(currentComputer));
+        computers[i].setScientists(queryScientistsByComputer(currentComputer));
+        //qDebug() << "anguish?";
+        //qDebug() << currentComputer.getScientists().size();
+        //qDebug() << computers[i].getScientists().size();
     }
 
     return computers;

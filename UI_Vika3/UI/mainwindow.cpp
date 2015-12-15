@@ -324,26 +324,43 @@ void MainWindow::on_button_add_computer_clicked()
 
 void  MainWindow::displayAllConnections()
 {
-    vector<Scientist> scientists = scientistService.getAllScientists(orderBy(), getOrder());
+    //vector<Computer> computers = computerService.getAllComputers(orderByComputer(), getOrderByComputer());
 
-    displayConnections(scientists);
+    displayConnections(computer_list);
 }
 
-void  MainWindow::displayConnections(std::vector<Scientist> scientists)
+void  MainWindow::displayConnections(std::vector<Computer> computers)
 {
     // does not work!
     ui->table_connection->clearContents();
-    ui->table_connection->setRowCount(10);
-    for(unsigned int i = 0; i<scientists.size(); i++)
+
+    int row = 0;
+    for(unsigned int i = 0; i< computers.size(); i++)
     {
-        Scientist currentSci = scientists.at(i);
-        std::vector<Computer*> currentComps = currentSci.getComputers();
-        for(unsigned int x = 0; x<currentComps.size(); x++)
+        Computer currentComputer = computers.at(i);
+        std::vector<Scientist> scientists = currentComputer.getScientists();
+        for(unsigned int x = 0; x< scientists.size(); x++)
         {
-            Computer* currentComp = currentComps.at(x);
-            ui->table_connection->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(currentSci.getName())));
-            ui->table_connection->setItem(i, 1, new QTableWidgetItem(QString::fromStdString(currentComp->getName())));
+            //ui->table_connection->setRowCount(row);
+            row++;
+
         }
 
     }
+    ui->table_connection->setRowCount(row);
+    row = 0;
+    for(unsigned int i = 0; i< computers.size(); i++)
+    {
+        Computer currentComputer = computers.at(i);
+        std::vector<Scientist> scientists = currentComputer.getScientists();
+        for(unsigned int x = 0; x< scientists.size(); x++)
+        {
+            Scientist currentScientist = scientists.at(x);
+            ui->table_connection->setItem(row, 0, new QTableWidgetItem(QString::fromStdString(currentScientist.getName())));
+            ui->table_connection->setItem(row, 1, new QTableWidgetItem(QString::fromStdString(currentComputer.getName())));
+            row++;
+        }
+
+    }
+
 }

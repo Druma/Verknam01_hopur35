@@ -48,6 +48,9 @@ vector<Scientist> ScientistRepository::queryScientists(QString sqlQuery)
     {
         Scientist currentScientist = scientists.at(i);
         currentScientist.setComputers(queryComputersByScientist(currentScientist));
+        //qDebug() << "Look at the mistake in anguish!";
+        //qDebug() << currentScientist.getComputers().size();
+        //qDebug() << scientists[i].getComputers().size();
     }
 
     return scientists;
