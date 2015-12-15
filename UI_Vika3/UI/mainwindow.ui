@@ -24,7 +24,7 @@
        <locale language="Icelandic" country="Iceland"/>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_scientist">
        <attribute name="title">
@@ -121,6 +121,9 @@
             </item>
             <item>
              <widget class="QPushButton" name="button_edit_scientist">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Edit</string>
               </property>
@@ -222,6 +225,9 @@
             </item>
             <item>
              <widget class="QPushButton" name="button_edit_computer">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Edit</string>
               </property>
@@ -230,7 +236,7 @@
             <item>
              <widget class="QPushButton" name="button_remove_computer">
               <property name="enabled">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
               <property name="text">
                <string>Remove</string>

@@ -47,7 +47,7 @@ public:
         addScientistDialog->resize(400, 300);
         scientist_gender_label = new QLabel(addScientistDialog);
         scientist_gender_label->setObjectName(QStringLiteral("scientist_gender_label"));
-        scientist_gender_label->setGeometry(QRect(10, 90, 71, 16));
+        scientist_gender_label->setGeometry(QRect(10, 90, 71, 41));
         scientist_yod_label = new QLabel(addScientistDialog);
         scientist_yod_label->setObjectName(QStringLiteral("scientist_yod_label"));
         scientist_yod_label->setGeometry(QRect(10, 190, 71, 16));
@@ -90,6 +90,11 @@ public:
         scientist_name_label = new QLabel(addScientistDialog);
         scientist_name_label->setObjectName(QStringLiteral("scientist_name_label"));
         scientist_name_label->setGeometry(QRect(10, 40, 61, 20));
+        QWidget::setTabOrder(input_scientist_name, input_scientist_gender);
+        QWidget::setTabOrder(input_scientist_gender, input_scientist_yob);
+        QWidget::setTabOrder(input_scientist_yob, input_scientist_yod);
+        QWidget::setTabOrder(input_scientist_yod, add_newScientist_button);
+        QWidget::setTabOrder(add_newScientist_button, cancel_add_newScientist_button);
 
         retranslateUi(addScientistDialog);
 
@@ -99,7 +104,9 @@ public:
     void retranslateUi(QDialog *addScientistDialog)
     {
         addScientistDialog->setWindowTitle(QApplication::translate("addScientistDialog", "Dialog", 0));
-        scientist_gender_label->setText(QApplication::translate("addScientistDialog", "Gender - m/f:", 0));
+        scientist_gender_label->setText(QApplication::translate("addScientistDialog", "Gender:\n"
+"0 = Female\n"
+"1 = Male", 0));
         scientist_yod_label->setText(QApplication::translate("addScientistDialog", "Year of Death:", 0));
         label_error_sci_name->setText(QString());
         add_new_scientist_label->setText(QApplication::translate("addScientistDialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#550000;\">Add a new scientist</span></p><p align=\"center\"><br/></p></body></html>", 0));

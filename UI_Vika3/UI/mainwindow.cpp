@@ -99,7 +99,7 @@ void MainWindow::on_button_add_scientist_clicked()
     }
     else
     {
-        ui->statusBar->showMessage("Could not add scientist!", 1500);
+        ui->statusBar->showMessage("Canceled.", 1500);
     }
 }
 
@@ -305,6 +305,6 @@ void MainWindow::on_button_add_computer_clicked()
     }
     else
     {
-        ui->statusBar->showMessage("Could not add computer!", 1500);
+        ui->statusBar->showMessage("Canceled.", 1500);
     }
 }

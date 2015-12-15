@@ -47,7 +47,7 @@ void addComputerDialog::on_add_newComputer_button_clicked()
         error = true;
     }
 
-    if(wasBuilt.toInt() == true && yearBuilt.isEmpty())
+    if(wasBuilt.toInt() == 1 && yearBuilt.isEmpty())
     {
         ui->label_error_computer_yearbuilt->setText("<span style='color: #ED1C14'>Computer Year Built can not be empty</span>");
         error = true;
@@ -78,4 +78,9 @@ void addComputerDialog::on_add_newComputer_button_clicked()
     {
         this->done(-1);
     }
+}
+
+void addComputerDialog::on_cancel_add_newComputer_button_clicked()
+{
+    this->done(-1);
 }

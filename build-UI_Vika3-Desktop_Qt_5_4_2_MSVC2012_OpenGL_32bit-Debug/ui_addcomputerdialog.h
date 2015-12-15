@@ -44,16 +44,16 @@ public:
     {
         if (addComputerDialog->objectName().isEmpty())
             addComputerDialog->setObjectName(QStringLiteral("addComputerDialog"));
-        addComputerDialog->resize(400, 300);
+        addComputerDialog->resize(400, 338);
         computer_label_type = new QLabel(addComputerDialog);
         computer_label_type->setObjectName(QStringLiteral("computer_label_type"));
-        computer_label_type->setGeometry(QRect(10, 90, 71, 16));
+        computer_label_type->setGeometry(QRect(10, 90, 71, 61));
         computer_label_yearbuilt = new QLabel(addComputerDialog);
         computer_label_yearbuilt->setObjectName(QStringLiteral("computer_label_yearbuilt"));
-        computer_label_yearbuilt->setGeometry(QRect(10, 190, 71, 16));
+        computer_label_yearbuilt->setGeometry(QRect(10, 250, 71, 16));
         input_computer_type = new QLineEdit(addComputerDialog);
         input_computer_type->setObjectName(QStringLiteral("input_computer_type"));
-        input_computer_type->setGeometry(QRect(90, 90, 271, 20));
+        input_computer_type->setGeometry(QRect(90, 100, 271, 20));
         label_error_computer_name = new QLabel(addComputerDialog);
         label_error_computer_name->setObjectName(QStringLiteral("label_error_computer_name"));
         label_error_computer_name->setGeometry(QRect(90, 60, 271, 31));
@@ -65,31 +65,36 @@ public:
         label_error_computer_type->setGeometry(QRect(90, 115, 271, 21));
         label_error_computer_wasbuilt = new QLabel(addComputerDialog);
         label_error_computer_wasbuilt->setObjectName(QStringLiteral("label_error_computer_wasbuilt"));
-        label_error_computer_wasbuilt->setGeometry(QRect(90, 165, 271, 21));
+        label_error_computer_wasbuilt->setGeometry(QRect(90, 200, 271, 21));
         input_computer_yearbuilt = new QLineEdit(addComputerDialog);
         input_computer_yearbuilt->setObjectName(QStringLiteral("input_computer_yearbuilt"));
-        input_computer_yearbuilt->setGeometry(QRect(90, 190, 271, 20));
+        input_computer_yearbuilt->setGeometry(QRect(90, 250, 271, 20));
         cancel_add_newComputer_button = new QPushButton(addComputerDialog);
         cancel_add_newComputer_button->setObjectName(QStringLiteral("cancel_add_newComputer_button"));
-        cancel_add_newComputer_button->setGeometry(QRect(290, 240, 75, 23));
+        cancel_add_newComputer_button->setGeometry(QRect(290, 310, 75, 23));
         label_error_computer_yearbuilt = new QLabel(addComputerDialog);
         label_error_computer_yearbuilt->setObjectName(QStringLiteral("label_error_computer_yearbuilt"));
-        label_error_computer_yearbuilt->setGeometry(QRect(90, 210, 271, 21));
+        label_error_computer_yearbuilt->setGeometry(QRect(90, 270, 271, 21));
         input_computer_name = new QLineEdit(addComputerDialog);
         input_computer_name->setObjectName(QStringLiteral("input_computer_name"));
         input_computer_name->setGeometry(QRect(90, 40, 271, 20));
         input_computer_wasbuilt = new QLineEdit(addComputerDialog);
         input_computer_wasbuilt->setObjectName(QStringLiteral("input_computer_wasbuilt"));
-        input_computer_wasbuilt->setGeometry(QRect(90, 140, 271, 20));
+        input_computer_wasbuilt->setGeometry(QRect(90, 180, 271, 20));
         computer_label_wasbuilt = new QLabel(addComputerDialog);
         computer_label_wasbuilt->setObjectName(QStringLiteral("computer_label_wasbuilt"));
-        computer_label_wasbuilt->setGeometry(QRect(10, 140, 71, 16));
+        computer_label_wasbuilt->setGeometry(QRect(10, 170, 71, 51));
         add_newComputer_button = new QPushButton(addComputerDialog);
         add_newComputer_button->setObjectName(QStringLiteral("add_newComputer_button"));
-        add_newComputer_button->setGeometry(QRect(200, 240, 75, 23));
+        add_newComputer_button->setGeometry(QRect(180, 310, 75, 23));
         computer_labe_name = new QLabel(addComputerDialog);
         computer_labe_name->setObjectName(QStringLiteral("computer_labe_name"));
         computer_labe_name->setGeometry(QRect(10, 40, 61, 20));
+        QWidget::setTabOrder(input_computer_name, input_computer_type);
+        QWidget::setTabOrder(input_computer_type, input_computer_wasbuilt);
+        QWidget::setTabOrder(input_computer_wasbuilt, input_computer_yearbuilt);
+        QWidget::setTabOrder(input_computer_yearbuilt, add_newComputer_button);
+        QWidget::setTabOrder(add_newComputer_button, cancel_add_newComputer_button);
 
         retranslateUi(addComputerDialog);
 
@@ -99,7 +104,11 @@ public:
     void retranslateUi(QDialog *addComputerDialog)
     {
         addComputerDialog->setWindowTitle(QApplication::translate("addComputerDialog", "Dialog", 0));
-        computer_label_type->setText(QApplication::translate("addComputerDialog", "Type (int):", 0));
+        computer_label_type->setText(QApplication::translate("addComputerDialog", "\n"
+"Type: \n"
+"0 = Electronic\n"
+"1 = Mechatronic\n"
+"2 = Transistor", 0));
         computer_label_yearbuilt->setText(QApplication::translate("addComputerDialog", "Year Built", 0));
         label_error_computer_name->setText(QString());
         add_new_computer_label->setText(QApplication::translate("addComputerDialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#550000;\">Add a new computer</span></p><p align=\"center\"><br/></p></body></html>", 0));
@@ -107,7 +116,9 @@ public:
         label_error_computer_wasbuilt->setText(QString());
         cancel_add_newComputer_button->setText(QApplication::translate("addComputerDialog", "cancel", 0));
         label_error_computer_yearbuilt->setText(QString());
-        computer_label_wasbuilt->setText(QApplication::translate("addComputerDialog", "Was Built: y/n", 0));
+        computer_label_wasbuilt->setText(QApplication::translate("addComputerDialog", "Was Built: \n"
+"1 = yes\n"
+"0 = no", 0));
         add_newComputer_button->setText(QApplication::translate("addComputerDialog", "Add", 0));
         computer_labe_name->setText(QApplication::translate("addComputerDialog", "Name:", 0));
     } // retranslateUi

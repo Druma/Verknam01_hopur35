@@ -157,6 +157,7 @@ public:
 
         button_edit_scientist = new QPushButton(tab_scientist);
         button_edit_scientist->setObjectName(QStringLiteral("button_edit_scientist"));
+        button_edit_scientist->setEnabled(false);
 
         footer_scientist->addWidget(button_edit_scientist);
 
@@ -234,12 +235,13 @@ public:
 
         button_edit_computer = new QPushButton(tab_computer);
         button_edit_computer->setObjectName(QStringLiteral("button_edit_computer"));
+        button_edit_computer->setEnabled(false);
 
         footer_computer->addWidget(button_edit_computer);
 
         button_remove_computer = new QPushButton(tab_computer);
         button_remove_computer->setObjectName(QStringLiteral("button_remove_computer"));
-        button_remove_computer->setEnabled(true);
+        button_remove_computer->setEnabled(false);
 
         footer_computer->addWidget(button_remove_computer);
 
@@ -338,10 +340,31 @@ public:
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
+        QWidget::setTabOrder(tabWidget_choose_table, dropdown_scientist_order);
+        QWidget::setTabOrder(dropdown_scientist_order, dropdown_scientist_asc);
+        QWidget::setTabOrder(dropdown_scientist_asc, search_scientist);
+        QWidget::setTabOrder(search_scientist, table_scientist);
+        QWidget::setTabOrder(table_scientist, button_add_scientist);
+        QWidget::setTabOrder(button_add_scientist, button_edit_scientist);
+        QWidget::setTabOrder(button_edit_scientist, button_remove_scientist);
+        QWidget::setTabOrder(button_remove_scientist, dropdown_computer_order);
+        QWidget::setTabOrder(dropdown_computer_order, dropdown_computer_asc);
+        QWidget::setTabOrder(dropdown_computer_asc, search_computer);
+        QWidget::setTabOrder(search_computer, table_computer);
+        QWidget::setTabOrder(table_computer, button_add_computer);
+        QWidget::setTabOrder(button_add_computer, button_edit_computer);
+        QWidget::setTabOrder(button_edit_computer, button_remove_computer);
+        QWidget::setTabOrder(button_remove_computer, dropdown_connection_order);
+        QWidget::setTabOrder(dropdown_connection_order, dropdown_connection_asc);
+        QWidget::setTabOrder(dropdown_connection_asc, search_connection);
+        QWidget::setTabOrder(search_connection, table_connection);
+        QWidget::setTabOrder(table_connection, button_add_connection);
+        QWidget::setTabOrder(button_add_connection, button_edit_connection);
+        QWidget::setTabOrder(button_edit_connection, button_remove_connection);
 
         retranslateUi(MainWindow);
 
-        tabWidget_choose_table->setCurrentIndex(2);
+        tabWidget_choose_table->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

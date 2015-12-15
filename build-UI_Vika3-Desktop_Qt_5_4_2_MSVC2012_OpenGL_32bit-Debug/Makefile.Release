@@ -1617,6 +1617,8 @@ release\mainwindow.obj: ..\UI_Vika3\UI\mainwindow.cpp ..\UI_Vika3\UI\mainwindow.
 		C:\Qt\5.4\msvc2012_opengl\include\QtWidgets\QDialog \
 		C:\Qt\5.4\msvc2012_opengl\include\QtWidgets\qdialog.h \
 		ui_mainwindow.h \
+		..\UI_Vika3\UI\addcomputerdialog.h \
+		..\UI_Vika3\utilities\utils.h \
 		C:\Qt\5.4\msvc2012_opengl\include\QtCore\QDebug \
 		C:\Qt\5.4\msvc2012_opengl\include\QtWidgets\QMessageBox \
 		C:\Qt\5.4\msvc2012_opengl\include\QtWidgets\qmessagebox.h
@@ -2369,7 +2371,10 @@ release\scientistservice.obj: ..\UI_Vika3\services\scientistservice.cpp ..\UI_Vi
 		C:\Qt\5.4\msvc2012_opengl\include\QtSql\qsqlrelationaltablemodel.h \
 		C:\Qt\5.4\msvc2012_opengl\include\QtSql\qsqltablemodel.h \
 		C:\Qt\5.4\msvc2012_opengl\include\QtSql\qtsqlversion.h \
-		..\UI_Vika3\Models\scientist.h
+		..\UI_Vika3\Models\scientist.h \
+		C:\Qt\5.4\msvc2012_opengl\include\QtWidgets\QMessageBox \
+		C:\Qt\5.4\msvc2012_opengl\include\QtWidgets\qmessagebox.h \
+		C:\Qt\5.4\msvc2012_opengl\include\QtWidgets\qdialog.h
 
 release\computerservice.obj: ..\UI_Vika3\services\computerservice.cpp ..\UI_Vika3\services\computerservice.h \
 		..\UI_Vika3\repositories\computerrepository.h \
@@ -3871,9 +3876,11 @@ release\addscientistdialog.obj: ..\UI_Vika3\UI\addscientistdialog.cpp ..\UI_Vika
 		..\UI_Vika3\Models\scientist.h \
 		ui_addscientistdialog.h \
 		..\UI_Vika3\utilities\utils.h \
-		..\UI_Vika3\Models\computer.h
+		..\UI_Vika3\Models\computer.h \
+		C:\Qt\5.4\msvc2012_opengl\include\QtWidgets\QMessageBox \
+		C:\Qt\5.4\msvc2012_opengl\include\QtWidgets\qmessagebox.h
 
-release\addcomputerdialog.obj: ..\UI_Vika3\UI\addcomputerdialog.cpp ..\UI_Vika3\UI\addscientistdialog.h \
+release\addcomputerdialog.obj: ..\UI_Vika3\UI\addcomputerdialog.cpp ..\UI_Vika3\UI\addcomputerdialog.h \
 		C:\Qt\5.4\msvc2012_opengl\include\QtWidgets\QDialog \
 		C:\Qt\5.4\msvc2012_opengl\include\QtWidgets\qdialog.h \
 		C:\Qt\5.4\msvc2012_opengl\include\QtWidgets\qwidget.h \
@@ -3977,8 +3984,8 @@ release\addcomputerdialog.obj: ..\UI_Vika3\UI\addcomputerdialog.cpp ..\UI_Vika3\
 		C:\Qt\5.4\msvc2012_opengl\include\QtCore\qfiledevice.h \
 		C:\Qt\5.4\msvc2012_opengl\include\QtGui\qvector2d.h \
 		C:\Qt\5.4\msvc2012_opengl\include\QtGui\qtouchdevice.h \
-		..\UI_Vika3\services\scientistservice.h \
-		..\UI_Vika3\repositories\scientistrepository.h \
+		..\UI_Vika3\services\computerservice.h \
+		..\UI_Vika3\repositories\computerrepository.h \
 		C:\Qt\5.4\msvc2012_opengl\include\QtSql\QtSql \
 		C:\Qt\5.4\msvc2012_opengl\include\QtSql\QtSqlDepends \
 		C:\Qt\5.4\msvc2012_opengl\include\QtCore\QtCore \
@@ -4122,10 +4129,12 @@ release\addcomputerdialog.obj: ..\UI_Vika3\UI\addcomputerdialog.cpp ..\UI_Vika3\
 		C:\Qt\5.4\msvc2012_opengl\include\QtSql\qsqlrelationaltablemodel.h \
 		C:\Qt\5.4\msvc2012_opengl\include\QtSql\qsqltablemodel.h \
 		C:\Qt\5.4\msvc2012_opengl\include\QtSql\qtsqlversion.h \
+		..\UI_Vika3\Models\computer.h \
 		..\UI_Vika3\Models\scientist.h \
-		ui_addscientistdialog.h \
+		ui_addcomputerdialog.h \
 		..\UI_Vika3\utilities\utils.h \
-		..\UI_Vika3\Models\computer.h
+		C:\Qt\5.4\msvc2012_opengl\include\QtWidgets\QMessageBox \
+		C:\Qt\5.4\msvc2012_opengl\include\QtWidgets\qmessagebox.h
 
 release\moc_mainwindow.obj: release\moc_mainwindow.cpp 
 

@@ -86,3 +86,8 @@ void addScientistDialog::on_add_newScientist_button_clicked()
     }
 
 }
+
+void addScientistDialog::on_cancel_add_newScientist_button_clicked()
+{
+    this->done(-1);
+}
