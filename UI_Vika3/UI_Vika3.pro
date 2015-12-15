@@ -28,7 +28,8 @@ SOURCES += main.cpp\
     repositories/linkrepository.cpp \
     UI/addscientistdialog.cpp \
 	UI/addcomputerdialog.cpp \
-	utilities/errorhandling.cpp
+	utilities/errorhandling.cpp \
+    UI/addconnectiondialog.cpp
 
 HEADERS  += UI/mainwindow.h \
     models/scientist.h \
@@ -43,11 +44,13 @@ HEADERS  += UI/mainwindow.h \
     repositories/linkrepository.h \
     UI/addscientistdialog.h \
     UI/addcomputerdialog.h \
-	utilities/errorhandling.h
+	utilities/errorhandling.h \
+    UI/addconnectiondialog.h
 
 FORMS    += UI/mainwindow.ui \
     UI/addscientistdialog.ui \
-    UI/addcomputerdialog.ui
+    UI/addcomputerdialog.ui \
+    UI/addconnectiondialog.ui
 
 INCLUDEPATH += UI \
     Models \

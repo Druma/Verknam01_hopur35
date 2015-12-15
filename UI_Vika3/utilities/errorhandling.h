@@ -5,4 +5,6 @@
 
 bool checkForInt(const std::string arg);
 
+bool checkForAllInt(const std::string arg);
+
 #endif // ERRORHANDLING_H

@@ -2,6 +2,7 @@
 #include "ui_addcomputerdialog.h"
 #include "utilities/utils.h"
 #include <QMessageBox>
+#include <QDate>
 
 addComputerDialog::addComputerDialog(QWidget *parent) :
     QDialog(parent),
@@ -19,6 +20,7 @@ void addComputerDialog::on_add_newComputer_button_clicked()
 {
     // variables
     bool error = false;
+    int currentYear = QDate::currentDate().year();
 
     QButtonGroup typeGroup;
     typeGroup.addButton(ui->radioButton_electronic);
@@ -56,10 +58,23 @@ void addComputerDialog::on_add_newComputer_button_clicked()
         yearBuilt = ui->input_computer_yearbuilt->text();
     }
 
-    if(ui->checkBox_wasBuilt->isChecked() && yearBuilt.isEmpty())
+    if(ui->checkBox_wasBuilt->isChecked())
     {
-        ui->label_error_computer_yearbuilt->setText("<span style='color: #ED1C14'>Computer Year Built can not be empty</span>");
-        error = true;
+        if(yearBuilt.isEmpty())
+        {
+            ui->label_error_computer_yearbuilt->setText("<span style='color: #ED1C14'>Year built can not be empty</span>");
+            error = true;
+
+        } else if(!checkForAllInt(yearBuilt.toStdString()))
+        {
+            ui->label_error_computer_yearbuilt->setText("<span style='color: #ED1C14'>Year built has to be numbers</span>");
+            error = true;
+
+        } else if(yearBuilt.toInt() > currentYear)
+        {
+            ui->label_error_computer_yearbuilt->setText("<span style='color: #ED1C14'>this is not the future (future date inserted)</span>");
+            error = true;
+        }
     }
 
     if(error)

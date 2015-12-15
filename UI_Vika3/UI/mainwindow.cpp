@@ -34,7 +34,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     displayAllScientists();
     displayAllComputers();
-    //displayAllConnections();
+    displayAllConnections();
 }
 
 MainWindow::~MainWindow()
@@ -104,10 +104,19 @@ void MainWindow::on_button_add_scientist_clicked()
 void MainWindow::on_table_scientist_clicked(const QModelIndex &index)
 {
     ui->button_remove_scientist->setEnabled(true);
+    int selected_scientist = ui->table_scientist->currentIndex().row();
+    Scientist scientist_select = scientist_list.at(selected_scientist);
+    qDebug() << scientist_select.getComputers().size();
 }
 
 void MainWindow::on_button_remove_scientist_clicked()
 {
+    int confirm = QMessageBox::question(this, "delete scientist", "Are you sure?");
+
+    if(confirm == QMessageBox::No)
+    {
+        return;
+    }
 
     int selected_scientist = ui->table_scientist->currentIndex().row();
     Scientist scientist_select = scientist_list.at(selected_scientist);
@@ -224,6 +233,12 @@ void MainWindow::on_table_computer_clicked(const QModelIndex &index)
 
 void MainWindow::on_button_remove_computer_clicked()
 {
+    int confirm = QMessageBox::question(this, "delete computer", "Are you sure?");
+
+    if(confirm == QMessageBox::No)
+    {
+        return;
+    }
     int selected_computer = ui->table_computer->currentIndex().row();
     Computer computer_select = computer_list.at(selected_computer);
 
@@ -307,42 +322,28 @@ void MainWindow::on_button_add_computer_clicked()
     }
 }
 
-
-void MainWindow::displayAllConnections()
+void  MainWindow::displayAllConnections()
 {
-    vector<Scientist> scientists = scientistService.getAllScientists(orderByComputer(), getOrderByComputer());
+    vector<Scientist> scientists = scientistService.getAllScientists(orderBy(), getOrder());
 
-    vector<Computer*> computers = scientists.at(1).getComputers();
-
-    //displayConnections(computers);
+    displayConnections(scientists);
 }
 
-void MainWindow::displayConnections(vector<Computer> computers)
+void  MainWindow::displayConnections(std::vector<Scientist> scientists)
 {
-    ui->table_computer->clearContents();
-    ui->table_computer->setRowCount(computers.size());
-
-    for (unsigned int row = 0; row < computers.size(); row++)
+    // does not work!
+    ui->table_connection->clearContents();
+    ui->table_connection->setRowCount(10);
+    for(unsigned int i = 0; i<scientists.size(); i++)
     {
-        Computer currentComputer = computers.at(row);
-        QString name = QString::fromStdString(currentComputer.getName());
-        QString type = QString::fromStdString(currentComputer.getTypeName());
-        QString yearBuilt = QString::number(currentComputer.getYearBuilt());
-        QString wasBuilt;
-        if(currentComputer.wasBuilt() == true) {
-            wasBuilt = "Yes";
-        }
-        else {
-            wasBuilt = "No";
+        Scientist currentSci = scientists.at(i);
+        std::vector<Computer*> currentComps = currentSci.getComputers();
+        for(unsigned int x = 0; x<currentComps.size(); x++)
+        {
+            Computer* currentComp = currentComps.at(x);
+            ui->table_connection->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(currentSci.getName())));
+            ui->table_connection->setItem(i, 1, new QTableWidgetItem(QString::fromStdString(currentComp->getName())));
         }
 
-        ui->table_computer->setItem(row, 0, new QTableWidgetItem(name));
-        ui->table_computer->setItem(row, 1, new QTableWidgetItem(type));
-        if(currentComputer.wasBuilt()) {
-            ui->table_computer->setItem(row, 2, new QTableWidgetItem(yearBuilt));
-        }
-        ui->table_computer->setItem(row, 3, new QTableWidgetItem(wasBuilt));
     }
-    computer_list = computers;
 }
-

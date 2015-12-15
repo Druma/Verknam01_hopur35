@@ -3,6 +3,7 @@
 #include "utilities/utils.h"
 #include <QMessageBox>
 #include <cctype>
+#include <QDate>
 
 addScientistDialog::addScientistDialog(QWidget *parent) :
     QDialog(parent),
@@ -20,6 +21,8 @@ void addScientistDialog::on_add_newScientist_button_clicked()
 {
     // variables
     bool error = false;
+    int currentYear = QDate::currentDate().year();
+
     QButtonGroup gender;
     gender.addButton(ui->radioButton_female);
     gender.addButton(ui->radioButton_male);
@@ -56,6 +59,14 @@ void addScientistDialog::on_add_newScientist_button_clicked()
     {
         ui->label_error_sci_yob->setText("<span style='color: #ED1C14'>Year of birth can not be empty</span>");
         error = true;
+    } else if(!checkForAllInt(yearBorn.toStdString()))
+    {
+        ui->label_error_sci_yob->setText("<span style='color: #ED1C14'>Year of birth has to be numbers</span>");
+        error = true;
+    }else if(yearBorn.toInt() > currentYear)
+    {
+        ui->label_error_sci_yob->setText("<span style='color: #ED1C14'>this is not the future (future date inserted)</span>");
+        error = true;
     }
 
 
@@ -63,11 +74,28 @@ void addScientistDialog::on_add_newScientist_button_clicked()
     {
         yearDeath = ui->input_scientist_yod->text();
     }
-
-    if(ui->checkBox_isAlive->isChecked() && yearDeath.isEmpty())
+    if(ui->checkBox_isAlive->isChecked())
     {
-        ui->label_error_sci_yod->setText("<span style='color: #ED1C14'>Scientist is still alive</span>");
-        error = true;
+        if(yearDeath.isEmpty())
+        {
+            ui->label_error_sci_yod->setText("<span style='color: #ED1C14'>Scientist is still alive</span>");
+            error = true;
+
+        } else if(!checkForAllInt(yearDeath.toStdString()))
+        {
+            ui->label_error_sci_yod->setText("<span style='color: #ED1C14'>Year of death has to be numbers</span>");
+            error = true;
+
+        } else if(yearBorn.toInt() >= yearDeath.toInt())
+        {
+            ui->label_error_sci_yod->setText("<span style='color: #ED1C14'>Year of death cannot be lower than year of birth</span>");
+            error = true;
+
+        } else if(yearDeath.toInt() > currentYear)
+        {
+            ui->label_error_sci_yod->setText("<span style='color: #ED1C14'>this is not the future (future date inserted)</span>");
+            error = true;
+        }
     }
 
     if(error){
