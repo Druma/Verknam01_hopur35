@@ -56,6 +56,10 @@ void addScientistDialog::on_add_newScientist_button_clicked()
     {
         ui->label_error_sci_yob->setText("<span style='color: #ED1C14'>Year of birth can not be empty</span>");
         error = true;
+    } else if(!checkForAllInt(yearBorn.toStdString()))
+    {
+        ui->label_error_sci_yob->setText("<span style='color: #ED1C14'>Year of birth has to be numbers</span>");
+        error = true;
     }
 
 
@@ -67,6 +71,14 @@ void addScientistDialog::on_add_newScientist_button_clicked()
     if(ui->checkBox_isAlive->isChecked() && yearDeath.isEmpty())
     {
         ui->label_error_sci_yod->setText("<span style='color: #ED1C14'>Scientist is still alive</span>");
+        error = true;
+    } else if(ui->checkBox_isAlive->isChecked() && !checkForAllInt(yearDeath.toStdString()))
+    {
+        ui->label_error_sci_yod->setText("<span style='color: #ED1C14'>Year of death has to be numbers</span>");
+        error = true;
+    } else if(ui->checkBox_isAlive->isChecked() && !isLarger(yearBorn.toInt(),yearDeath.toInt()))
+    {
+        ui->label_error_sci_yod->setText("<span style='color: #ED1C14'>Year of death cannot be lower than year of birth</span>");
         error = true;
     }
 

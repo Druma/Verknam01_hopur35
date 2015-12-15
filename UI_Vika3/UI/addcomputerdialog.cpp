@@ -58,7 +58,11 @@ void addComputerDialog::on_add_newComputer_button_clicked()
 
     if(ui->checkBox_wasBuilt->isChecked() && yearBuilt.isEmpty())
     {
-        ui->label_error_computer_yearbuilt->setText("<span style='color: #ED1C14'>Computer Year Built can not be empty</span>");
+        ui->label_error_computer_yearbuilt->setText("<span style='color: #ED1C14'>Year built can not be empty</span>");
+        error = true;
+    } else if(ui->checkBox_wasBuilt->isChecked() && !checkForAllInt(yearBuilt.toStdString()))
+    {
+        ui->label_error_computer_yearbuilt->setText("<span style='color: #ED1C14'>Year built has to be numbers</span>");
         error = true;
     }
 
