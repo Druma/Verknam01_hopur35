@@ -22,6 +22,8 @@ private slots:
 
     void on_cancel_add_newComputer_button_clicked();
 
+    void on_checkBox_wasBuilt_stateChanged(int arg1);
+
 private:
     Ui::addComputerDialog *ui;
 

@@ -18,10 +18,14 @@ addScientistDialog::~addScientistDialog()
 
 void addScientistDialog::on_add_newScientist_button_clicked()
 {
+    // variables
     bool error = false;
+    QButtonGroup gender;
+    gender.addButton(ui->radioButton_female);
+    gender.addButton(ui->radioButton_male);
 
+    // reset error messages
     ui->label_error_sci_name->setText("");
-    ui->label_error_sci_gender->setText("");
     ui->label_error_sci_yob->setText("");
     ui->label_error_sci_yod->setText("");
 
@@ -31,9 +35,10 @@ void addScientistDialog::on_add_newScientist_button_clicked()
         ui->label_error_sci_name->setText("<span style='color: #ED1C14'>Name can not be digits</span>");
         error = true;
     }*/
-    QString sex = ui->input_scientist_gender->text();
+    //QString sex = ui->input_scientist_gender->text();
+    QString sex;
     QString yearBorn = ui->input_scientist_yob->text();
-    QString yearDeath = ui->input_scientist_yod->text();
+    QString yearDeath;
 
     if(name.isEmpty())
     {
@@ -41,21 +46,28 @@ void addScientistDialog::on_add_newScientist_button_clicked()
         error = true;
     }
 
-    if(sex.isEmpty())
+    if(gender.checkedButton() == ui->radioButton_female)
     {
-        ui->label_error_sci_gender->setText("<span style='color: #ED1C14'>Gender can not be empty</span>");
-        error = true;
+        sex = "0";
+    }else{
+        sex = "1";
     }
-
     if(yearBorn.isEmpty())
     {
         ui->label_error_sci_yob->setText("<span style='color: #ED1C14'>Year of birth can not be empty</span>");
         error = true;
     }
 
-    if(yearBorn.isEmpty() == false && yearDeath.isEmpty())
+
+    if(ui->checkBox_isAlive->isChecked())
+    {
+        yearDeath = ui->input_scientist_yod->text();
+    }
+
+    if(ui->checkBox_isAlive->isChecked() && yearDeath.isEmpty())
     {
         ui->label_error_sci_yod->setText("<span style='color: #ED1C14'>Scientist is still alive</span>");
+        error = true;
     }
 
     if(error){
@@ -74,7 +86,6 @@ void addScientistDialog::on_add_newScientist_button_clicked()
     if(add)
     {
         ui->input_scientist_name->setText("");
-        ui->input_scientist_gender->setText("");
         ui->input_scientist_yob->setText("");
         ui->input_scientist_yod->setText("");
 
@@ -90,4 +101,15 @@ void addScientistDialog::on_add_newScientist_button_clicked()
 void addScientistDialog::on_cancel_add_newScientist_button_clicked()
 {
     this->done(-1);
+}
+
+void addScientistDialog::on_checkBox_isAlive_stateChanged(int state)
+{
+    if(state == Qt::Checked)
+    {
+        ui->input_scientist_yod->setEnabled(true);
+    }
+    else{
+        ui->input_scientist_yod->setEnabled(false);
+    }
 }
