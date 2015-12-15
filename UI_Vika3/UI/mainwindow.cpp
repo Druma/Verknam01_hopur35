@@ -29,7 +29,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->dropdown_connection_order->addItem("Scientist");
     ui->dropdown_connection_order->addItem("Computer");
-    ui->dropdown_connection_order->addItem("Year Built");
     ui->dropdown_connection_asc->addItem("Ascending");
     ui->dropdown_connection_asc->addItem("Descending");
 
@@ -37,7 +36,6 @@ MainWindow::MainWindow(QWidget *parent) :
     displayAllComputers();
     //displayAllConnections();
 }
-
 
 MainWindow::~MainWindow()
 {
@@ -308,3 +306,43 @@ void MainWindow::on_button_add_computer_clicked()
         ui->statusBar->showMessage("Canceled.", 1500);
     }
 }
+
+
+void MainWindow::displayAllConnections()
+{
+    vector<Scientist> scientists = scientistService.getAllScientists(orderByComputer(), getOrderByComputer());
+
+    vector<Computer*> computers = scientists.at(1).getComputers();
+
+    //displayConnections(computers);
+}
+
+void MainWindow::displayConnections(vector<Computer> computers)
+{
+    ui->table_computer->clearContents();
+    ui->table_computer->setRowCount(computers.size());
+
+    for (unsigned int row = 0; row < computers.size(); row++)
+    {
+        Computer currentComputer = computers.at(row);
+        QString name = QString::fromStdString(currentComputer.getName());
+        QString type = QString::fromStdString(currentComputer.getTypeName());
+        QString yearBuilt = QString::number(currentComputer.getYearBuilt());
+        QString wasBuilt;
+        if(currentComputer.wasBuilt() == true) {
+            wasBuilt = "Yes";
+        }
+        else {
+            wasBuilt = "No";
+        }
+
+        ui->table_computer->setItem(row, 0, new QTableWidgetItem(name));
+        ui->table_computer->setItem(row, 1, new QTableWidgetItem(type));
+        if(currentComputer.wasBuilt()) {
+            ui->table_computer->setItem(row, 2, new QTableWidgetItem(yearBuilt));
+        }
+        ui->table_computer->setItem(row, 3, new QTableWidgetItem(wasBuilt));
+    }
+    computer_list = computers;
+}
+

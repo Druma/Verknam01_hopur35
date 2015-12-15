@@ -11,39 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Add a new computer</string>
   </property>
-  <widget class="QLabel" name="computer_label_type">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>100</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Type:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="computer_label_yearbuilt">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>250</y>
-     <width>51</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Year Built</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_error_computer_name">
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>60</y>
+     <y>80</y>
      <width>271</width>
      <height>31</height>
     </rect>
@@ -65,21 +39,11 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#550000;&quot;&gt;Add a new computer&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="input_computer_yearbuilt">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>250</y>
-     <width>211</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="cancel_add_newComputer_button">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>310</y>
+     <x>280</x>
+     <y>290</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -92,7 +56,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>270</y>
+     <y>250</y>
      <width>271</width>
      <height>21</height>
     </rect>
@@ -101,21 +65,11 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="input_computer_name">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>40</y>
-     <width>271</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="add_newComputer_button">
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>310</y>
+     <y>290</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -124,80 +78,12 @@
     <string>Add</string>
    </property>
   </widget>
-  <widget class="QLabel" name="computer_labe_name">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>40</y>
-     <width>61</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Name:</string>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="radioButton_electronic">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>110</y>
-     <width>82</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Electronic</string>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="radioButton_mechatron">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>110</y>
-     <width>82</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Mechatron</string>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="radioButton_transistor">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>110</y>
-     <width>82</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Transistor</string>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="radioButton_other">
-   <property name="geometry">
-    <rect>
-     <x>310</x>
-     <y>110</y>
-     <width>82</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Other</string>
-   </property>
-  </widget>
   <widget class="QCheckBox" name="checkBox_wasBuilt">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>220</y>
-     <width>70</width>
+     <x>20</x>
+     <y>190</y>
+     <width>171</width>
      <height>17</height>
     </rect>
    </property>
@@ -207,6 +93,104 @@
    <property name="checked">
     <bool>true</bool>
    </property>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>220</y>
+     <width>351</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_5">
+    <item>
+     <widget class="QLabel" name="computer_label_yearbuilt">
+      <property name="text">
+       <string>Year Built:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="input_computer_yearbuilt"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>100</y>
+     <width>231</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_6">
+    <item>
+     <widget class="QLabel" name="computer_label_type">
+      <property name="text">
+       <string>Type:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="0">
+       <widget class="QRadioButton" name="radioButton_mechatron">
+        <property name="text">
+         <string>Mechatron</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QRadioButton" name="radioButton_electronic">
+        <property name="text">
+         <string>Electronic</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QRadioButton" name="radioButton_transistor">
+        <property name="text">
+         <string>Transistor</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QRadioButton" name="radioButton_other">
+        <property name="text">
+         <string>Other</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>361</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_7">
+    <item>
+     <widget class="QLabel" name="computer_labe_name">
+      <property name="text">
+       <string>Name:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="input_computer_name"/>
+    </item>
+   </layout>
   </widget>
  </widget>
  <tabstops>

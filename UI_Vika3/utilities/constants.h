@@ -27,6 +27,7 @@ namespace constants {
 
     const std::string DATABASE_TYPE = "QSQLITE";
     const std::string DATABASE_NAME = "database.sqlite";
+
 }
 
 #endif // CONSTANTS_H
