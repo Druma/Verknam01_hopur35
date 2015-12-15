@@ -30,11 +30,11 @@ void addScientistDialog::on_add_newScientist_button_clicked()
     ui->label_error_sci_yod->setText("");
 
     QString name = ui->input_scientist_name->text();
-    /*if(isalpha(name[0]))
+    if(checkForInt(name.toStdString().c_str()))
     {
         ui->label_error_sci_name->setText("<span style='color: #ED1C14'>Name can not be digits</span>");
         error = true;
-    }*/
+    }
     //QString sex = ui->input_scientist_gender->text();
     QString sex;
     QString yearBorn = ui->input_scientist_yob->text();

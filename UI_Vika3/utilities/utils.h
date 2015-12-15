@@ -7,6 +7,7 @@
 #include <string>
 #include <QtSql>
 
+#include "errorhandling.h"
 #include "scientist.h"
 #include "computer.h"
 
