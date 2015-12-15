@@ -53,7 +53,7 @@ public:
         scientist_gender_label->setGeometry(QRect(10, 90, 71, 41));
         scientist_yod_label = new QLabel(addScientistDialog);
         scientist_yod_label->setObjectName(QStringLiteral("scientist_yod_label"));
-        scientist_yod_label->setGeometry(QRect(70, 190, 71, 16));
+        scientist_yod_label->setGeometry(QRect(50, 190, 101, 16));
         label_error_sci_name = new QLabel(addScientistDialog);
         label_error_sci_name->setObjectName(QStringLiteral("label_error_sci_name"));
         label_error_sci_name->setGeometry(QRect(90, 60, 271, 31));
@@ -98,7 +98,7 @@ public:
         radioButton_male->setGeometry(QRect(210, 100, 82, 17));
         checkBox_isAlive = new QCheckBox(addScientistDialog);
         checkBox_isAlive->setObjectName(QStringLiteral("checkBox_isAlive"));
-        checkBox_isAlive->setGeometry(QRect(40, 170, 70, 17));
+        checkBox_isAlive->setGeometry(QRect(20, 170, 101, 17));
         checkBox_isAlive->setChecked(true);
         QWidget::setTabOrder(input_scientist_name, input_scientist_yob);
         QWidget::setTabOrder(input_scientist_yob, input_scientist_yod);
