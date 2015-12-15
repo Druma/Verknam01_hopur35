@@ -106,6 +106,9 @@ void MainWindow::on_button_add_scientist_clicked()
 void MainWindow::on_table_scientist_clicked(const QModelIndex &index)
 {
     ui->button_remove_scientist->setEnabled(true);
+    int selected_scientist = ui->table_scientist->currentIndex().row();
+    Scientist scientist_select = scientist_list.at(selected_scientist);
+    qDebug() << scientist_select.getComputers().size();
 }
 
 void MainWindow::on_button_remove_scientist_clicked()

@@ -47,7 +47,7 @@ public:
     {
         if (addScientistDialog->objectName().isEmpty())
             addScientistDialog->setObjectName(QStringLiteral("addScientistDialog"));
-        addScientistDialog->resize(400, 300);
+        addScientistDialog->resize(400, 276);
         scientist_gender_label = new QLabel(addScientistDialog);
         scientist_gender_label->setObjectName(QStringLiteral("scientist_gender_label"));
         scientist_gender_label->setGeometry(QRect(10, 90, 71, 41));
