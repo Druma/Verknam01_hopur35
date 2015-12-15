@@ -120,16 +120,6 @@
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="button_edit_scientist">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="text">
-               <string>Edit</string>
-              </property>
-             </widget>
-            </item>
-            <item>
              <widget class="QPushButton" name="button_remove_scientist">
               <property name="enabled">
                <bool>false</bool>
@@ -224,16 +214,6 @@
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="button_edit_computer">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="text">
-               <string>Edit</string>
-              </property>
-             </widget>
-            </item>
-            <item>
              <widget class="QPushButton" name="button_remove_computer">
               <property name="enabled">
                <bool>false</bool>
@@ -310,21 +290,17 @@
           <item>
            <layout class="QHBoxLayout" name="footer_connection">
             <item>
-             <widget class="QPushButton" name="button_add_connection">
+             <widget class="QPushButton" name="button_link_connection">
               <property name="text">
-               <string>Add</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="button_edit_connection">
-              <property name="text">
-               <string>Edit</string>
+               <string>Link</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QPushButton" name="button_remove_connection">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
               <property name="text">
                <string>Remove</string>
               </property>
@@ -371,21 +347,18 @@
   <tabstop>search_scientist</tabstop>
   <tabstop>table_scientist</tabstop>
   <tabstop>button_add_scientist</tabstop>
-  <tabstop>button_edit_scientist</tabstop>
   <tabstop>button_remove_scientist</tabstop>
   <tabstop>dropdown_computer_order</tabstop>
   <tabstop>dropdown_computer_asc</tabstop>
   <tabstop>search_computer</tabstop>
   <tabstop>table_computer</tabstop>
   <tabstop>button_add_computer</tabstop>
-  <tabstop>button_edit_computer</tabstop>
   <tabstop>button_remove_computer</tabstop>
   <tabstop>dropdown_connection_order</tabstop>
   <tabstop>dropdown_connection_asc</tabstop>
   <tabstop>search_connection</tabstop>
   <tabstop>table_connection</tabstop>
-  <tabstop>button_add_connection</tabstop>
-  <tabstop>button_edit_connection</tabstop>
+  <tabstop>button_link_connection</tabstop>
   <tabstop>button_remove_connection</tabstop>
  </tabstops>
  <resources/>
