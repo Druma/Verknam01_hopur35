@@ -18,10 +18,3 @@ bool checkForAllInt(const std::string str){
     return true;
 }
 
-bool isLarger(const int a, const int b)
-{
-    if(b >= a)
-        return true;
-    else
-        return false;
-}
