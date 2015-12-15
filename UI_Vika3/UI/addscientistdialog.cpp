@@ -91,7 +91,7 @@ void addScientistDialog::on_add_newScientist_button_clicked()
             ui->label_error_sci_yod->setText("<span style='color: #ED1C14'>Year of death cannot be lower than year of birth</span>");
             error = true;
 
-        } else if(yearDeath.toInt() >= currentYear)
+        } else if(yearDeath.toInt() > currentYear)
         {
             ui->label_error_sci_yod->setText("<span style='color: #ED1C14'>this is not the future (future date inserted)</span>");
             error = true;
