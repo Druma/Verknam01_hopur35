@@ -3,14 +3,21 @@
 
 #include "linkrepository.h"
 
-//The LinkService acts as a middle layer between the UI and Data layers
+/**
+ * @brief The LinkService acts as a middle layer between the UI and Data layers
+ */
+
 class LinkService
 {
 public:
     LinkService();
 
-    //addLink saves a link between scientists and computers to a database
-    bool addLink(std::string scientistId, std::string computerId);
+    /**
+     * @brief addLink saves a link between scientists and computers to a database
+     * @return true if it was a success, false if it was a failure
+     */
+    bool addLink(std::string scientistName, std::string scientistYearBorn,
+                 std::string computerName, std::string computerYearBuilt);
 private:
     LinkRepository linkRepo;
 };

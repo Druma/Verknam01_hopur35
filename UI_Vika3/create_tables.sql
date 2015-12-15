@@ -15,9 +15,13 @@ CREATE TABLE Scientists (
 )
 
 CREATE TABLE ScientistComputerConnections(
-    scientistId integer,
-    computerId integer,
-    foreign key (scientistId) references Scientists(id),
-    foreign key (computerId) references Computers(id),
-    primary key(scientistId, computerId)
+    id INTEGER PRIMARY KEY AYTOINCREMENT NOT NULL,
+    scientistName VARCHAR,
+    scientistYearBorn INTEGER,
+    computerName VARCHAR,
+    computerYearBuilt INTEGER,
+    foreign key (scientistName) references Scientists(name),
+    foreign key (scientistYearBorn) references Scientists(yearBorn),
+    foreign key (computerName) references Computers(name),
+    foreign key (computerYearBuilt) references Computers(yearBuilt)
 )

@@ -9,7 +9,9 @@ LinkService::LinkService()
 
 }
 
-bool LinkService::addLink(string scientistId, string computerId)
+bool LinkService::addLink(string scientistName, string scientistYearBorn,
+                          string computerName, string computerYearBuilt)
 {
-    return linkRepo.addLink(scientistId, computerId);
+    return linkRepo.addLink(scientistName, scientistYearBorn,
+                            computerName, computerYearBuilt);
 }
