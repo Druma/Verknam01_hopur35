@@ -49,6 +49,7 @@ private:
     bool getOrder();                //ascending or descending order for Scientists
     std::string orderByComputer();  //current order for Computers
     bool getOrderByComputer();      //ascending or descending order for Computers
+    bool getOrderByConnection();    //ascending or descending order for Connection
     void displayAllScientists();
     void displayScientists(std::vector<Scientist>); //helping function for displaying all scientists
     void displayAllComputers();

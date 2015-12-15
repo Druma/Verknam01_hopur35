@@ -288,6 +288,18 @@ bool MainWindow::getOrderByComputer()
         return false;
 }
 
+bool MainWindow::getOrderByConnection()
+{
+    string order = ui->dropdown_connection_asc->currentText().toStdString();
+
+    if(order == "Ascending")
+    {
+        return true;
+    }
+    else
+        return false;
+}
+
 void MainWindow::on_search_computer_textChanged(const QString &arg1)
 {
     string search = ui->search_computer->text().toStdString();
@@ -324,9 +336,20 @@ void MainWindow::on_button_add_computer_clicked()
 
 void  MainWindow::displayAllConnections()
 {
-    //vector<Computer> computers = computerService.getAllComputers(orderByComputer(), getOrderByComputer());
+    vector<Computer> computers;
+    string currentOrderBy = ui->dropdown_computer_order->currentText().toStdString();
+    if(currentOrderBy == "Scientist")
+    {
+        //urm... i'm using computerService, so...
 
-    displayConnections(computer_list);
+    } else // computer
+    {
+        computers = computerService.getAllComputers("name", getOrderByConnection());
+
+    }
+
+
+    displayConnections(computers);
 }
 
 void  MainWindow::displayConnections(std::vector<Computer> computers)
