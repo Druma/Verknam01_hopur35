@@ -12,7 +12,8 @@ LinkRepository::LinkRepository()
     db = utils::getDatabaseConnection();
 }
 
-bool LinkRepository::addLink(string scientistId, string computerId)
+bool LinkRepository::addLink(string scientistName, string scientistYearBorn,
+                             string computerName, string computerYearBuilt)
 {
     db.open();
 
@@ -24,9 +25,11 @@ bool LinkRepository::addLink(string scientistId, string computerId)
     QSqlQuery query(db);
 
     stringstream sqlQuery;
-    sqlQuery << "INSERT INTO ScientistComputerConnections (scientistId, computerId) VALUES ("
-             << "'" << scientistId << "', "
-             << "'" << computerId << "'"
+    sqlQuery << "INSERT INTO ScientistComputerConnections (scientistName, scientistYearBorn, computerName, computerYearBuilt) VALUES ("
+             << "'" << scientistName << "', "
+             << "'" << scientistYearBorn << "', "
+             << "'" << computerName << "', "
+             << "'" << computerYearBuilt << "', "
              << ")";
 
     if (!query.exec(QString::fromStdString(sqlQuery.str())))

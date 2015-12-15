@@ -5,16 +5,23 @@
 #include <vector>
 #include <string>
 
-//The LinkRepository handles connections between scientists and computers in the database
+/**
+ * @brief The LinkRepository handles connections between scientists and computers in the database
+ */
 
 class LinkRepository
 {
 public:
     LinkRepository();
 
-    //addLink saves a link between scientist and computer to the database
-    bool addLink(std::string scientistId, std::string computerId);
-private:
+    /**
+     * @brief addLink saves a link between scientist and computer to the database
+     * @param scientistId The scientist id to connect to
+     * @param computerId The computer id to connect to
+     * @return true if it was a success, false if it was a failure
+     */
+    bool addLink(std::string scientistName, std::string scientistYearBorn,
+                 std::string computerName, std::string computerYearBuilt);
     QSqlDatabase db;
 };
 
