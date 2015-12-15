@@ -110,6 +110,12 @@ void MainWindow::on_table_scientist_clicked(const QModelIndex &index)
 
 void MainWindow::on_button_remove_scientist_clicked()
 {
+    int confirm = QMessageBox::question(this, "delete scientist", "Are you sure?");
+
+    if(confirm == QMessageBox::No)
+    {
+        return;
+    }
 
     int selected_scientist = ui->table_scientist->currentIndex().row();
     Scientist scientist_select = scientist_list.at(selected_scientist);
@@ -226,6 +232,12 @@ void MainWindow::on_table_computer_clicked(const QModelIndex &index)
 
 void MainWindow::on_button_remove_computer_clicked()
 {
+    int confirm = QMessageBox::question(this, "delete computer", "Are you sure?");
+
+    if(confirm == QMessageBox::No)
+    {
+        return;
+    }
     int selected_computer = ui->table_computer->currentIndex().row();
     Computer computer_select = computer_list.at(selected_computer);
 
