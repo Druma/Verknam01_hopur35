@@ -17,17 +17,22 @@ addComputerDialog::~addComputerDialog()
 
 void addComputerDialog::on_add_newComputer_button_clicked()
 {
+    // variables
     bool error = false;
 
+    QButtonGroup typeGroup;
+    typeGroup.addButton(ui->radioButton_electronic);
+    typeGroup.addButton(ui->radioButton_mechatron);
+    typeGroup.addButton(ui->radioButton_transistor);
+    typeGroup.addButton(ui->radioButton_other);
+
+    // reset error messages
     ui->label_error_computer_name->setText("");
-    ui->label_error_computer_type->setText("");
-    ui->label_error_computer_wasbuilt->setText("");
     ui->label_error_computer_yearbuilt->setText("");
 
     QString name = ui->input_computer_name->text();
-    QString type = ui->input_computer_type->text();
-    QString wasBuilt = ui->input_computer_wasbuilt->text();
-    QString yearBuilt = ui->input_computer_yearbuilt->text();
+    QString type;
+    QString yearBuilt;
 
     if(name.isEmpty())
     {
@@ -35,19 +40,23 @@ void addComputerDialog::on_add_newComputer_button_clicked()
         error = true;
     }
 
-    if(type.isEmpty())
+    if(typeGroup.checkedButton() == ui->radioButton_electronic)
     {
-        ui->label_error_computer_type->setText("<span style='color: #ED1C14'>Computer Type can not be empty</span>");
-        error = true;
+        type = "0";
+    }else if (typeGroup.checkedButton() == ui->radioButton_mechatron){
+        type = "1";
+    } else if (typeGroup.checkedButton() == ui->radioButton_transistor){
+        type = "2";
+    } else{
+        type = "3";
     }
 
-    if(wasBuilt.isEmpty())
+    if(ui->checkBox_wasBuilt->isChecked())
     {
-        ui->label_error_computer_wasbuilt->setText("<span style='color: #ED1C14'>Computer Was Built can not be empty</span>");
-        error = true;
+        yearBuilt = ui->input_computer_yearbuilt->text();
     }
 
-    if(wasBuilt.toInt() == 1 && yearBuilt.isEmpty())
+    if(ui->checkBox_wasBuilt->isChecked() && yearBuilt.isEmpty())
     {
         ui->label_error_computer_yearbuilt->setText("<span style='color: #ED1C14'>Computer Year Built can not be empty</span>");
         error = true;
@@ -68,8 +77,6 @@ void addComputerDialog::on_add_newComputer_button_clicked()
     if(add)
     {
         ui->input_computer_name->setText("");
-        ui->input_computer_type->setText("");
-        ui->input_computer_wasbuilt->setText("");
         ui->input_computer_yearbuilt->setText("");
 
         this->done(0);
@@ -83,4 +90,15 @@ void addComputerDialog::on_add_newComputer_button_clicked()
 void addComputerDialog::on_cancel_add_newComputer_button_clicked()
 {
     this->done(-1);
+}
+
+void addComputerDialog::on_checkBox_wasBuilt_stateChanged(int state)
+{
+    if(state == Qt::Checked)
+    {
+        ui->input_computer_yearbuilt->setEnabled(true);
+    }
+    else{
+        ui->input_computer_yearbuilt->setEnabled(false);
+    }
 }

@@ -17,40 +17,26 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>90</y>
-     <width>71</width>
-     <height>61</height>
+     <y>100</y>
+     <width>31</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
-    <string>
-Type: 
-0 = Electronic
-1 = Mechatronic
-2 = Transistor</string>
+    <string>Type:</string>
    </property>
   </widget>
   <widget class="QLabel" name="computer_label_yearbuilt">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>90</x>
      <y>250</y>
-     <width>71</width>
+     <width>51</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
     <string>Year Built</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="input_computer_type">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>100</y>
-     <width>271</width>
-     <height>20</height>
-    </rect>
    </property>
   </widget>
   <widget class="QLabel" name="label_error_computer_name">
@@ -79,38 +65,12 @@ Type:
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#550000;&quot;&gt;Add a new computer&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_error_computer_type">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>115</y>
-     <width>271</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_error_computer_wasbuilt">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>200</y>
-     <width>271</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="input_computer_yearbuilt">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>150</x>
      <y>250</y>
-     <width>271</width>
+     <width>211</width>
      <height>20</height>
     </rect>
    </property>
@@ -151,31 +111,6 @@ Type:
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="input_computer_wasbuilt">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>180</y>
-     <width>271</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="computer_label_wasbuilt">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>170</y>
-     <width>71</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Was Built: 
-1 = yes
-0 = no</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="add_newComputer_button">
    <property name="geometry">
     <rect>
@@ -202,11 +137,80 @@ Type:
     <string>Name:</string>
    </property>
   </widget>
+  <widget class="QRadioButton" name="radioButton_electronic">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>110</y>
+     <width>82</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Electronic</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton_mechatron">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>110</y>
+     <width>82</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Mechatron</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton_transistor">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>110</y>
+     <width>82</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Transistor</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton_other">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>110</y>
+     <width>82</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Other</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBox_wasBuilt">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>220</y>
+     <width>70</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Was Built</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
  </widget>
  <tabstops>
   <tabstop>input_computer_name</tabstop>
-  <tabstop>input_computer_type</tabstop>
-  <tabstop>input_computer_wasbuilt</tabstop>
   <tabstop>input_computer_yearbuilt</tabstop>
   <tabstop>add_newComputer_button</tabstop>
   <tabstop>cancel_add_newComputer_button</tabstop>
