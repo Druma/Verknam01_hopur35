@@ -24,7 +24,7 @@
        <locale language="Icelandic" country="Iceland"/>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_scientist">
        <attribute name="title">
@@ -297,11 +297,6 @@
             </column>
             <column>
              <property name="text">
-              <string>Year Born</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
               <string>Computer</string>
              </property>
             </column>
@@ -351,7 +346,7 @@
      <x>0</x>
      <y>0</y>
      <width>556</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
