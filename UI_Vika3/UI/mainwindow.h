@@ -53,6 +53,8 @@ private:
     void displayScientists(std::vector<Scientist>); //helping function for displaying all scientists
     void displayAllComputers();
     void displayComputers(std::vector<Computer>);   //helping function for displaying all computers
+    void displayAllConnections();
+    void displayConnections(std::vector<Scientist>);   //helping function for displaying all connections
 
     ScientistService scientistService;
     ComputerService computerService;

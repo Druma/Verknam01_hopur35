@@ -35,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     displayAllScientists();
     displayAllComputers();
-    //displayAllConnections();
+    displayAllConnections();
 }
 
 
@@ -318,5 +318,30 @@ void MainWindow::on_button_add_computer_clicked()
     else
     {
         ui->statusBar->showMessage("Canceled.", 1500);
+    }
+}
+
+void  MainWindow::displayAllConnections()
+{
+    vector<Scientist> scientists = scientistService.getAllScientists(orderBy(), getOrder());
+
+    displayConnections(scientists);
+}
+void  MainWindow::displayConnections(std::vector<Scientist> scientists)
+{
+    // does not work!
+    ui->table_connection->clearContents();
+    ui->table_connection->setRowCount(10);
+    for(unsigned int i = 0; i<scientists.size(); i++)
+    {
+        Scientist currentSci = scientists.at(i);
+        std::vector<Computer*> currentComps = currentSci.getComputers();
+        for(unsigned int x = 0; x<currentComps.size(); x++)
+        {
+            Computer* currentComp = currentComps.at(x);
+            ui->table_connection->setItem(i, 0, new QTableWidgetItem(QString::fromStdString(currentSci.getName())));
+            ui->table_connection->setItem(i, 1, new QTableWidgetItem(QString::fromStdString(currentComp->getName())));
+        }
+
     }
 }
