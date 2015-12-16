@@ -1,0 +1,5 @@
+Það þarf að setja upp database með create_table.sql og láta database.sqlite í build möppuna.
+ÞAð er ekki hægt að add/remove/sort fyrir connections.
+Það var notað hluta af kóðanum sem upp var gefinn sem lausn fyrir skil 2.
+Það gætti verið munur á staðsetningu slaufusviga, hvernig variables og functions eru sett upp (blöndun af camelCase og alltolower).
+Það gætti vantað meira af comment-aðum kóða.
