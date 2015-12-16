@@ -2,7 +2,6 @@
 #include "ui_mainwindow.h"
 #include "addscientistdialog.h"
 #include "addcomputerdialog.h"
-#include "addconnectiondialog.h"
 #include "utilities/utils.h"
 #include <QDebug>
 #include <QMessageBox>
@@ -387,20 +386,4 @@ void  MainWindow::displayConnections(std::vector<Computer> computers)
 
     }
 
-}
-
-void MainWindow::on_button_add_connection_clicked()
-{
-    addconnectiondialog add_ConnectionDialog;
-    int addConnection = add_ConnectionDialog.exec();
-
-    if(addConnection == 0)
-    {
-        displayAllConnections();
-        ui->statusBar->showMessage("Connection added!", 2000);
-    }
-    else
-    {
-        ui->statusBar->showMessage("Canceled.", 1500);
-    }
 }

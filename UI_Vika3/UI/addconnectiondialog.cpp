@@ -12,8 +12,3 @@ addconnectiondialog::~addconnectiondialog()
 {
     delete ui;
 }
-
-void addconnectiondialog::on_cancel_add_newConnection_button_clicked()
-{
-    this->done(-1);
-}
