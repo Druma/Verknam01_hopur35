@@ -15,6 +15,12 @@ public:
     explicit addconnectiondialog(QWidget *parent = 0);
     ~addconnectiondialog();
 
+private slots:
+    //Gives user access to confirm adding new links and adding links to the database
+    void on_add_newConnection_button_clicked();
+
+    void on_cancel_add_newConnection_button_clicked();
+
 private:
     Ui::addconnectiondialog *ui;
 };
